@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32422.2
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tech.Aerove.StreamDeck.NestControl", "Tech.Aerove.StreamDeck.NestControl\Tech.Aerove.StreamDeck.NestControl.csproj", "{681177F5-D4DE-456D-8B6A-8D30573201EF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{681177F5-D4DE-456D-8B6A-8D30573201EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{681177F5-D4DE-456D-8B6A-8D30573201EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{681177F5-D4DE-456D-8B6A-8D30573201EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{681177F5-D4DE-456D-8B6A-8D30573201EF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2CEEE1EA-3F9A-459C-8836-234D755A556B}
+	EndGlobalSection
+EndGlobal

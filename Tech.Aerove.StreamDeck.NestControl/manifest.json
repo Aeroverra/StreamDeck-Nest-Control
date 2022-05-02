@@ -1,0 +1,59 @@
+{
+  "SDKVersion": 2,
+  "Author": "Aeroverra",
+  "CodePath": "Tech.Aerove.StreamDeck.NestControl.exe",
+  "CodePathMac": "Tech.Aerove.StreamDeck.NestControl",
+  "Category": "Nest Control",
+  "CategoryIcon": "PropertyInspector/images/actionImage",
+  "PropertyInspectorPath": "PropertyInspector/TempUpDown.html",
+  "Description": "Control your nest thermostat from the Stream Deck.",
+  "Name": "Nest Control",
+  "Icon": "PropertyInspector/images/default",
+  "URL": "https://aerove.tech",
+  "Version": "1.0",
+  "OS": [
+    {
+      "Platform": "mac",
+      "MinimumVersion": "10.11"
+    },
+    {
+      "Platform": "windows",
+      "MinimumVersion": "10"
+    }
+  ],
+  "Software": {
+    "MinimumVersion": "5.0"
+  },
+  "Actions": [
+    {
+      "Icon": "PropertyInspector/images/actionImage",
+      "Name": "Temperature Up",
+      "States": [
+        {
+          "Image": "PropertyInspector/images/image",
+          "TitleAlignment": "middle",
+          "FontSize": "16"
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "Tooltip": "Sets the temperature up.",
+      "UUID": "tech.aerove.streamdeck.nestcontrol.temperatureup",
+      "PropertyInspectorPath": "PropertyInspector/TempUpDown.html"
+    },
+    {
+      "Icon": "PropertyInspector/images/actionImage",
+      "Name": "Temperature Down",
+      "States": [
+        {
+          "Image": "PropertyInspector/images/image",
+          "TitleAlignment": "middle",
+          "FontSize": "16"
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "Tooltip": "Sets the temperature down.",
+      "UUID": "tech.aerove.streamdeck.nestcontrol.temperaturedown",
+      "PropertyInspectorPath": "PropertyInspector/TempUpDown.html"
+    }
+  ]
+}

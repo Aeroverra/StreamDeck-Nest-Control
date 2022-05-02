@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui,viewport-fit=cover">
+    <meta name=apple-mobile-web-app-capable content=yes>
+    <meta name=apple-mobile-web-app-status-bar-style content=black>
+    <title>barraidersampleplugin Settings</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/barraider/streamdeck-easypi@latest/src/sdpi.css">
+    <script src="easypi.js"></script>
+</head>
+<body>
+    <div class="sdpi-wrapper">
+        <div class="sdpi-item" id="dvClientId">
+            <div class="sdpi-item-label">Client Id</div>
+            <input class="sdpi-item-value sdProperty" placeholder="" value="" id="clientId" oninput="setSettings()">
+        </div>
+        <div class="sdpi-item" id="dvClientSecret">
+            <div class="sdpi-item-label">Client Secret</div>
+            <input class="sdpi-item-value sdProperty" placeholder="" value="" id="clientSecret" oninput="setSettings()">
+        </div>
+        <div class="sdpi-item" id="dvProjectId">
+            <div class="sdpi-item-label">Project Id</div>
+            <input class="sdpi-item-value sdProperty" placeholder="" value="" id="projectId" oninput="setSettings()">
+        </div>
+        <div class="sdpi-item" id="dvSetup">
+            <div class="sdpi-item-label">Setup</div>
+            <button onclick="sendValueToPlugin('Setup','True')">Setup</button>
+            <p>Click here after setting the Client Id, Client Secret, and Project Id</p>
+        </div>
+        <div class="sdpi-item" id="dvTemperatureStep">
+            <div class="sdpi-item-label">Temperature Step</div>
+            <select class="sdpi-item-value select sdProperty" id="temperatureStep" oninput="setSettings()">
+                <option value="1">1</option>
+                <option value="3" selected>2</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+
+    </div>
+</body>
+</html>
