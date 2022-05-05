@@ -13,9 +13,10 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
+    <PackageReference Include="RestSharp" Version="106.15.0" />
     <PackageReference Include="Serilog.AspNetCore" Version="6.0.0-dev-00265" />
     <PackageReference Include="Serilog.Sinks.Console" Version="4.0.2-dev-00890" />
-    <PackageReference Include="Tech.Aerove.StreamDeck.Client" Version="0.7.11-beta" />
+    <PackageReference Include="Tech.Aerove.StreamDeck.Client" Version="0.7.13-beta" />
   </ItemGroup>
 
   <ItemGroup>

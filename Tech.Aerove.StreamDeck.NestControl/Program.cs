@@ -12,7 +12,8 @@ IHost host = Host.CreateDefaultBuilder(args)
     .ConfigureServices((context, services) =>
     {
         services.AddAeroveStreamDeckClient(context);
-        services.AddHostedService<ExampleService>();
+        services.AddHostedService((sp) => sp.GetRequiredService<ExampleService>());
+        services.AddSingleton<ExampleService>();
     })
     .Build();
 

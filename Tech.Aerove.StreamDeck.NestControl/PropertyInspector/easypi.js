@@ -17,7 +17,8 @@ var websocket = null,
     actionInfo = {},
     inInfo = {},
     runningApps = [],
-    isQT = navigator.appVersion.includes('QtWebEngine');
+    isQT = navigator.appVersion.includes('QtWebEngine'),
+    selectedDevice = "";
 
 function connectElgatoStreamDeckSocket(inPort, inUUID, inRegisterEvent, inInfo, inActionInfo) {
     uuid = inUUID;
@@ -36,7 +37,7 @@ function connectElgatoStreamDeckSocket(inPort, inUUID, inRegisterEvent, inInfo, 
     var event = new Event('websocketCreate');
     document.dispatchEvent(event);
 
-    loadConfiguration(actionInfo.payload.settings);
+    loadConfiguration(actionInfo.payload.settings,false);
     initPropertyInspector();
 }
 
@@ -46,6 +47,12 @@ function websocketOnOpen() {
         uuid: uuid
     };
     websocket.send(JSON.stringify(json));
+
+    var json2 = {
+        "event": "getGlobalSettings",
+        "context": uuid
+    };
+    websocket.send(JSON.stringify(json2));
 
     // Notify the plugin that we are connected
     sendValueToPlugin('propertyInspectorConnected', 'property_inspector');
@@ -57,21 +64,76 @@ function websocketOnMessage(evt) {
 
     if (jsonObj.event === 'didReceiveSettings') {
         var payload = jsonObj.payload;
-        loadConfiguration(payload.settings);
+        loadConfiguration(payload.settings, false);
     }
     else if (jsonObj.event === 'didReceiveGlobalSettings') {
         var payload = jsonObj.payload;
-        loadConfiguration(payload.settings);
+        loadConfiguration(payload.settings, true);
+    }
+    else if (jsonObj.event === 'sendToPropertyInspector') {
+        var json2 = {
+            "event": "getGlobalSettings",
+            "context": uuid
+        };
+        websocket.send(JSON.stringify(json2));
     }
     else {
         console.log("Ignored websocketOnMessage: " + jsonObj.event);
     }
 }
-
-function loadConfiguration(payload) {
+function ShowHide(payload) {
+    var val2 = $("#wow").val();
+    $("#wow").val(val2 + payload["setup"] === true);
+    if (payload["setup"] === true) {
+        $("#dvClientId").hide();
+        $("#dvClientSecret").hide();
+        $("#dvProjectId").hide();
+        $("#dvSetup").hide();
+        $("#dvReset").show();
+    } else {
+        $("#dvClientId").show();
+        $("#dvClientSecret").show();
+        $("#dvProjectId").show();
+        $("#dvSetup").show();
+        $("#dvReset").hide();
+    }
+}
+function loadConfiguration(payload, isglobal) {
     console.log('loadConfiguration');
     console.log(payload);
+    if (isglobal) {
+
+        ShowHide(payload);
+    }
     for (var key in payload) {
+        if (isglobal == false && key === "device") {
+            selectedDevice = payload["device"];
+            var elem = document.getElementById("device");
+            elem.value = payload["device"];
+            $("#device").val(payload["device"]).change();
+            var val2 = $("#wow").val();
+            $("#wow").val(val2 + "s1" + payload["device"]);
+            continue;
+        }
+        if (isglobal == true && key === "piDevices") {
+
+            var elem = document.getElementById("device");
+            var items = JSON.parse(payload[key]);
+
+            elem.options.length = 0;
+            for (var idx = 0; idx < items.length; idx++) {
+                var opt = document.createElement('option');
+                opt.value = items[idx]["name"];
+                opt.text = items[idx]["displayName"];
+                elem.appendChild(opt);
+            }
+            elem.value = selectedDevice;
+            $("#device").val(selectedDevice).change();
+            var val2 = $("#wow").val();
+            $("#wow").val(val2 + "s2" + selectedDevice);
+            continue;
+        }
+
         try {
             var elem = document.getElementById(key);
             if (elem.classList.contains("sdCheckbox")) { // Checkbox
@@ -112,6 +174,7 @@ function loadConfiguration(payload) {
             console.log("loadConfiguration failed for key: " + key + " - " + err);
         }
     }
+
 }
 
 function setSettings() {
@@ -150,7 +213,54 @@ function setSettings() {
     });
     setSettingsToPlugin(payload);
 }
+function setGlobalSettings() {
+    var payload = {};
+    var elements = document.getElementsByClassName("sdGProperty");
 
+    Array.prototype.forEach.call(elements, function (elem) {
+        var key = elem.id;
+        if (elem.classList.contains("sdCheckbox")) { // Checkbox
+            payload[key] = elem.checked;
+        }
+        else if (elem.classList.contains("sdFile")) { // File
+            var elemFile = document.getElementById(elem.id + "Filename");
+            payload[key] = elem.value;
+            if (!elem.value) {
+                // Fetch innerText if file is empty (happens when we lose and regain focus to this key)
+                payload[key] = elemFile.innerText;
+            }
+            else {
+                // Set value on initial file selection
+                elemFile.innerText = elem.value;
+            }
+        }
+        else if (elem.classList.contains("sdList")) { // Dynamic dropdown
+            var valueField = elem.getAttribute("sdValueField");
+            payload[valueField] = elem.value;
+        }
+        else if (elem.classList.contains("sdHTML")) { // HTML element
+            var valueField = elem.getAttribute("sdValueField");
+            payload[valueField] = elem.innerHTML;
+        }
+        else { // Normal value
+            payload[key] = elem.value;
+        }
+        console.log("Save: " + key + "<=" + payload[key]);
+    });
+    setGlobalSettingsToPlugin(payload);
+}
+function setGlobalSettingsToPlugin(payload) {
+    if (websocket && (websocket.readyState === 1)) {
+        const json = {
+            'event': 'setGlobalSettings',
+            'context': uuid,
+            'payload': payload
+        };
+        websocket.send(JSON.stringify(json));
+        var event = new Event('settingsUpdated');
+        document.dispatchEvent(event);
+    }
+}
 function setSettingsToPlugin(payload) {
     if (websocket && (websocket.readyState === 1)) {
         const json = {
