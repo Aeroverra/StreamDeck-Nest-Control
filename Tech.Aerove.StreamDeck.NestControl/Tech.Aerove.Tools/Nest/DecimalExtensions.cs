@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tech.Aerove.StreamDeck.NestControl.Extensions
+namespace Tech.Aerove.Tools.Nest
 {
     public static class DecimalExtensions
     {
         public static decimal ToFahrenheit(this decimal celsius)
         {
-            return (celsius * 9 / 5) + 32;
+            return celsius * 9 / 5 + 32;
         }
         public static decimal ToCelsius(this decimal fahrenheit)
         {

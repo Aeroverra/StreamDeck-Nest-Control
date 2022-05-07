@@ -8,9 +8,10 @@ using System.Runtime.InteropServices;
 using System.Web;
 using Tech.Aerove.StreamDeck.Client;
 using Tech.Aerove.StreamDeck.Client.Events;
-using Tech.Aerove.StreamDeck.NestControl.Extensions;
 using Tech.Aerove.StreamDeck.NestControl.Models;
 using Tech.Aerove.StreamDeck.NestControl.Models.GoogleApi;
+using Tech.Aerove.StreamDeck.NestControl.Tech.Aerove.Tools.Nest;
+using Tech.Aerove.Tools.Nest;
 
 namespace Tech.Aerove.StreamDeck.NestControl
 {
@@ -177,6 +178,7 @@ namespace Tech.Aerove.StreamDeck.NestControl
 
         public void UpdateAccessToken()
         {
+            Console.WriteLine(AccessToken);
             if (Expires > DateTime.Now)
             {
                 return;
