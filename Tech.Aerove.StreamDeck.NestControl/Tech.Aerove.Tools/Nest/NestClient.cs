@@ -20,6 +20,9 @@ namespace Tech.Aerove.Tools.Nest
         private DateTime AccessTokenExpireTime = DateTime.MinValue;
         internal DevicesResponse DevicesResponse { get; set; } = new DevicesResponse();
 
+        private static SemaphoreSlim Lock = new SemaphoreSlim(1);
+
+
         /// <summary>
         /// create client that needs to be setup by calling the getaccountlinkurl then finishsetup functions
         /// </summary>
@@ -84,7 +87,7 @@ namespace Tech.Aerove.Tools.Nest
         public List<ThermostatDevice> GetThermostats()
         {
             var thermostats = new List<ThermostatDevice>();
-            foreach (var device in DevicesResponse.Devices)
+            foreach (var device in DevicesResponse.Devices.Where(x => x.Type == "sdm.devices.types.THERMOSTAT"))
             {
                 thermostats.Add(new ThermostatDevice(this, device.Name));
             }
@@ -111,7 +114,7 @@ namespace Tech.Aerove.Tools.Nest
             AccessToken = response.AccessToken;
         }
 
-        public bool SetMode(string deviceName, ThermostatMode mode)
+        public bool SetMode(ThermostatDevice thermostat, ThermostatMode mode)
         {
             CheckUpdateToken();
             var command = new CommandBody
@@ -119,27 +122,29 @@ namespace Tech.Aerove.Tools.Nest
                 Command = "sdm.devices.commands.ThermostatMode.SetMode",
             };
             command.Params.Add("mode", $"{mode}");
-            var success = WebCalls.ExecuteCommand(deviceName, AccessToken, command);
+            var success = WebCalls.ExecuteCommand(thermostat.Name, AccessToken, command);
+            if (success)
+            {
+                var device = DevicesResponse.Devices.FirstOrDefault(x => x.Name == thermostat.Name);
+                device.SetMode(mode);
+            }
             return success;
         }
 
-        public bool SetTemp(string deviceName, decimal value)
+        public bool SetTemp(ThermostatDevice thermostat, decimal value)
         {
             CheckUpdateToken();
-            var device = DevicesResponse.GetDevice(deviceName);
 
             //api always takes celsius even if thermostat is not
-            if (device.GetTemperatureScale() == TemperatureScale.FAHRENHEIT)
+            if (thermostat.Scale == TemperatureScale.FAHRENHEIT)
             {
                 value = value.ToCelsius();
             }
 
-
-            var mode = device.GetMode();
-            if (mode != (ThermostatMode.HEAT | ThermostatMode.COOL)) { return false; }
+            if (thermostat.Mode != ThermostatMode.HEAT && thermostat.Mode != ThermostatMode.COOL) { return false; }
 
             var command = new CommandBody();
-            if (mode == ThermostatMode.COOL)
+            if (thermostat.Mode == ThermostatMode.COOL)
             {
                 command.Command = "sdm.devices.commands.ThermostatTemperatureSetpoint.SetCool";
                 command.Params.Add("coolCelsius", value);
@@ -149,42 +154,27 @@ namespace Tech.Aerove.Tools.Nest
                 command.Command = "sdm.devices.commands.ThermostatTemperatureSetpoint.SetHeat";
                 command.Params.Add("heatCelsius", value);
             }
-            var success = WebCalls.ExecuteCommand(deviceName, AccessToken, command);
+            var success = WebCalls.ExecuteCommand(thermostat.Name, AccessToken, command);
+            if (success)
+            {
+                var device = DevicesResponse.Devices.FirstOrDefault(x => x.Name == thermostat.Name);
+                device.SetTemperatureSetPoint(thermostat.Mode, value);
+            }
             return success;
         }
 
-        public bool SetTempUp(string deviceName, int value)
+        public bool SetTempUp(ThermostatDevice thermostat, int value)
         {
-            var device = DevicesResponse.GetDevice(deviceName);
-            var currentValue = device.GetTemperatureSetPoint();
-            if (device.GetTemperatureScale() == TemperatureScale.FAHRENHEIT)
-            {
-                currentValue = currentValue.ToFahrenheit();
-                currentValue += value;
-                currentValue = currentValue.ToCelsius();
-            }
-            else
-            {
-                currentValue += value;
-            }
-            return SetTemp(deviceName, currentValue);
+            var currentValue = thermostat.SetPointExact;
+            currentValue += value;
+            return SetTemp(thermostat, currentValue);
         }
 
-        public bool SetTempDown(string deviceName, int value)
+        public bool SetTempDown(ThermostatDevice thermostat, int value)
         {
-            var device = DevicesResponse.GetDevice(deviceName);
-            var currentValue = device.GetTemperatureSetPoint();
-            if (device.GetTemperatureScale() == TemperatureScale.FAHRENHEIT)
-            {
-                currentValue = currentValue.ToFahrenheit();
-                currentValue -= value;
-                currentValue = currentValue.ToCelsius();
-            }
-            else
-            {
-                currentValue -= value;
-            }
-            return SetTemp(deviceName, currentValue);
+            var currentValue = thermostat.SetPointExact;
+            currentValue -= value;
+            return SetTemp(thermostat, currentValue);
         }
     }
 }

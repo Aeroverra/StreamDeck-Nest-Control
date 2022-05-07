@@ -54,6 +54,21 @@
       "Tooltip": "Sets the temperature down.",
       "UUID": "tech.aerove.streamdeck.nestcontrol.temperaturedown",
       "PropertyInspectorPath": "PropertyInspector/TempUpDown.html"
+    },
+    {
+      "Icon": "PropertyInspector/images/actionImage",
+      "Name": "Set Mode",
+      "States": [
+        {
+          "Image": "PropertyInspector/images/image",
+          "TitleAlignment": "middle",
+          "FontSize": "16"
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "Tooltip": "Sets the thermostat mode.",
+      "UUID": "tech.aerove.streamdeck.nestcontrol.setmode",
+      "PropertyInspectorPath": "PropertyInspector/TempUpDown.html"
     }
   ]
 }

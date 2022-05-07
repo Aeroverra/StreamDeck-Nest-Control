@@ -16,7 +16,33 @@ namespace Tech.Aerove.Tools.Nest.Models
         public ThermostatMode Mode => Device.GetMode();
         public ThermostatStatus Status => Device.GetStatus();
         public TemperatureScale Scale => Device.GetTemperatureScale();
-        public decimal SetPoint => Device.GetTemperatureSetPoint(true);
-        public decimal CurrentTemperature => Device.GetCurrentTemperature(true);
+        public int SetPoint => Device.GetTemperatureSetPointAsInt(true);
+        public decimal SetPointExact => Device.GetTemperatureSetPoint(true);
+        public int CurrentTemperature => Device.GetCurrentTemperatureAsInt(true);
+        public decimal CurrentTemperatureExact => Device.GetCurrentTemperature(true);
+        public string Name => Device.GetName();
+        public string DisplayName => Device.GetDisplayName();
+
+
+        public bool SetMode(ThermostatMode mode)
+        {
+            return NestClient.SetMode(this, mode);
+        }
+
+        public bool SetTemp(decimal value)
+        {
+            return NestClient.SetTemp(this, value);
+        }
+
+        public bool SetTempUp(int value)
+        {
+            return NestClient.SetTempUp(this, value);
+        }
+
+        public bool SetTempDown(int value)
+        {
+            return NestClient.SetTempDown(this, value);
+        }
+
     }
 }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Tech.Aerove.StreamDeck.NestControl.Models.GoogleApi;
+using Tech.Aerove.Tools.Nest.Models;
 
 namespace Tech.Aerove.StreamDeck.NestControl.Models
 {
@@ -15,7 +15,7 @@ namespace Tech.Aerove.StreamDeck.NestControl.Models
         [JsonProperty(PropertyName = "displayName")]
         public string DisplayName { get; set; }
 
-        public static List<PIDevice> GetList(List<Device> devices)
+        public static List<PIDevice> GetList(List<ThermostatDevice> devices)
         {
             var piDevices = new List<PIDevice>();
             foreach (var device in devices)
@@ -23,16 +23,13 @@ namespace Tech.Aerove.StreamDeck.NestControl.Models
                 var piDevice = new PIDevice
                 {
                     Name = device.Name,
-                    DisplayName = device.Traits.SdmDevicesTraitsInfo.CustomName
+                    DisplayName = device.DisplayName
                 };
-                if (String.IsNullOrWhiteSpace(piDevice.DisplayName) && device.ParentRelations.Any())
-                {
-                    piDevice.DisplayName = device.ParentRelations[0].DisplayName;
-                }
                 piDevices.Add(piDevice);
             }
             return piDevices;
         }
+      
     }
 
 }

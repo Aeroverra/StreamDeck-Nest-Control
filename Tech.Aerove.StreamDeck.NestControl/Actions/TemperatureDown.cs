@@ -6,23 +6,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Tech.Aerove.StreamDeck.Client.Actions;
-using Tech.Aerove.StreamDeck.NestControl.Models.GoogleApi;
 using Tech.Aerove.StreamDeck.NestControl.Tech.Aerove.Tools.Nest;
 using Tech.Aerove.Tools.Nest;
+using Tech.Aerove.Tools.Nest.Models;
 
-//project id
-//dcd2fda3-c5b5-47a1-a6c6-9fe88ea6bf9d
-//id
-//52480091894-aks3uqjcoc8t0aceht0k21qsc0f5vqt8.apps.googleusercontent.com
-//secret
-//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
 namespace Tech.Aerove.StreamDeck.NestControl.Actions
 {
     [PluginAction("tech.aerove.streamdeck.nestcontrol.temperaturedown")]
     public class TemperatureDown : ActionBase
     {
-        private List<Device> Devices { get { return JsonConvert.DeserializeObject<List<Device>>(Context.GlobalSettings["devices"].ToString()); } }
-        private string DeviceName { get { return $"{Context.Settings["device"]}"; } }
+        private string DeviceName => $"{Context.Settings["device"]}";
+        private ThermostatDevice Thermostat => _handler.GetDevice(DeviceName);
+        private int TemperatureStep => int.Parse($"{Context.Settings["temperatureStep"]}");
+        private decimal CurrentSetPoint = 0;
 
         private readonly ILogger<TemperatureDown> _logger;
         private readonly ExampleService _handler;
@@ -37,12 +33,14 @@ namespace Tech.Aerove.StreamDeck.NestControl.Actions
             while (true)
             {
                 await Task.Delay(5000);
+                if (string.IsNullOrWhiteSpace(DeviceName)) { continue; }
                 try
                 {
-                    var device = Devices.SingleOrDefault(x => x.Name == DeviceName);
-                    var currentSet = device.Traits.SdmDevicesTraitsThermostatTemperatureSetpoint.CoolCelsius;
-                    currentSet = Math.Round(currentSet.ToFahrenheit(), 0);
-                    await Dispatcher.SetTitleAsync($"{currentSet}");
+                    if (CurrentSetPoint != Thermostat.SetPoint)
+                    {
+                        CurrentSetPoint = Thermostat.SetPoint;
+                        await Dispatcher.SetTitleAsync($"{Thermostat.SetPoint}");
+                    }
                 }
                 catch (Exception)
                 {
@@ -52,9 +50,16 @@ namespace Tech.Aerove.StreamDeck.NestControl.Actions
         }
         public override async Task KeyDownAsync(int userDesiredState)
         {
-            var tempStep = int.Parse($"{Context.Settings["temperatureStep"]}");
-            var response = _handler.SetTempDown(tempStep, $"{Context.Settings["device"]}");
-            await Dispatcher.SetTitleAsync($"{response}");
+            if (Thermostat.Mode == ThermostatMode.HEATCOOL) { await Dispatcher.ShowAlertAsync(); return; }
+            if (Thermostat.Mode == ThermostatMode.OFF)
+            {
+                Thermostat.SetMode(ThermostatMode.COOL);
+                return;
+            }
+            var success = Thermostat.SetTempDown(TemperatureStep);
+            if (!success) { await Dispatcher.ShowAlertAsync(); return; }
+            CurrentSetPoint = Thermostat.SetPoint;
+            await Dispatcher.SetTitleAsync($"{Thermostat.SetPoint}");
         }
     }
 }

@@ -13,17 +13,17 @@ using Tech.Aerove.Tools.Nest.Models;
 namespace Tech.Aerove.StreamDeck.NestControl.Actions
 {
 
-    [PluginAction("tech.aerove.streamdeck.nestcontrol.temperatureup")]
-    public class TemperatureUp : ActionBase
+    [PluginAction("tech.aerove.streamdeck.nestcontrol.setmode")]
+    public class SetMode : ActionBase
     {
         private string DeviceName => $"{Context.Settings["device"]}";
         private ThermostatDevice Thermostat => _handler.GetDevice(DeviceName);
         private int TemperatureStep => int.Parse($"{Context.Settings["temperatureStep"]}");
-        private decimal CurrentSetPoint = 0;
+        private ThermostatMode CurrentMode = ThermostatMode.OFF;
 
         private readonly ExampleService _handler;
         private readonly ILogger<TemperatureUp> _logger;
-        public TemperatureUp(ILogger<TemperatureUp> logger, ExampleService handler)
+        public SetMode(ILogger<TemperatureUp> logger, ExampleService handler)
         {
             _logger = logger;
             _handler = handler;
@@ -37,10 +37,10 @@ namespace Tech.Aerove.StreamDeck.NestControl.Actions
                 if (string.IsNullOrWhiteSpace(DeviceName)) { continue; }
                 try
                 {
-                    if (CurrentSetPoint != Thermostat.SetPoint)
+                    if (CurrentMode != Thermostat.Mode)
                     {
-                        CurrentSetPoint = Thermostat.SetPoint;
-                        await Dispatcher.SetTitleAsync($"{Thermostat.SetPoint}");
+                        CurrentMode = Thermostat.Mode;
+                        await Dispatcher.SetTitleAsync($"{Thermostat.Mode}");
                     }
                 }
                 catch (Exception)
@@ -51,16 +51,19 @@ namespace Tech.Aerove.StreamDeck.NestControl.Actions
         }
         public override async Task KeyDownAsync(int userDesiredState)
         {
-            if (Thermostat.Mode == ThermostatMode.HEATCOOL) { await Dispatcher.ShowAlertAsync(); return; }
-            if (Thermostat.Mode == ThermostatMode.OFF)
+            var success = false;
+            if(CurrentMode != ThermostatMode.OFF)
             {
-                Thermostat.SetMode(ThermostatMode.HEAT);
-                return;
+                success = Thermostat.SetMode(ThermostatMode.OFF);
             }
-            var success = Thermostat.SetTempUp(TemperatureStep);
+            else
+            {
+                success = Thermostat.SetMode(ThermostatMode.COOL);
+            }
             if (!success) { await Dispatcher.ShowAlertAsync(); return; }
-            CurrentSetPoint = Thermostat.SetPoint;
-            await Dispatcher.SetTitleAsync($"{Thermostat.SetPoint}");
+            await Dispatcher.SetTitleAsync($"{Thermostat.Mode}");
+
+
         }
     }
 }
