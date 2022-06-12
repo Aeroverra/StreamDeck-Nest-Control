@@ -87,7 +87,7 @@ namespace Tech.Aerove.Tools.Nest
                 if (String.IsNullOrWhiteSpace(r.AccessToken)) { return null; }
                 return r;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return null;
             }

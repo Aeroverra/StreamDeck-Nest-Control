@@ -108,6 +108,8 @@ namespace Tech.Aerove.Tools.Nest
             {
                 return;
             }
+            //System.Exception: 'Failed to refresh token!'
+
             var response = WebCalls.RefreshToken(ClientId, ClientSecret, RefreshToken);
             if (response == null) { throw new Exception("Failed to refresh token!"); }
             AccessTokenExpireTime = DateTime.Now.AddSeconds(response.ExpiresIn - 10);
