@@ -27,10 +27,25 @@
   "Actions": [
     {
       "Icon": "PropertyInspector/images/actionImage",
+      "Name": "Temperature Info",
+      "States": [
+        {
+          "Image": "PropertyInspector/images/aimage",
+          "TitleAlignment": "middle",
+          "FontSize": "16"
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "Tooltip": "Displays Thermostat Info",
+      "UUID": "tech.aerove.streamdeck.nestcontrol.thermostatinfo",
+      "PropertyInspectorPath": "PropertyInspector/ThermostatInfo.html"
+    },
+    {
+      "Icon": "PropertyInspector/images/actionImage",
       "Name": "Temperature Up",
       "States": [
         {
-          "Image": "PropertyInspector/images/image",
+          "Image": "PropertyInspector/images/aimage",
           "TitleAlignment": "middle",
           "FontSize": "16"
         }
@@ -45,7 +60,7 @@
       "Name": "Temperature Down",
       "States": [
         {
-          "Image": "PropertyInspector/images/image",
+          "Image": "PropertyInspector/images/aimage",
           "TitleAlignment": "middle",
           "FontSize": "16"
         }
@@ -60,7 +75,7 @@
       "Name": "Set Mode",
       "States": [
         {
-          "Image": "PropertyInspector/images/image",
+          "Image": "PropertyInspector/images/aimage",
           "TitleAlignment": "middle",
           "FontSize": "16"
         }

@@ -1,0 +1,826 @@
+2022-06-12 01:50:58.443 -05:00 [DBG] Hosting starting
+2022-06-12 01:50:58.614 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-06-12 01:50:58.615 -05:00 [INF] Hosting environment: Development
+2022-06-12 01:50:58.616 -05:00 [INF] Content root path: C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl
+2022-06-12 01:50:58.617 -05:00 [DBG] Hosting started
+2022-06-12 01:51:00.691 -05:00 [DBG] [Received] Event Type: "DeviceDidConnect"
+2022-06-12 01:51:00.696 -05:00 [DBG] Received first message. Holding messages until global settings are received!
+2022-06-12 01:51:00.699 -05:00 [DBG] [Sending] Event Type: getGlobalSettings
+2022-06-12 01:51:00.717 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 01:51:00.723 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 01:51:00.724 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 01:51:00.725 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 01:51:00.726 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 01:51:00.726 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 01:51:00.727 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 01:51:00.728 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 01:51:00.730 -05:00 [DBG] [Received] Event Type: "DidReceiveGlobalSettings"
+2022-06-12 01:51:01.592 -05:00 [DBG] Received global settings! Releasing 9 pending messages.
+2022-06-12 01:51:01.604 -05:00 [DBG] Listening on "ws://localhost:28196/"
+2022-06-12 01:51:06.645 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 01:51:06.645 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 01:51:06.645 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 01:59:34.146 -05:00 [DBG] Hosting starting
+2022-06-12 01:59:34.310 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-06-12 01:59:34.313 -05:00 [INF] Hosting environment: Development
+2022-06-12 01:59:34.315 -05:00 [INF] Content root path: C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl
+2022-06-12 01:59:34.315 -05:00 [DBG] Hosting started
+2022-06-12 01:59:36.373 -05:00 [DBG] [Received] Event Type: "DeviceDidConnect"
+2022-06-12 01:59:36.378 -05:00 [DBG] Received first message. Holding messages until global settings are received!
+2022-06-12 01:59:36.381 -05:00 [DBG] [Sending] Event Type: getGlobalSettings
+2022-06-12 01:59:36.398 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 01:59:36.404 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 01:59:36.405 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 01:59:36.405 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 01:59:36.406 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 01:59:36.407 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 01:59:36.408 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 01:59:36.408 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 01:59:36.411 -05:00 [DBG] [Received] Event Type: "DidReceiveGlobalSettings"
+2022-06-12 01:59:37.347 -05:00 [DBG] Received global settings! Releasing 9 pending messages.
+2022-06-12 01:59:37.357 -05:00 [DBG] Listening on "ws://localhost:28196/"
+2022-06-12 01:59:42.358 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 01:59:42.371 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 01:59:42.371 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:01:10.971 -05:00 [DBG] Hosting starting
+2022-06-12 02:01:11.217 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-06-12 02:01:11.219 -05:00 [INF] Hosting environment: Development
+2022-06-12 02:01:11.220 -05:00 [INF] Content root path: C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl
+2022-06-12 02:01:11.221 -05:00 [DBG] Hosting started
+2022-06-12 02:01:13.294 -05:00 [DBG] [Received] Event Type: "DeviceDidConnect"
+2022-06-12 02:01:13.299 -05:00 [DBG] Received first message. Holding messages until global settings are received!
+2022-06-12 02:01:13.301 -05:00 [DBG] [Sending] Event Type: getGlobalSettings
+2022-06-12 02:01:13.319 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:01:13.324 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:01:13.325 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:01:13.326 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:01:13.327 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:01:13.329 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:01:13.330 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:01:13.331 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:01:13.333 -05:00 [DBG] [Received] Event Type: "DidReceiveGlobalSettings"
+2022-06-12 02:01:14.115 -05:00 [DBG] Received global settings! Releasing 9 pending messages.
+2022-06-12 02:01:14.127 -05:00 [DBG] Listening on "ws://localhost:28196/"
+2022-06-12 02:01:19.158 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:01:19.158 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:01:19.158 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:02:50.175 -05:00 [DBG] [Received] Event Type: "WillDisappear"
+2022-06-12 02:02:50.178 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:02:50.179 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:02:50.584 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidAppear"
+2022-06-12 02:02:50.588 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-12 02:02:57.407 -05:00 [DBG] [Received] Event Type: "DidReceiveSettings"
+2022-06-12 02:03:00.200 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:07:00.526 -05:00 [DBG] Hosting starting
+2022-06-12 02:07:00.689 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-06-12 02:07:00.693 -05:00 [INF] Hosting environment: Development
+2022-06-12 02:07:00.695 -05:00 [INF] Content root path: C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl
+2022-06-12 02:07:00.695 -05:00 [DBG] Hosting started
+2022-06-12 02:07:02.774 -05:00 [DBG] [Received] Event Type: "DeviceDidConnect"
+2022-06-12 02:07:02.779 -05:00 [DBG] Received first message. Holding messages until global settings are received!
+2022-06-12 02:07:02.782 -05:00 [DBG] [Sending] Event Type: getGlobalSettings
+2022-06-12 02:07:02.800 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:07:02.805 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:07:02.807 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:07:02.809 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:07:02.810 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:07:02.811 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:07:02.812 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:07:02.813 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:07:02.813 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:07:02.814 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:07:02.816 -05:00 [DBG] [Received] Event Type: "DidReceiveGlobalSettings"
+2022-06-12 02:07:03.740 -05:00 [DBG] Received global settings! Releasing 11 pending messages.
+2022-06-12 02:07:03.750 -05:00 [DBG] Listening on "ws://localhost:28196/"
+2022-06-12 02:07:08.750 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:07:08.762 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:07:08.763 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:07:08.763 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:07:13.758 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:08:48.786 -05:00 [DBG] Hosting starting
+2022-06-12 02:08:49.091 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-06-12 02:08:49.092 -05:00 [INF] Hosting environment: Development
+2022-06-12 02:08:49.093 -05:00 [INF] Content root path: C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl
+2022-06-12 02:08:49.094 -05:00 [DBG] Hosting started
+2022-06-12 02:08:51.223 -05:00 [DBG] [Received] Event Type: "DeviceDidConnect"
+2022-06-12 02:08:51.229 -05:00 [DBG] Received first message. Holding messages until global settings are received!
+2022-06-12 02:08:51.231 -05:00 [DBG] [Sending] Event Type: getGlobalSettings
+2022-06-12 02:08:51.250 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:08:51.257 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:08:51.259 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:08:51.260 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:08:51.261 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:08:51.262 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:08:51.263 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:08:51.264 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:08:51.265 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:08:51.265 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:08:51.269 -05:00 [DBG] [Received] Event Type: "DidReceiveGlobalSettings"
+2022-06-12 02:08:52.234 -05:00 [DBG] Received global settings! Releasing 11 pending messages.
+2022-06-12 02:08:59.667 -05:00 [DBG] Listening on "ws://localhost:28196/"
+2022-06-12 02:09:12.061 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:09:12.061 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:09:12.061 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:09:12.061 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:09:35.293 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:11:12.980 -05:00 [DBG] Hosting starting
+2022-06-12 02:11:13.138 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-06-12 02:11:13.139 -05:00 [INF] Hosting environment: Development
+2022-06-12 02:11:13.140 -05:00 [INF] Content root path: C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl
+2022-06-12 02:11:13.141 -05:00 [DBG] Hosting started
+2022-06-12 02:11:15.269 -05:00 [DBG] [Received] Event Type: "DeviceDidConnect"
+2022-06-12 02:11:15.274 -05:00 [DBG] Received first message. Holding messages until global settings are received!
+2022-06-12 02:11:15.276 -05:00 [DBG] [Sending] Event Type: getGlobalSettings
+2022-06-12 02:11:15.293 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:11:15.298 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:11:15.300 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:11:15.300 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:11:15.301 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:11:15.302 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:11:15.303 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:11:15.303 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:11:15.304 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:11:15.305 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:11:15.307 -05:00 [DBG] [Received] Event Type: "DidReceiveGlobalSettings"
+2022-06-12 02:11:16.152 -05:00 [DBG] Received global settings! Releasing 11 pending messages.
+2022-06-12 02:11:16.163 -05:00 [DBG] Listening on "ws://localhost:28196/"
+2022-06-12 02:11:21.192 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:11:21.192 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:11:21.192 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:11:21.192 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:11:26.203 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:11:31.219 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:11:36.252 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:11:41.273 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:11:46.279 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:11:51.307 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:11:52.820 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-12 02:11:53.728 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidDisappear"
+2022-06-12 02:11:56.312 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:12:01.332 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:12:06.346 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:12:11.374 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:12:16.403 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:12:21.428 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:12:26.466 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:12:31.485 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:12:36.491 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:12:41.495 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:12:46.508 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:12:50.362 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidAppear"
+2022-06-12 02:12:50.364 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-12 02:12:51.526 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:12:56.559 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:13:01.576 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:13:06.594 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:13:11.616 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:13:16.636 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:13:19.199 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-12 02:13:19.438 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidAppear"
+2022-06-12 02:13:19.439 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-12 02:13:20.173 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidDisappear"
+2022-06-12 02:13:21.660 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:13:26.678 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:13:31.710 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:13:36.734 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:13:41.739 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:13:46.763 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:13:51.796 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:13:56.824 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:14:01.836 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:14:06.857 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:14:11.880 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:14:16.887 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:14:21.917 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:14:26.926 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:14:31.953 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:14:36.965 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:14:41.974 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:14:46.999 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:14:54.230 -05:00 [DBG] Hosting starting
+2022-06-12 02:14:54.461 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-06-12 02:14:54.464 -05:00 [INF] Hosting environment: Development
+2022-06-12 02:14:54.467 -05:00 [INF] Content root path: C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl
+2022-06-12 02:14:54.469 -05:00 [DBG] Hosting started
+2022-06-12 02:14:56.523 -05:00 [DBG] [Received] Event Type: "DeviceDidConnect"
+2022-06-12 02:14:56.528 -05:00 [DBG] Received first message. Holding messages until global settings are received!
+2022-06-12 02:14:56.531 -05:00 [DBG] [Sending] Event Type: getGlobalSettings
+2022-06-12 02:14:56.552 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:14:56.558 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:14:56.559 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:14:56.560 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:14:56.561 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:14:56.563 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:14:56.564 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:14:56.565 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:14:56.566 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:14:56.567 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:14:56.570 -05:00 [DBG] [Received] Event Type: "DidReceiveGlobalSettings"
+2022-06-12 02:14:57.388 -05:00 [DBG] Received global settings! Releasing 11 pending messages.
+2022-06-12 02:14:57.401 -05:00 [DBG] Listening on "ws://localhost:28196/"
+2022-06-12 02:15:02.404 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:15:02.404 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:15:02.404 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:15:02.411 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:15:07.417 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:15:12.435 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:15:48.555 -05:00 [DBG] Hosting starting
+2022-06-12 02:15:48.790 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-06-12 02:15:48.792 -05:00 [INF] Hosting environment: Development
+2022-06-12 02:15:48.793 -05:00 [INF] Content root path: C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl
+2022-06-12 02:15:48.794 -05:00 [DBG] Hosting started
+2022-06-12 02:15:50.879 -05:00 [DBG] [Received] Event Type: "DeviceDidConnect"
+2022-06-12 02:15:50.884 -05:00 [DBG] Received first message. Holding messages until global settings are received!
+2022-06-12 02:15:50.886 -05:00 [DBG] [Sending] Event Type: getGlobalSettings
+2022-06-12 02:15:50.903 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:15:50.908 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:15:50.909 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:15:50.910 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:15:50.911 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:15:50.911 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:15:50.913 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:15:50.913 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:15:50.914 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:15:50.915 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:15:50.917 -05:00 [DBG] [Received] Event Type: "DidReceiveGlobalSettings"
+2022-06-12 02:15:51.710 -05:00 [DBG] Received global settings! Releasing 11 pending messages.
+2022-06-12 02:15:51.723 -05:00 [DBG] Listening on "ws://localhost:28196/"
+2022-06-12 02:15:56.753 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:15:56.753 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:15:56.753 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:15:56.753 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:16:01.769 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:16:06.789 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:16:11.809 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:16:16.824 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:16:21.841 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:16:26.858 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:16:31.876 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:16:36.902 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:16:41.941 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:16:46.958 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:16:51.978 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:16:57.003 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:17:02.011 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:17:07.030 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:17:12.042 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:17:17.062 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:17:22.087 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:17:27.112 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:17:32.128 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:17:37.137 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:17:42.158 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:17:47.174 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:17:52.196 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:17:57.214 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:18:02.241 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:22:36.077 -05:00 [DBG] Hosting starting
+2022-06-12 02:22:36.244 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-06-12 02:22:36.245 -05:00 [INF] Hosting environment: Development
+2022-06-12 02:22:36.246 -05:00 [INF] Content root path: C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl
+2022-06-12 02:22:36.247 -05:00 [DBG] Hosting started
+2022-06-12 02:22:38.315 -05:00 [DBG] [Received] Event Type: "DeviceDidConnect"
+2022-06-12 02:22:38.319 -05:00 [DBG] Received first message. Holding messages until global settings are received!
+2022-06-12 02:22:38.322 -05:00 [DBG] [Sending] Event Type: getGlobalSettings
+2022-06-12 02:22:38.336 -05:00 [DBG] Listening on "ws://localhost:28196/"
+2022-06-12 02:22:38.340 -05:00 [DBG] [Received] Event Type: "DidReceiveGlobalSettings"
+2022-06-12 02:22:39.213 -05:00 [DBG] Received global settings! Releasing 1 pending messages.
+2022-06-12 02:22:39.218 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:22:39.226 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:22:39.229 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:22:39.231 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:22:39.232 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:22:39.234 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:22:39.234 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:22:39.235 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:22:39.236 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:22:39.237 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:25:05.014 -05:00 [DBG] Hosting starting
+2022-06-12 02:25:05.189 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-06-12 02:25:05.190 -05:00 [INF] Hosting environment: Development
+2022-06-12 02:25:05.192 -05:00 [INF] Content root path: C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl
+2022-06-12 02:25:05.192 -05:00 [DBG] Hosting started
+2022-06-12 02:25:07.269 -05:00 [DBG] [Received] Event Type: "DeviceDidConnect"
+2022-06-12 02:25:07.274 -05:00 [DBG] Received first message. Holding messages until global settings are received!
+2022-06-12 02:25:07.276 -05:00 [DBG] [Sending] Event Type: getGlobalSettings
+2022-06-12 02:25:07.294 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:25:07.300 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:25:07.301 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:25:07.302 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:25:07.303 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:25:07.304 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:25:07.304 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:25:07.305 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:25:07.306 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:25:07.307 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:25:07.309 -05:00 [DBG] [Received] Event Type: "DidReceiveGlobalSettings"
+2022-06-12 02:25:08.122 -05:00 [DBG] Received global settings! Releasing 11 pending messages.
+2022-06-12 02:25:08.132 -05:00 [DBG] Listening on "ws://localhost:28196/"
+2022-06-12 02:25:13.146 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:25:13.146 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:25:13.146 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:25:13.146 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:25:18.154 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:25:23.170 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:25:28.188 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:25:33.206 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:25:38.218 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:25:43.242 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:25:48.255 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:25:53.273 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:25:58.293 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:26:03.083 -05:00 [DBG] [Received] Event Type: "WillDisappear"
+2022-06-12 02:26:03.085 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:26:03.087 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:26:03.310 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:26:03.514 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidAppear"
+2022-06-12 02:26:03.517 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-12 02:26:08.324 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:26:13.338 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:26:14.175 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-12 02:26:14.433 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidAppear"
+2022-06-12 02:26:14.434 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-12 02:26:15.134 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidDisappear"
+2022-06-12 02:26:17.414 -05:00 [DBG] [Received] Event Type: "WillDisappear"
+2022-06-12 02:26:17.416 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-12 02:26:18.055 -05:00 [DBG] [Received] Event Type: "WillDisappear"
+2022-06-12 02:26:18.361 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:26:18.408 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidDisappear"
+2022-06-12 02:26:58.643 -05:00 [DBG] Hosting starting
+2022-06-12 02:26:58.813 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-06-12 02:26:58.814 -05:00 [INF] Hosting environment: Development
+2022-06-12 02:26:58.816 -05:00 [INF] Content root path: C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl
+2022-06-12 02:26:58.816 -05:00 [DBG] Hosting started
+2022-06-12 02:27:00.894 -05:00 [DBG] [Received] Event Type: "DeviceDidConnect"
+2022-06-12 02:27:00.899 -05:00 [DBG] Received first message. Holding messages until global settings are received!
+2022-06-12 02:27:00.901 -05:00 [DBG] [Sending] Event Type: getGlobalSettings
+2022-06-12 02:27:00.921 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:27:00.926 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:27:00.927 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:27:00.928 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:27:00.929 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:27:00.930 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:27:00.930 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:27:00.931 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:27:00.933 -05:00 [DBG] [Received] Event Type: "DidReceiveGlobalSettings"
+2022-06-12 02:27:01.778 -05:00 [DBG] Received global settings! Releasing 9 pending messages.
+2022-06-12 02:27:01.790 -05:00 [DBG] Listening on "ws://localhost:28196/"
+2022-06-12 02:27:06.816 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:27:06.816 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:27:06.816 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:27:06.816 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:27:11.835 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:27:16.849 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:27:21.868 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:27:26.882 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:27:31.901 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:27:36.917 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:27:41.925 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:27:46.951 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:27:51.994 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:27:57.007 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:28:02.018 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:28:07.025 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:28:12.033 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:28:17.050 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:28:22.061 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:28:22.718 -05:00 [DBG] [Received] Event Type: "WillDisappear"
+2022-06-12 02:28:22.721 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:28:22.722 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:28:22.994 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidAppear"
+2022-06-12 02:28:22.997 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-12 02:28:25.318 -05:00 [DBG] [Received] Event Type: "WillDisappear"
+2022-06-12 02:28:25.319 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-12 02:28:26.326 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidDisappear"
+2022-06-12 02:28:27.080 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:28:32.096 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:28:37.113 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:28:44.935 -05:00 [DBG] Hosting starting
+2022-06-12 02:28:45.090 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-06-12 02:28:45.091 -05:00 [INF] Hosting environment: Development
+2022-06-12 02:28:45.092 -05:00 [INF] Content root path: C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl
+2022-06-12 02:28:45.093 -05:00 [DBG] Hosting started
+2022-06-12 02:28:47.218 -05:00 [DBG] [Received] Event Type: "DeviceDidConnect"
+2022-06-12 02:28:47.224 -05:00 [DBG] Received first message. Holding messages until global settings are received!
+2022-06-12 02:28:47.226 -05:00 [DBG] [Sending] Event Type: getGlobalSettings
+2022-06-12 02:28:47.243 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:28:47.249 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:28:47.250 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:28:47.251 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:28:47.252 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:28:47.253 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:28:47.255 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:28:47.256 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:28:47.258 -05:00 [DBG] [Received] Event Type: "DidReceiveGlobalSettings"
+2022-06-12 02:29:20.930 -05:00 [DBG] Hosting starting
+2022-06-12 02:29:21.101 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-06-12 02:29:21.102 -05:00 [INF] Hosting environment: Development
+2022-06-12 02:29:21.103 -05:00 [INF] Content root path: C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl
+2022-06-12 02:29:21.104 -05:00 [DBG] Hosting started
+2022-06-12 02:29:23.185 -05:00 [DBG] [Received] Event Type: "DeviceDidConnect"
+2022-06-12 02:29:23.190 -05:00 [DBG] Received first message. Holding messages until global settings are received!
+2022-06-12 02:29:23.193 -05:00 [DBG] [Sending] Event Type: getGlobalSettings
+2022-06-12 02:29:23.210 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:29:23.215 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:29:23.216 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:29:23.217 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:29:23.218 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:29:23.218 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:29:23.219 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:29:23.220 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:29:23.223 -05:00 [DBG] [Received] Event Type: "DidReceiveGlobalSettings"
+2022-06-12 02:30:05.481 -05:00 [DBG] Received global settings! Releasing 9 pending messages.
+2022-06-12 02:30:05.492 -05:00 [DBG] Listening on "ws://localhost:28196/"
+2022-06-12 02:30:59.319 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidAppear"
+2022-06-12 02:30:59.323 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-12 02:31:10.975 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-12 02:31:11.217 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidAppear"
+2022-06-12 02:31:11.218 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-12 02:31:11.967 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidDisappear"
+2022-06-12 02:31:11.993 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-12 02:31:12.261 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidAppear"
+2022-06-12 02:31:12.262 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-12 02:31:12.983 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidDisappear"
+2022-06-12 02:31:13.037 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-12 02:31:13.289 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidAppear"
+2022-06-12 02:31:13.291 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-12 02:31:14.042 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidDisappear"
+2022-06-12 02:31:14.387 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-12 02:31:14.669 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidAppear"
+2022-06-12 02:31:14.670 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-12 02:31:15.374 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidDisappear"
+2022-06-12 02:31:16.119 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-12 02:31:16.365 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidAppear"
+2022-06-12 02:31:16.366 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-12 02:31:17.149 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidDisappear"
+2022-06-12 02:33:54.505 -05:00 [DBG] Hosting starting
+2022-06-12 02:33:54.664 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-06-12 02:33:54.665 -05:00 [INF] Hosting environment: Development
+2022-06-12 02:33:54.666 -05:00 [INF] Content root path: C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl
+2022-06-12 02:33:54.667 -05:00 [DBG] Hosting started
+2022-06-12 02:33:56.793 -05:00 [DBG] [Received] Event Type: "DeviceDidConnect"
+2022-06-12 02:33:56.798 -05:00 [DBG] Received first message. Holding messages until global settings are received!
+2022-06-12 02:33:56.800 -05:00 [DBG] [Sending] Event Type: getGlobalSettings
+2022-06-12 02:33:56.818 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:33:56.823 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:33:56.825 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:33:56.826 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:33:56.827 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:33:56.827 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:33:56.828 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:33:56.829 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:33:56.831 -05:00 [DBG] [Received] Event Type: "DidReceiveGlobalSettings"
+2022-06-12 02:33:57.683 -05:00 [DBG] Received global settings! Releasing 9 pending messages.
+2022-06-12 02:33:57.694 -05:00 [DBG] Listening on "ws://localhost:28196/"
+2022-06-12 02:34:33.798 -05:00 [DBG] Hosting starting
+2022-06-12 02:34:34.152 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-06-12 02:34:34.153 -05:00 [INF] Hosting environment: Development
+2022-06-12 02:34:34.155 -05:00 [INF] Content root path: C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl
+2022-06-12 02:34:34.155 -05:00 [DBG] Hosting started
+2022-06-12 02:34:36.284 -05:00 [DBG] [Received] Event Type: "DeviceDidConnect"
+2022-06-12 02:34:36.288 -05:00 [DBG] Received first message. Holding messages until global settings are received!
+2022-06-12 02:34:36.290 -05:00 [DBG] [Sending] Event Type: getGlobalSettings
+2022-06-12 02:34:36.308 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:34:36.314 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:34:36.315 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:34:36.316 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:34:36.316 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:34:36.317 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:34:36.318 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:34:36.319 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:34:36.320 -05:00 [DBG] [Received] Event Type: "DidReceiveGlobalSettings"
+2022-06-12 02:34:37.167 -05:00 [DBG] Received global settings! Releasing 9 pending messages.
+2022-06-12 02:34:37.179 -05:00 [DBG] Listening on "ws://localhost:28196/"
+2022-06-12 02:34:42.192 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:34:42.192 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:34:42.192 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:34:42.192 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:34:47.217 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:34:52.234 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:34:57.257 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:35:02.263 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:35:07.280 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:35:12.287 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:35:17.310 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:35:22.335 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:35:27.367 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:35:32.401 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:35:37.420 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:35:42.428 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:35:47.438 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:35:52.460 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:35:57.471 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:36:02.480 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:36:07.490 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:36:12.503 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:36:17.518 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:36:22.555 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:36:27.577 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:36:32.610 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:36:37.626 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:36:42.646 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:36:47.661 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:36:52.684 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:36:57.711 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:37:02.729 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:37:07.747 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:37:12.773 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:37:17.781 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:37:22.790 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:37:27.801 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:37:32.819 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:37:37.838 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:37:42.857 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:37:47.875 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:37:52.903 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:37:57.935 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:38:02.957 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:38:07.975 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:38:12.998 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:38:18.012 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:38:23.024 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:38:28.045 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:38:33.062 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:38:38.086 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:38:43.103 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:40:27.321 -05:00 [DBG] Hosting starting
+2022-06-12 02:40:27.478 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-06-12 02:40:27.479 -05:00 [INF] Hosting environment: Development
+2022-06-12 02:40:27.480 -05:00 [INF] Content root path: C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl
+2022-06-12 02:40:27.481 -05:00 [DBG] Hosting started
+2022-06-12 02:40:29.568 -05:00 [DBG] [Received] Event Type: "DeviceDidConnect"
+2022-06-12 02:40:29.573 -05:00 [DBG] Received first message. Holding messages until global settings are received!
+2022-06-12 02:40:29.575 -05:00 [DBG] [Sending] Event Type: getGlobalSettings
+2022-06-12 02:40:29.591 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:40:29.597 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:40:29.598 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:40:29.599 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:40:29.600 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:40:29.600 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:40:29.601 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:40:29.602 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:40:29.605 -05:00 [DBG] [Received] Event Type: "DidReceiveGlobalSettings"
+2022-06-12 02:40:30.423 -05:00 [DBG] Received global settings! Releasing 9 pending messages.
+2022-06-12 02:40:30.435 -05:00 [DBG] Listening on "ws://localhost:28196/"
+2022-06-12 02:40:35.455 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:40:35.455 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:40:35.455 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:40:35.455 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:40:40.467 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:40:45.471 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:40:50.493 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:40:54.688 -05:00 [DBG] [Received] Event Type: "WillDisappear"
+2022-06-12 02:40:54.690 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:40:54.691 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:40:55.099 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidAppear"
+2022-06-12 02:40:55.102 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-12 02:40:55.519 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:41:00.561 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:41:05.582 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:41:10.595 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:41:15.604 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:41:20.610 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:41:25.627 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:41:30.646 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:41:35.673 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:41:40.688 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:41:45.723 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:41:50.750 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:41:55.755 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:42:00.628 -05:00 [DBG] Hosting starting
+2022-06-12 02:42:00.801 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-06-12 02:42:00.803 -05:00 [INF] Hosting environment: Development
+2022-06-12 02:42:00.804 -05:00 [INF] Content root path: C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl
+2022-06-12 02:42:00.804 -05:00 [DBG] Hosting started
+2022-06-12 02:42:02.866 -05:00 [DBG] [Received] Event Type: "DeviceDidConnect"
+2022-06-12 02:42:02.871 -05:00 [DBG] Received first message. Holding messages until global settings are received!
+2022-06-12 02:42:02.873 -05:00 [DBG] [Sending] Event Type: getGlobalSettings
+2022-06-12 02:42:02.891 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:42:02.896 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:42:02.897 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:42:02.898 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:42:02.899 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:42:02.900 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:42:02.901 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:42:02.901 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:42:02.902 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:42:02.903 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:42:02.905 -05:00 [DBG] [Received] Event Type: "DidReceiveGlobalSettings"
+2022-06-12 02:42:03.807 -05:00 [DBG] Received global settings! Releasing 11 pending messages.
+2022-06-12 02:42:03.818 -05:00 [DBG] Listening on "ws://localhost:28196/"
+2022-06-12 02:42:08.823 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:42:08.823 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:42:08.823 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:42:08.823 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:42:13.829 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:42:18.845 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:42:23.875 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:52:45.181 -05:00 [DBG] Hosting starting
+2022-06-12 02:52:45.385 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-06-12 02:52:45.387 -05:00 [INF] Hosting environment: Development
+2022-06-12 02:52:45.388 -05:00 [INF] Content root path: C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl
+2022-06-12 02:52:45.389 -05:00 [DBG] Hosting started
+2022-06-12 02:52:47.457 -05:00 [DBG] Listening on "ws://localhost:28196/"
+2022-06-12 02:53:12.813 -05:00 [DBG] Hosting starting
+2022-06-12 02:53:12.967 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-06-12 02:53:12.969 -05:00 [INF] Hosting environment: Development
+2022-06-12 02:53:12.970 -05:00 [INF] Content root path: C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl
+2022-06-12 02:53:12.971 -05:00 [DBG] Hosting started
+2022-06-12 02:53:15.044 -05:00 [DBG] [Received] Event Type: "DeviceDidConnect"
+2022-06-12 02:53:15.049 -05:00 [DBG] Received first message. Holding messages until global settings are received!
+2022-06-12 02:53:15.051 -05:00 [DBG] [Sending] Event Type: getGlobalSettings
+2022-06-12 02:53:15.065 -05:00 [DBG] Listening on "ws://localhost:28196/"
+2022-06-12 02:53:15.069 -05:00 [DBG] [Received] Event Type: "DidReceiveGlobalSettings"
+2022-06-12 02:53:15.913 -05:00 [DBG] Received global settings! Releasing 1 pending messages.
+2022-06-12 02:53:53.617 -05:00 [DBG] Hosting starting
+2022-06-12 02:53:53.863 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-06-12 02:53:53.865 -05:00 [INF] Hosting environment: Development
+2022-06-12 02:53:53.867 -05:00 [INF] Content root path: C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl
+2022-06-12 02:53:53.868 -05:00 [DBG] Hosting started
+2022-06-12 02:53:55.954 -05:00 [DBG] [Received] Event Type: "DeviceDidConnect"
+2022-06-12 02:53:55.959 -05:00 [DBG] Received first message. Holding messages until global settings are received!
+2022-06-12 02:53:55.961 -05:00 [DBG] [Sending] Event Type: getGlobalSettings
+2022-06-12 02:53:55.979 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:53:55.984 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:53:55.986 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:53:55.987 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:53:55.987 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:53:55.988 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:53:55.989 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:53:55.990 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:53:55.990 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:53:55.991 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:53:55.992 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:53:55.994 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:53:55.996 -05:00 [DBG] [Received] Event Type: "DidReceiveGlobalSettings"
+2022-06-12 02:53:56.778 -05:00 [DBG] Received global settings! Releasing 13 pending messages.
+2022-06-12 02:53:56.792 -05:00 [DBG] Listening on "ws://localhost:28196/"
+2022-06-12 02:54:01.809 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:54:01.809 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:54:01.809 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:54:01.809 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:54:01.809 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:54:06.842 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:54:06.842 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:54:11.853 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:54:11.853 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:54:16.867 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:54:16.886 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:54:21.890 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:54:21.906 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:54:26.907 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:54:26.923 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:54:31.925 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:54:31.930 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:54:36.943 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:54:36.944 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:54:38.185 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidAppear"
+2022-06-12 02:54:38.188 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-12 02:54:39.060 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-12 02:54:40.066 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidDisappear"
+2022-06-12 02:54:41.961 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:54:41.961 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:54:43.158 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidAppear"
+2022-06-12 02:54:43.160 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-12 02:54:44.906 -05:00 [DBG] [Received] Event Type: "WillDisappear"
+2022-06-12 02:54:44.908 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-12 02:54:45.917 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidDisappear"
+2022-06-12 02:54:46.969 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:54:46.969 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:54:47.800 -05:00 [DBG] [Received] Event Type: "WillDisappear"
+2022-06-12 02:54:47.801 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-12 02:54:47.802 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-12 02:54:48.063 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidAppear"
+2022-06-12 02:54:48.064 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-12 02:54:51.977 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:54:51.977 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:54:56.995 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:54:56.995 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:55:02.003 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:55:02.003 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:55:07.020 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:55:07.020 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:55:12.046 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:55:12.046 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:55:17.063 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:55:17.063 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:55:22.071 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:55:22.072 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:55:27.095 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:55:27.095 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:55:32.114 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:55:32.114 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:55:37.124 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:55:37.124 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:55:42.148 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:55:42.149 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:55:47.166 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:55:47.166 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:55:52.179 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:55:52.179 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:55:57.188 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:55:57.188 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:56:02.206 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:56:02.206 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:56:07.224 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:56:07.224 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:56:12.239 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:56:12.239 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:56:17.267 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:56:17.268 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:56:22.287 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:56:22.297 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:56:27.310 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:56:27.311 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:56:32.327 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:56:32.327 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:56:37.336 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:56:37.336 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:56:42.341 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:56:42.356 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:56:47.350 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:56:47.365 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:56:52.357 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:56:52.374 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:56:57.371 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:56:57.385 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:57:02.381 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:57:02.396 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:57:07.397 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:57:07.413 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:57:12.409 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:57:12.425 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:57:17.415 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:57:17.429 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:57:22.431 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:57:22.445 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:57:27.452 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:57:27.465 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:57:29.763 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-12 02:57:30.774 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidDisappear"
+2022-06-12 02:57:32.482 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:57:32.482 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:57:37.492 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:57:37.492 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:57:42.508 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:57:42.508 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:57:47.525 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:57:47.525 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:57:52.529 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:57:52.529 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:57:53.075 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidAppear"
+2022-06-12 02:57:53.077 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-12 02:57:57.548 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:57:57.548 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:58:02.556 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:58:02.556 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:58:07.563 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:58:07.563 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:58:12.573 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:58:12.573 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:58:17.586 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:58:17.586 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:58:22.603 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:58:22.603 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:58:27.618 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:58:27.621 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:58:32.645 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:58:32.646 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:58:37.680 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:58:37.680 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:58:42.696 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:58:42.696 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:58:47.713 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:58:47.713 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:58:52.721 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:58:52.722 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:58:57.730 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:58:57.730 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:59:02.737 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:59:02.737 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:59:07.745 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:59:07.745 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:59:12.751 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:59:12.751 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:59:17.770 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:59:17.770 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:59:22.780 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:59:22.790 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:59:27.793 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:59:27.793 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:59:32.797 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:59:32.797 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:59:37.821 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:59:37.823 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:59:42.850 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:59:42.850 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:59:47.856 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:59:47.856 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:59:52.864 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:59:52.864 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:59:57.886 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 02:59:57.886 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 03:00:02.894 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 03:00:02.894 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 03:00:07.901 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-12 03:00:07.901 -05:00 [DBG] [Sending] Event Type: setTitle

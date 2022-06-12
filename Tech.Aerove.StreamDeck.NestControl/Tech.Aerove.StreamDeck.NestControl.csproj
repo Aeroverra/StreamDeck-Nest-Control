@@ -23,6 +23,15 @@
     <None Update="PropertyInspector\easypi.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="PropertyInspector\images\aimage@2x.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="PropertyInspector\images\aimage.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="PropertyInspector\ThermostatInfo.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="PropertyInspector\TempUpDown.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
