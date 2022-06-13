@@ -12,6 +12,8 @@ using Tech.Aerove.Tools.Nest.Models.WebCalls;
 
 namespace Tech.Aerove.Tools.Nest
 {
+    //consider replacing this with google smart device management nuget
+    //Google.Apis.SmartDeviceManagement.v1
     internal static class WebCalls
     {
         /// <summary>
@@ -26,7 +28,7 @@ namespace Tech.Aerove.Tools.Nest
             $"&prompt=consent" +
             $"&client_id={clientId}" +
             $"&response_type=code" +
-            $"&scope=https://www.googleapis.com/auth/sdm.service";
+            $"&scope=https://www.googleapis.com/auth/sdm.service https://www.googleapis.com/auth/pubsub";
             return url;
         }
 

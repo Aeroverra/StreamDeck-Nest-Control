@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Google.Apis.Auth.OAuth2;
+using Google.Apis.Auth.OAuth2.Flows;
+using Google.Apis.Auth.OAuth2.Responses;
+using Google.Cloud.PubSub.V1;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,11 +16,13 @@ namespace Tech.Aerove.Tools.Nest
 {
     public class NestClient
     {
+        private readonly string SubscriptionId = "A" + Guid.NewGuid().ToString();
         private readonly string ClientId;
         private readonly string ClientSecret;
         private readonly string ProjectId;
         private string AccessToken { get; set; } = "";
         private string RefreshToken { get; set; } = "";
+        private List<string> Scopes { get; set; } = new List<string>();
         private DateTime AccessTokenExpireTime = DateTime.MinValue;
         internal DevicesResponse DevicesResponse { get; set; } = new DevicesResponse();
 
@@ -36,14 +42,94 @@ namespace Tech.Aerove.Tools.Nest
         /// <summary>
         /// create already setup client
         /// </summary>
-        public NestClient(string clientId, string clientSecret, string projectId, string refreshToken)
+        public NestClient(string clientId, string clientSecret, string projectId, string refreshToken, string scopes)
         {
             ClientId = clientId;
             ClientSecret = clientSecret;
             ProjectId = projectId;
             RefreshToken = refreshToken;
+            Scopes = scopes.Split(" ").ToList();
             UpdateDevices();
+            _ = EventHandler();
+        }
 
+        public async Task EventHandler()
+        {
+            if (!Scopes.Contains("https://www.googleapis.com/auth/pubsub"))
+            {
+                return;
+            }
+            string credential_path = @"PATH TO GOOGLE AUTH CREDENTIAL JSON FILE";
+            //System.Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", credential_path);
+            try
+            {
+
+
+                var token = new TokenResponse
+                {
+                    RefreshToken = RefreshToken,
+                    Scope = "https://www.googleapis.com/auth/sdm.service https://www.googleapis.com/auth/pubsub",
+                    AccessToken = AccessToken,
+                    IssuedUtc = DateTime.UtcNow,
+                    ExpiresInSeconds = 900
+                };
+                var secrets = new ClientSecrets
+                {
+                    ClientId = ClientId,
+                    ClientSecret = ClientSecret
+                };
+                var i = new GoogleAuthorizationCodeFlow.Initializer
+                {
+                    ClientSecrets = secrets,
+                    ProjectId = "aeroveprod",
+                    Scopes = new[] { "https://www.googleapis.com/auth/sdm.service", "https://www.googleapis.com/auth/pubsub" },
+                };
+                var cf = new GoogleAuthorizationCodeFlow(i);
+
+                ICredential googleCredentials = new UserCredential(cf, "", token);
+
+                //https://www.googleapis.com/auth/sdm.service
+                //https://www.googleapis.com/auth/pubsub
+                //https://www.googleapis.com/auth/cloud-platform
+               googleCredentials = GoogleCredential
+                   .FromAccessToken(AccessToken)
+                   .CreateScoped("https://www.googleapis.com/auth/sdm.service", "https://www.googleapis.com/auth/pubsub");
+
+                SubscriberServiceApiClientBuilder builder = new SubscriberServiceApiClientBuilder();
+                builder.Credential = googleCredentials;
+                var subscriberService = builder.Build();
+
+
+
+                //SubscriberServiceApiClient subscriberService = await SubscriberServiceApiClient.CreateAsync();
+                SubscriptionName subscriptionName = new SubscriptionName("aeroveprod", SubscriptionId);
+
+
+                // Subscribe to the topic.
+                TopicName topicName = new TopicName("sdm-prod", $"enterprise-{ProjectId}");
+                subscriberService.CreateSubscription(subscriptionName, topicName, pushConfig: null, ackDeadlineSeconds: 60);
+
+                // Pull messages from the subscription using SubscriberClient.
+                SubscriberClient subscriber = await SubscriberClient.CreateAsync(subscriptionName);
+                List<PubsubMessage> receivedMessages = new List<PubsubMessage>();
+                // Start the subscriber listening for messages.
+                await subscriber.StartAsync((msg, cancellationToken) =>
+                {
+                    receivedMessages.Add(msg);
+                    Console.WriteLine($"Received message {msg.MessageId} published at {msg.PublishTime.ToDateTime()}");
+                    Console.WriteLine($"Text: '{msg.Data.ToStringUtf8()}'");
+                    // Stop this subscriber after one message is received.
+                    // This is non-blocking, and the returned Task may be awaited.
+                    subscriber.StopAsync(TimeSpan.FromSeconds(15));
+                    // Return Reply.Ack to indicate this message has been handled.
+                    return Task.FromResult(SubscriberClient.Reply.Ack);
+                });
+                subscriberService.DeleteSubscription(subscriptionName);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
         }
 
         private string RedirectUrl = "";
@@ -66,14 +152,16 @@ namespace Tech.Aerove.Tools.Nest
         /// <param name="code">Retrieved from the webserver url param specified in the redirecturl
         /// of the function GetAccountLinkUrl</param>
         /// <returns>refresh token if success</returns>
-        public string? FinishSetup(string code)
+        public string? FinishSetup(string code, string scope)
         {
+            Scopes = scope.Split(" ").ToList();
             var response = WebCalls.GetFirstAccessToken(ClientId, ClientSecret, RedirectUrl, code);
             if (response == null) { return null; }
             RefreshToken = response.RefreshToken;
             AccessToken = response.AccessToken;
             AccessTokenExpireTime = DateTime.Now.AddSeconds(response.ExpiresIn - 10);
             if (!UpdateDevices()) { return null; }
+            _ = EventHandler();
             return RefreshToken;
         }
 
@@ -101,6 +189,7 @@ namespace Tech.Aerove.Tools.Nest
             if (DevicesResponse == null) { return false; }
             return true;
         }
+
 
         private void CheckUpdateToken()
         {

@@ -27,6 +27,7 @@ namespace Tech.Aerove.StreamDeck.NestControl
         private string ClientId { get { return $"{GlobalSettings["clientId"]}"; } }
         private string ClientSecret { get { return $"{GlobalSettings["clientSecret"]}"; } }
         private string ProjectId { get { return $"{GlobalSettings["projectId"]}"; } }
+        private string Scope { get { return $"{GlobalSettings["scope"]}"; } }
         private string RefreshToken { get { return $"{GlobalSettings["refreshToken"]}"; } }
         private bool? IsSetup { get { return GlobalSettings["setup"]?.ToObject<bool>(); } }
 
@@ -86,7 +87,7 @@ namespace Tech.Aerove.StreamDeck.NestControl
             GlobalSettings = e.Payload.Settings;
             if (firstLoad & IsSetup == true)
             {
-                Client = new NestClient(ClientId, ClientSecret, ProjectId, RefreshToken);
+                Client = new NestClient(ClientId, ClientSecret, ProjectId, RefreshToken, Scope);
             }
             firstLoad = false;
         }
@@ -115,12 +116,14 @@ namespace Tech.Aerove.StreamDeck.NestControl
 
             var query = _http.Request.QueryString;
             var code = query["code"]?.ToString();
-            var refreshToken = Client.FinishSetup(code);
+            var scope = query["scope"]?.ToString();
+            var refreshToken = Client.FinishSetup(code, scope);
             var responseString = "Error please check your settings";
             if (refreshToken != null)
             {
                 UpdateDevices();
                 GlobalSettings["code"] = code;
+                GlobalSettings["scope"] = scope;
                 GlobalSettings["setup"] = true;
                 GlobalSettings["refreshToken"] = refreshToken;
                 _dispatcher.SetGlobalSettings(GlobalSettings);
