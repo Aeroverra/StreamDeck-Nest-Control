@@ -28,6 +28,8 @@ namespace Tech.Aerove.StreamDeck.NestControl
         private string ClientSecret { get { return $"{GlobalSettings["clientSecret"]}"; } }
         private string ProjectId { get { return $"{GlobalSettings["projectId"]}"; } }
         private string Scope { get { return $"{GlobalSettings["scope"]}"; } }
+        private string SubscriptionId { get { return $"{GlobalSettings["subscriptionId"]}"; } }
+        private string CloudProjectId { get { return $"{GlobalSettings["cloudProjectId"]}"; } }
         private string RefreshToken { get { return $"{GlobalSettings["refreshToken"]}"; } }
         private bool? IsSetup { get { return GlobalSettings["setup"]?.ToObject<bool>(); } }
 
@@ -69,7 +71,8 @@ namespace Tech.Aerove.StreamDeck.NestControl
         private void Setup()
         {
             _dispatcher.GetGlobalSettings();
-            Client = new NestClient(ClientId, ClientSecret, ProjectId);
+            Action<string> saveSubscriptionId = (subscriptionId) => { GlobalSettings["subscriptionId"] = subscriptionId; };
+            Client = new NestClient(ClientId, ClientSecret, ProjectId, CloudProjectId, saveSubscriptionId);
             var url = Client.GetAccountLinkUrl("http://localhost:20777");
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
@@ -87,7 +90,8 @@ namespace Tech.Aerove.StreamDeck.NestControl
             GlobalSettings = e.Payload.Settings;
             if (firstLoad & IsSetup == true)
             {
-                Client = new NestClient(ClientId, ClientSecret, ProjectId, RefreshToken, Scope);
+                Action<string> saveSubscriptionId = (subscriptionId) => { GlobalSettings["subscriptionId"] = subscriptionId; };
+                Client = new NestClient(ClientId, ClientSecret, ProjectId, RefreshToken, Scope, CloudProjectId, SubscriptionId, saveSubscriptionId);
             }
             firstLoad = false;
         }

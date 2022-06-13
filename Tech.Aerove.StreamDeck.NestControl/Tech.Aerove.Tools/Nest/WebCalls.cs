@@ -28,7 +28,7 @@ namespace Tech.Aerove.Tools.Nest
             $"&prompt=consent" +
             $"&client_id={clientId}" +
             $"&response_type=code" +
-            $"&scope=https://www.googleapis.com/auth/sdm.service https://www.googleapis.com/auth/pubsub";
+            $"&scope=https://www.googleapis.com/auth/sdm.service%20https://www.googleapis.com/auth/pubsub";
             return url;
         }
 
@@ -96,6 +96,7 @@ namespace Tech.Aerove.Tools.Nest
         }
 
         //https://developers.google.com/nest/device-access/traits/device/thermostat-temperature-setpoint#setcool
+       
         public static bool ExecuteCommand(string deviceName, string accessToken, CommandBody command)
         {
             var client = new RestClient($"https://smartdevicemanagement.googleapis.com/v1/{deviceName}:executeCommand");

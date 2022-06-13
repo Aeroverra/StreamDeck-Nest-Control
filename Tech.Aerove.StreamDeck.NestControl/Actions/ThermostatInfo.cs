@@ -16,7 +16,7 @@ namespace Tech.Aerove.StreamDeck.NestControl.Actions
     public class ThermostatInfo : ActionBase
     {
         private string DeviceName => $"{Context.Settings["device"]}";
-        private ThermostatDevice Thermostat => _handler.GetDevice(DeviceName);
+
         private int TemperatureStep => int.Parse($"{Context.Settings["temperatureStep"]}");
         private decimal CurrentSetPoint = 0;
 
@@ -27,6 +27,26 @@ namespace Tech.Aerove.StreamDeck.NestControl.Actions
             _logger = logger;
             _handler = handler;
             _ = Ticker();
+        }
+        private ThermostatDevice Thermostat => GetThermostat();
+        private ThermostatDevice _thermostat { get; set; }
+        private ThermostatDevice GetThermostat()
+        {
+            var lookupThermostat = _handler.GetDevice(DeviceName);
+            if (_thermostat == null || lookupThermostat.Name != _thermostat.Name)
+            {
+                if (_thermostat != null)
+                {
+                    _thermostat.OnUpdate -= OnUpdate;
+                }
+                _thermostat = lookupThermostat;
+                _thermostat.OnUpdate += OnUpdate;
+            }
+            return _thermostat;
+        }
+        public void OnUpdate()
+        {
+            CurrentSetPoint = Thermostat.SetPoint;
         }
         public async Task Ticker()
         {
@@ -48,6 +68,7 @@ namespace Tech.Aerove.StreamDeck.NestControl.Actions
                 {
 
                 }
+                await Task.Delay(60000);
             }
         }
        

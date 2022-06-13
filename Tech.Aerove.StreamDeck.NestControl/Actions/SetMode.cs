@@ -17,7 +17,7 @@ namespace Tech.Aerove.StreamDeck.NestControl.Actions
     public class SetMode : ActionBase
     {
         private string DeviceName => $"{Context.Settings["device"]}";
-        private ThermostatDevice Thermostat => _handler.GetDevice(DeviceName);
+
         private int TemperatureStep => int.Parse($"{Context.Settings["temperatureStep"]}");
         private ThermostatMode CurrentMode = ThermostatMode.OFF;
 
@@ -27,32 +27,46 @@ namespace Tech.Aerove.StreamDeck.NestControl.Actions
         {
             _logger = logger;
             _handler = handler;
-            _ = Ticker();
+            _ = OnUpdateAsync();
         }
-        public async Task Ticker()
+        private ThermostatDevice Thermostat => GetThermostat();
+        private ThermostatDevice _thermostat { get; set; }
+        private ThermostatDevice GetThermostat()
         {
-            while (true)
+            var lookupThermostat = _handler.GetDevice(DeviceName);
+            if (_thermostat == null || lookupThermostat.Name != _thermostat.Name)
             {
-                await Task.Delay(5000);
-                if (string.IsNullOrWhiteSpace(DeviceName)) { continue; }
-                try
+                if (_thermostat != null)
                 {
-                    if (CurrentMode != Thermostat.Mode)
-                    {
-                        CurrentMode = Thermostat.Mode;
-                        await Dispatcher.SetTitleAsync($"{Thermostat.Mode}");
-                    }
+                    _thermostat.OnUpdate -= OnUpdate;
                 }
-                catch (Exception)
-                {
-
-                }
+                _thermostat = lookupThermostat;
+                _thermostat.OnUpdate += OnUpdate;
             }
+            return _thermostat;
+        }
+        public void OnUpdate()
+        {
+            _ = OnUpdateAsync();
+        }
+        public async Task OnUpdateAsync()
+        {
+
+
+            if (string.IsNullOrWhiteSpace(DeviceName)) { return; }
+
+            if (CurrentMode != Thermostat.Mode)
+            {
+                CurrentMode = Thermostat.Mode;
+                await Dispatcher.SetTitleAsync($"{Thermostat.Mode}");
+            }
+
+
         }
         public override async Task KeyDownAsync(int userDesiredState)
         {
             var success = false;
-            if(CurrentMode != ThermostatMode.OFF)
+            if (CurrentMode != ThermostatMode.OFF)
             {
                 success = Thermostat.SetMode(ThermostatMode.OFF);
             }

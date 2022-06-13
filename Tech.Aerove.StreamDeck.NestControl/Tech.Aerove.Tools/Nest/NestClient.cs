@@ -1,15 +1,4 @@
-﻿using Google.Apis.Auth.OAuth2;
-using Google.Apis.Auth.OAuth2.Flows;
-using Google.Apis.Auth.OAuth2.Responses;
-using Google.Cloud.PubSub.V1;
-using Grpc.Auth;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Tech.Aerove.StreamDeck.NestControl.Tech.Aerove.Tools.Nest.Models;
-using Tech.Aerove.StreamDeck.NestControl.Tech.Aerove.Tools.Nest.Models.WebCalls;
+﻿using Tech.Aerove.StreamDeck.NestControl.Tech.Aerove.Tools.Nest.Models.WebCalls;
 using Tech.Aerove.Tools.Nest.Models;
 using Tech.Aerove.Tools.Nest.Models.WebCalls;
 
@@ -17,97 +6,116 @@ namespace Tech.Aerove.Tools.Nest
 {
     public class NestClient
     {
-        private readonly string SubscriptionId = "A" + Guid.NewGuid().ToString();
+
+        private readonly PubSubClient PubSubClient;
         private readonly string ClientId;
         private readonly string ClientSecret;
         private readonly string ProjectId;
+        private readonly string CloudProjectId;
         private string AccessToken { get; set; } = "";
         private string RefreshToken { get; set; } = "";
-        private List<string> Scopes { get; set; } = new List<string>();
+        public List<string> Scopes { get; private set; } = new List<string>();
         private DateTime AccessTokenExpireTime = DateTime.MinValue;
         internal DevicesResponse DevicesResponse { get; set; } = new DevicesResponse();
 
         private static SemaphoreSlim Lock = new SemaphoreSlim(1);
 
+        public string GetAccessToken()
+        {
+            var t = GetAccessToken;
+            CheckUpdateToken();
+            return AccessToken;
+        }
 
         /// <summary>
         /// create client that needs to be setup by calling the getaccountlinkurl then finishsetup functions
         /// </summary>
-        public NestClient(string clientId, string clientSecret, string projectId)
+        public NestClient(string clientId, string clientSecret, string projectId, string cloudProjectId, Action<string> saveSubscriptionId)
         {
             ClientId = clientId;
             ClientSecret = clientSecret;
             ProjectId = projectId;
+            CloudProjectId = cloudProjectId;
+            PubSubClient = new PubSubClient(CloudProjectId, ProjectId, saveSubscriptionId, GetAccessToken);
+            PubSubClient.OnDeviceUpdated += OnDeviceUpdated;
         }
 
         /// <summary>
         /// create already setup client
         /// </summary>
-        public NestClient(string clientId, string clientSecret, string projectId, string refreshToken, string scopes)
+        public NestClient(string clientId, string clientSecret, string projectId, string refreshToken, string scopes, string cloudProjectId, string subscriptionId, Action<string> saveSubscriptionId)
         {
             ClientId = clientId;
             ClientSecret = clientSecret;
             ProjectId = projectId;
             RefreshToken = refreshToken;
             Scopes = scopes.Split(" ").ToList();
+            CloudProjectId = cloudProjectId;
+            PubSubClient = new PubSubClient(subscriptionId, CloudProjectId, ProjectId, saveSubscriptionId, GetAccessToken);
+            PubSubClient.OnDeviceUpdated += OnDeviceUpdated;
             UpdateDevices();
-            _ = EventHandler();
+            _ = PubSubClient.Start(Scopes);
         }
 
-        public async Task EventHandler()
+        public event EventHandler<string> OnDevicesUpdated;
+        private void OnDeviceUpdated(object? sender, Device device)
         {
-            //all the bs i had to look up and sort through to put this together along with a little guessing because
-            //google has no documentation on oauth pubsub
-            //https://console.cloud.google.com/home/dashboard
-            //https://grpc.github.io/grpc/csharp/api/Grpc.Auth.GoogleGrpcCredentials.html
-            //https://stackoverflow.com/questions/71437035/google-googleapiexception-google-apis-requests-requesterror-request-had-insuff
-            //https://stackoverflow.com/questions/45806451/authenticate-for-google-cloud-pubsub-using-parameters-from-a-config-file-in-c-n
-            if (!Scopes.Contains("https://www.googleapis.com/auth/pubsub"))
+            var existingDevice = DevicesResponse.Devices.SingleOrDefault(x => x.Name == device.Name);
+            if (existingDevice == null)
             {
                 return;
             }
-            try
+            if (device.Traits.SdmDevicesTraitsInfo != null)
             {
-
-                GoogleCredential googleCredentials = GoogleCredential
-                   .FromAccessToken(AccessToken)
-                   .CreateScoped("https://www.googleapis.com/auth/sdm.service", "https://www.googleapis.com/auth/pubsub");
-
-
-
-                SubscriptionName subscriptionName = new SubscriptionName("aeroveprod", SubscriptionId);
-                TopicName topicName = new TopicName("sdm-prod", $"enterprise-{ProjectId}");
-
-                // Subscribe to the topic.
-                SubscriberServiceApiClientBuilder builder = new SubscriberServiceApiClientBuilder();
-                builder.Credential = googleCredentials;
-                SubscriberServiceApiClient subscriberService = builder.Build();
-                subscriberService.CreateSubscription(subscriptionName, topicName, pushConfig: null, ackDeadlineSeconds: 60);
-
-                // Pull messages from the subscription using SubscriberClient.
-                var grpcCredentials = googleCredentials.ToChannelCredentials();
-                var creationSettings = new SubscriberClient.ClientCreationSettings(credentials: grpcCredentials);
-
-                SubscriberClient subscriber = await SubscriberClient.CreateAsync(subscriptionName, creationSettings);
-                List<PubsubMessage> receivedMessages = new List<PubsubMessage>();
-                // Start the subscriber listening for messages.
-                await subscriber.StartAsync((msg, cancellationToken) =>
-                {
-                    receivedMessages.Add(msg);
-                    Console.WriteLine($"Received message {msg.MessageId} published at {msg.PublishTime.ToDateTime()}");
-                    Console.WriteLine($"Text: '{msg.Data.ToStringUtf8()}'");
-                    // Stop this subscriber after one message is received.
-                    // This is non-blocking, and the returned Task may be awaited.
-                    subscriber.StopAsync(TimeSpan.FromSeconds(15));
-                    // Return Reply.Ack to indicate this message has been handled.
-                    return Task.FromResult(SubscriberClient.Reply.Ack);
-                });
-                subscriberService.DeleteSubscription(subscriptionName);
+                existingDevice.Traits.SdmDevicesTraitsInfo = device.Traits.SdmDevicesTraitsInfo;
             }
-            catch (Exception e)
+
+            if (device.Traits.SdmDevicesTraitsHumidity != null)
             {
-                Console.WriteLine(e);
+                existingDevice.Traits.SdmDevicesTraitsHumidity = device.Traits.SdmDevicesTraitsHumidity;
             }
+
+            if (device.Traits.SdmDevicesTraitsConnectivity != null)
+            {
+                existingDevice.Traits.SdmDevicesTraitsConnectivity = device.Traits.SdmDevicesTraitsConnectivity;
+            }
+
+            if (device.Traits.SdmDevicesTraitsFan != null)
+            {
+                existingDevice.Traits.SdmDevicesTraitsFan = device.Traits.SdmDevicesTraitsFan;
+            }
+
+            if (device.Traits.SdmDevicesTraitsThermostatMode != null)
+            {
+                existingDevice.Traits.SdmDevicesTraitsThermostatMode = device.Traits.SdmDevicesTraitsThermostatMode;
+            }
+
+            if (device.Traits.SdmDevicesTraitsThermostatEco != null)
+            {
+                existingDevice.Traits.SdmDevicesTraitsThermostatEco = device.Traits.SdmDevicesTraitsThermostatEco;
+            }
+
+            if (device.Traits.SdmDevicesTraitsThermostatHvac != null)
+            {
+                existingDevice.Traits.SdmDevicesTraitsThermostatHvac = device.Traits.SdmDevicesTraitsThermostatHvac;
+            }
+
+            if (device.Traits.SdmDevicesTraitsSettings != null)
+            {
+                existingDevice.Traits.SdmDevicesTraitsSettings = device.Traits.SdmDevicesTraitsSettings;
+            }
+
+            if (device.Traits.SdmDevicesTraitsThermostatTemperatureSetpoint != null)
+            {
+                existingDevice.Traits.SdmDevicesTraitsThermostatTemperatureSetpoint = device.Traits.SdmDevicesTraitsThermostatTemperatureSetpoint;
+
+            }
+            if (device.Traits.SdmDevicesTraitsTemperature != null)
+            {
+                existingDevice.Traits.SdmDevicesTraitsTemperature = device.Traits.SdmDevicesTraitsTemperature;
+            }
+
+            OnDevicesUpdated?.Invoke(this, device.Name);
         }
 
         private string RedirectUrl = "";
@@ -139,7 +147,7 @@ namespace Tech.Aerove.Tools.Nest
             AccessToken = response.AccessToken;
             AccessTokenExpireTime = DateTime.Now.AddSeconds(response.ExpiresIn - 10);
             if (!UpdateDevices()) { return null; }
-            _ = EventHandler();
+            _ = PubSubClient.Start(Scopes);
             return RefreshToken;
         }
 
@@ -171,6 +179,7 @@ namespace Tech.Aerove.Tools.Nest
 
         private void CheckUpdateToken()
         {
+
             if (AccessTokenExpireTime > DateTime.Now)
             {
                 return;
@@ -181,6 +190,7 @@ namespace Tech.Aerove.Tools.Nest
             if (response == null) { throw new Exception("Failed to refresh token!"); }
             AccessTokenExpireTime = DateTime.Now.AddSeconds(response.ExpiresIn - 10);
             AccessToken = response.AccessToken;
+            _ = PubSubClient.Start(Scopes);
         }
 
         public bool SetMode(ThermostatDevice thermostat, ThermostatMode mode)

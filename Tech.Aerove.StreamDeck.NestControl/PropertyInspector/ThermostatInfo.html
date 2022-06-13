@@ -14,6 +14,10 @@
     <!--<embed type="text/html" src="https://autobuy.io" width="500" height="200">-->
     <input type="text" id="wow" />
     <div class="sdpi-wrapper">
+        <div class="sdpi-item" id="dvCloudProjectId">
+            <div class="sdpi-item-label">Cloud Project Id</div>
+            <input class="sdpi-item-value sdGProperty" placeholder="" value="" id="cloudProjectId" oninput="setGlobalSettings()">
+        </div>
         <div class="sdpi-item" id="dvClientId">
             <div class="sdpi-item-label">Client Id</div>
             <input class="sdpi-item-value sdGProperty" placeholder="" value="" id="clientId" oninput="setGlobalSettings()">
@@ -37,18 +41,18 @@
             <p>Click here to restart the setup process.</p>
         </div>
         <div class="sdpi-item" id="dvDevice">
-        <div class="sdpi-item-label">Device</div>
-        <select class="sdpi-item-value select sdProperty" id="device" oninput="setSettings()" ></select>
-    </div>
-        <!--<div class="sdpi-item" id="dvDevice">
             <div class="sdpi-item-label">Device</div>
-            <select class="sdpi-item-value select sdProperty sdList"
-                    id="piDevices" oninput="setSettings()"
-                    sdListTextProperty="displayName"
-                    sdListValueProperty="name"
-                    sdValueField="device"></select>-->
-
+            <select class="sdpi-item-value select sdProperty" id="device" oninput="setSettings()"></select>
         </div>
+        <!--<div class="sdpi-item" id="dvDevice">
+        <div class="sdpi-item-label">Device</div>
+        <select class="sdpi-item-value select sdProperty sdList"
+                id="piDevices" oninput="setSettings()"
+                sdListTextProperty="displayName"
+                sdListValueProperty="name"
+                sdValueField="device"></select>-->
+
+    </div>
     </div>
 </body>
 </html>

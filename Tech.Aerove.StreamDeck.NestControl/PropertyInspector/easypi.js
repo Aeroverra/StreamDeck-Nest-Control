@@ -85,12 +85,14 @@ function ShowHide(payload) {
     var val2 = $("#wow").val();
     $("#wow").val(val2 + payload["setup"] === true);
     if (payload["setup"] === true) {
+        $("#dvCloudProjectId").hide();
         $("#dvClientId").hide();
         $("#dvClientSecret").hide();
         $("#dvProjectId").hide();
         $("#dvSetup").hide();
         $("#dvReset").show();
     } else {
+        $("#dvCloudProjectId").show();
         $("#dvClientId").show();
         $("#dvClientSecret").show();
         $("#dvProjectId").show();
