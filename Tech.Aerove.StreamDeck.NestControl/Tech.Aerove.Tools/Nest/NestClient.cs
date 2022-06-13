@@ -56,6 +56,12 @@ namespace Tech.Aerove.Tools.Nest
 
         public async Task EventHandler()
         {
+            //all the bs i had to look up and sort through to put this together along with a little guessing because
+            //google has no documentation on oauth pubsub
+            //https://console.cloud.google.com/home/dashboard
+            //https://grpc.github.io/grpc/csharp/api/Grpc.Auth.GoogleGrpcCredentials.html
+            //https://stackoverflow.com/questions/71437035/google-googleapiexception-google-apis-requests-requesterror-request-had-insuff
+            //https://stackoverflow.com/questions/45806451/authenticate-for-google-cloud-pubsub-using-parameters-from-a-config-file-in-c-n
             if (!Scopes.Contains("https://www.googleapis.com/auth/pubsub"))
             {
                 return;
