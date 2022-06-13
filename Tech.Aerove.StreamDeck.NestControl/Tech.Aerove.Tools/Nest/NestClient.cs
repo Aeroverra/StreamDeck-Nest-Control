@@ -2,6 +2,7 @@
 using Google.Apis.Auth.OAuth2.Flows;
 using Google.Apis.Auth.OAuth2.Responses;
 using Google.Cloud.PubSub.V1;
+using Grpc.Auth;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,58 +60,29 @@ namespace Tech.Aerove.Tools.Nest
             {
                 return;
             }
-            string credential_path = @"PATH TO GOOGLE AUTH CREDENTIAL JSON FILE";
-            //System.Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", credential_path);
             try
             {
 
-
-                var token = new TokenResponse
-                {
-                    RefreshToken = RefreshToken,
-                    Scope = "https://www.googleapis.com/auth/sdm.service https://www.googleapis.com/auth/pubsub",
-                    AccessToken = AccessToken,
-                    IssuedUtc = DateTime.UtcNow,
-                    ExpiresInSeconds = 900
-                };
-                var secrets = new ClientSecrets
-                {
-                    ClientId = ClientId,
-                    ClientSecret = ClientSecret
-                };
-                var i = new GoogleAuthorizationCodeFlow.Initializer
-                {
-                    ClientSecrets = secrets,
-                    ProjectId = "aeroveprod",
-                    Scopes = new[] { "https://www.googleapis.com/auth/sdm.service", "https://www.googleapis.com/auth/pubsub" },
-                };
-                var cf = new GoogleAuthorizationCodeFlow(i);
-
-                ICredential googleCredentials = new UserCredential(cf, "", token);
-
-                //https://www.googleapis.com/auth/sdm.service
-                //https://www.googleapis.com/auth/pubsub
-                //https://www.googleapis.com/auth/cloud-platform
-               googleCredentials = GoogleCredential
+                GoogleCredential googleCredentials = GoogleCredential
                    .FromAccessToken(AccessToken)
                    .CreateScoped("https://www.googleapis.com/auth/sdm.service", "https://www.googleapis.com/auth/pubsub");
 
-                SubscriberServiceApiClientBuilder builder = new SubscriberServiceApiClientBuilder();
-                builder.Credential = googleCredentials;
-                var subscriberService = builder.Build();
 
 
-
-                //SubscriberServiceApiClient subscriberService = await SubscriberServiceApiClient.CreateAsync();
                 SubscriptionName subscriptionName = new SubscriptionName("aeroveprod", SubscriptionId);
-
+                TopicName topicName = new TopicName("sdm-prod", $"enterprise-{ProjectId}");
 
                 // Subscribe to the topic.
-                TopicName topicName = new TopicName("sdm-prod", $"enterprise-{ProjectId}");
+                SubscriberServiceApiClientBuilder builder = new SubscriberServiceApiClientBuilder();
+                builder.Credential = googleCredentials;
+                SubscriberServiceApiClient subscriberService = builder.Build();
                 subscriberService.CreateSubscription(subscriptionName, topicName, pushConfig: null, ackDeadlineSeconds: 60);
 
                 // Pull messages from the subscription using SubscriberClient.
-                SubscriberClient subscriber = await SubscriberClient.CreateAsync(subscriptionName);
+                var grpcCredentials = googleCredentials.ToChannelCredentials();
+                var creationSettings = new SubscriberClient.ClientCreationSettings(credentials: grpcCredentials);
+
+                SubscriberClient subscriber = await SubscriberClient.CreateAsync(subscriptionName, creationSettings);
                 List<PubsubMessage> receivedMessages = new List<PubsubMessage>();
                 // Start the subscriber listening for messages.
                 await subscriber.StartAsync((msg, cancellationToken) =>
