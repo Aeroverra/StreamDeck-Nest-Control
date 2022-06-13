@@ -33,7 +33,7 @@ namespace Tech.Aerove.StreamDeck.NestControl.Actions
         private ThermostatDevice GetThermostat()
         {
             var lookupThermostat = _handler.GetDevice(DeviceName);
-            if (_thermostat == null || lookupThermostat.Name != _thermostat.Name)
+            if (_thermostat == null || lookupThermostat != _thermostat)
             {
                 if (_thermostat != null)
                 {
@@ -60,7 +60,22 @@ namespace Tech.Aerove.StreamDeck.NestControl.Actions
                     {
                         CurrentSetPoint = Thermostat.SetPoint;
                     }
-                    await Dispatcher.SetTitleAsync($"{Thermostat.Mode}\n{Thermostat.SetPoint}");
+                    var mode = Thermostat.Mode;
+                    var modeText = $"{mode}";
+                    if (Thermostat.Mode == ThermostatMode.COOL)
+                    {
+                        await Dispatcher.SetImageAsync(ImageColors.Blue.DataUri);
+                    }
+                    if (Thermostat.Mode == ThermostatMode.HEAT)
+                    {
+                        await Dispatcher.SetImageAsync(ImageColors.Red.DataUri);
+                    }
+                    if (Thermostat.Mode == ThermostatMode.HEATCOOL)
+                    {
+                        await Dispatcher.SetImageAsync(ImageColors.RedBlue.DataUri);
+                        modeText = "H&C";
+                    }
+                    await Dispatcher.SetTitleAsync($"{modeText}\n{Thermostat.SetPoint}");
                     await Task.Delay(5000);
                     await Dispatcher.SetTitleAsync($"{Thermostat.CurrentTemperature}");
                 }
@@ -68,7 +83,6 @@ namespace Tech.Aerove.StreamDeck.NestControl.Actions
                 {
 
                 }
-                await Task.Delay(60000);
             }
         }
        

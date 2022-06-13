@@ -17,7 +17,7 @@ namespace Tech.Aerove.Tools.Nest
         public List<string> Scopes { get; private set; } = new List<string>();
         private DateTime AccessTokenExpireTime = DateTime.MinValue;
         internal DevicesResponse DevicesResponse { get; set; } = new DevicesResponse();
-
+        private List<ThermostatDevice> ThermostatDevices = new List<ThermostatDevice>();
         private static SemaphoreSlim Lock = new SemaphoreSlim(1);
 
         public string GetAccessToken()
@@ -58,6 +58,7 @@ namespace Tech.Aerove.Tools.Nest
         }
 
         public event EventHandler<string> OnDevicesUpdated;
+
         private void OnDeviceUpdated(object? sender, Device device)
         {
             var existingDevice = DevicesResponse.Devices.SingleOrDefault(x => x.Name == device.Name);
@@ -153,26 +154,36 @@ namespace Tech.Aerove.Tools.Nest
 
         public ThermostatDevice GetThermostat(string name)
         {
+            var thermostatDevice = ThermostatDevices.FirstOrDefault(x => x.Name == name);
+            if (thermostatDevice != null)
+            {
+                return thermostatDevice;
+            }
             var device = DevicesResponse.Devices.FirstOrDefault(x => x.Name.ToLower() == name.ToLower());
-            var thermostatDevice = new ThermostatDevice(this, device.Name);
+            thermostatDevice = new ThermostatDevice(this, device.Name);
+            ThermostatDevices.Add(thermostatDevice);
             return thermostatDevice;
         }
 
         public List<ThermostatDevice> GetThermostats()
         {
-            var thermostats = new List<ThermostatDevice>();
             foreach (var device in DevicesResponse.Devices.Where(x => x.Type == "sdm.devices.types.THERMOSTAT"))
             {
-                thermostats.Add(new ThermostatDevice(this, device.Name));
+                if (ThermostatDevices.Any(x => x.Name == device.Name))
+                {
+                    continue;
+                }
+                ThermostatDevices.Add(new ThermostatDevice(this, device.Name));
             }
-            return thermostats;
+            return ThermostatDevices;
         }
 
         private bool UpdateDevices()
         {
             CheckUpdateToken();
-            DevicesResponse = WebCalls.GetDevices(ProjectId, AccessToken);
+            var newDevicesResponse = WebCalls.GetDevices(ProjectId, AccessToken);
             if (DevicesResponse == null) { return false; }
+            DevicesResponse.Update(newDevicesResponse);
             return true;
         }
 

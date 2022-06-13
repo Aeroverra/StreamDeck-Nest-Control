@@ -119,13 +119,12 @@ namespace Tech.Aerove.Tools.Nest
         {
             var publishedTime = msg.PublishTime.ToDateTime();
             var content = msg.Data.ToStringUtf8();
-            if(publishedTime < LastMsgPublish)
+            if (publishedTime < LastMsgPublish)
             {
                 return Task.FromResult(SubscriberClient.Reply.Ack);
             }
             LastMsgPublish = publishedTime;
             Console.WriteLine($"Received message {msg.MessageId} published at {publishedTime}");
-            Console.WriteLine($"Text: {content}");
 
             var jobject = JObject.Parse(content);
             var device = jobject["resourceUpdate"].ToObject<Device>();

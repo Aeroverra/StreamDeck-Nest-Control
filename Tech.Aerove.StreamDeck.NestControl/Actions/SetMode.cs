@@ -27,14 +27,13 @@ namespace Tech.Aerove.StreamDeck.NestControl.Actions
         {
             _logger = logger;
             _handler = handler;
-            _ = OnUpdateAsync();
         }
         private ThermostatDevice Thermostat => GetThermostat();
         private ThermostatDevice _thermostat { get; set; }
         private ThermostatDevice GetThermostat()
         {
             var lookupThermostat = _handler.GetDevice(DeviceName);
-            if (_thermostat == null || lookupThermostat.Name != _thermostat.Name)
+            if (_thermostat == null || lookupThermostat != _thermostat)
             {
                 if (_thermostat != null)
                 {
@@ -49,6 +48,7 @@ namespace Tech.Aerove.StreamDeck.NestControl.Actions
         {
             _ = OnUpdateAsync();
         }
+
         public async Task OnUpdateAsync()
         {
 
@@ -62,6 +62,10 @@ namespace Tech.Aerove.StreamDeck.NestControl.Actions
             }
 
 
+        }
+        public override async Task WillAppearAsync()
+        {
+            await OnUpdateAsync();
         }
         public override async Task KeyDownAsync(int userDesiredState)
         {

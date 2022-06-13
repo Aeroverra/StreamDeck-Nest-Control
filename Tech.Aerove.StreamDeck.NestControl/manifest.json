@@ -47,7 +47,7 @@
         {
           "Image": "PropertyInspector/images/aimage",
           "TitleAlignment": "middle",
-          "FontSize": "16"
+          "FontSize": "18"
         }
       ],
       "SupportedInMultiActions": true,
@@ -62,7 +62,7 @@
         {
           "Image": "PropertyInspector/images/aimage",
           "TitleAlignment": "middle",
-          "FontSize": "16"
+          "FontSize": "18"
         }
       ],
       "SupportedInMultiActions": true,

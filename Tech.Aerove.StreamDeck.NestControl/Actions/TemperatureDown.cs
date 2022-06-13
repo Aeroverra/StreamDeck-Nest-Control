@@ -26,7 +26,6 @@ namespace Tech.Aerove.StreamDeck.NestControl.Actions
         {
             _logger = logger;
             _handler = handler;
-            _ = OnUpdateAsync();
         }
 
 
@@ -35,32 +34,15 @@ namespace Tech.Aerove.StreamDeck.NestControl.Actions
         private ThermostatDevice GetThermostat()
         {
             var lookupThermostat = _handler.GetDevice(DeviceName);
-            if (_thermostat == null || lookupThermostat.Name != _thermostat.Name)
+            if (_thermostat == null || lookupThermostat != _thermostat)
             {
-                if (_thermostat != null)
-                {
-                    _thermostat.OnUpdate -= OnUpdate;
-                }
                 _thermostat = lookupThermostat;
-                _thermostat.OnUpdate += OnUpdate;
             }
             return _thermostat;
         }
-        public void OnUpdate()
+        public override async Task WillAppearAsync()
         {
-            _ = OnUpdateAsync();
-        }
-        public async Task OnUpdateAsync()
-        {
-            if (string.IsNullOrWhiteSpace(DeviceName)) { return; }
-
-            if (CurrentSetPoint != Thermostat.SetPoint)
-            {
-                CurrentSetPoint = Thermostat.SetPoint;
-                await Dispatcher.SetTitleAsync($"{Thermostat.SetPoint}");
-            }
-
-
+            await Dispatcher.SetTitleAsync($"-");
         }
         public override async Task KeyDownAsync(int userDesiredState)
         {
@@ -73,7 +55,7 @@ namespace Tech.Aerove.StreamDeck.NestControl.Actions
             var success = Thermostat.SetTempDown(TemperatureStep);
             if (!success) { await Dispatcher.ShowAlertAsync(); return; }
             CurrentSetPoint = Thermostat.SetPoint;
-            await Dispatcher.SetTitleAsync($"{Thermostat.SetPoint}");
+            await Dispatcher.ShowOkAsync();
         }
     }
 }

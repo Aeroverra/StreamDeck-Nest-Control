@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Google.Apis.SmartDeviceManagement.v1;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
 using System;
