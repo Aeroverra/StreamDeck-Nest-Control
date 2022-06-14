@@ -17,9 +17,8 @@ namespace Tech.Aerove.StreamDeck.NestControl.Actions
     public class TemperatureUp : ActionBase
     {
         private string DeviceName => $"{Context.Settings["device"]}";
-
         private int TemperatureStep => int.Parse($"{Context.Settings["temperatureStep"]}");
-        private decimal CurrentSetPoint = 0;
+        private ThermostatDevice Thermostat => _handler.GetDevice(DeviceName);
 
         private readonly ExampleService _handler;
         private readonly ILogger<TemperatureUp> _logger;
@@ -29,17 +28,7 @@ namespace Tech.Aerove.StreamDeck.NestControl.Actions
             _handler = handler;
         }
 
-        private ThermostatDevice Thermostat => GetThermostat();
-        private ThermostatDevice _thermostat { get; set; }
-        private ThermostatDevice GetThermostat()
-        {
-            var lookupThermostat = _handler.GetDevice(DeviceName);
-            if (_thermostat == null || lookupThermostat != _thermostat)
-            {
-                _thermostat = lookupThermostat;
-            }
-            return _thermostat;
-        }
+      
 
         public override async Task WillAppearAsync()
         {
@@ -55,7 +44,6 @@ namespace Tech.Aerove.StreamDeck.NestControl.Actions
             }
             var success = Thermostat.SetTempUp(TemperatureStep);
             if (!success) { await Dispatcher.ShowAlertAsync(); return; }
-            CurrentSetPoint = Thermostat.SetPoint;
             await Dispatcher.ShowOkAsync();
         }
     }

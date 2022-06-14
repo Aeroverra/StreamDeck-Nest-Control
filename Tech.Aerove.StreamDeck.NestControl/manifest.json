@@ -83,7 +83,7 @@
       "SupportedInMultiActions": true,
       "Tooltip": "Sets the thermostat mode.",
       "UUID": "tech.aerove.streamdeck.nestcontrol.setmode",
-      "PropertyInspectorPath": "PropertyInspector/TempUpDown.html"
+      "PropertyInspectorPath": "PropertyInspector/SetMode.html"
     }
   ]
 }

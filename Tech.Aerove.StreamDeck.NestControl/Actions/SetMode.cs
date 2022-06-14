@@ -17,9 +17,8 @@ namespace Tech.Aerove.StreamDeck.NestControl.Actions
     public class SetMode : ActionBase
     {
         private string DeviceName => $"{Context.Settings["device"]}";
-
-        private int TemperatureStep => int.Parse($"{Context.Settings["temperatureStep"]}");
-        private ThermostatMode CurrentMode = ThermostatMode.OFF;
+        private ThermostatMode ButtonMode => (ThermostatMode)Enum.Parse(typeof(ThermostatMode), $"{Context.Settings["setMode"]}");
+        private ThermostatDevice Thermostat { get; set; }
 
         private readonly ExampleService _handler;
         private readonly ILogger<TemperatureUp> _logger;
@@ -27,61 +26,96 @@ namespace Tech.Aerove.StreamDeck.NestControl.Actions
         {
             _logger = logger;
             _handler = handler;
+            _ = AwaitDevice();
         }
-        private ThermostatDevice Thermostat => GetThermostat();
-        private ThermostatDevice _thermostat { get; set; }
-        private ThermostatDevice GetThermostat()
+        public override async Task DidReceiveSettingsAsync(JObject settings)
         {
-            var lookupThermostat = _handler.GetDevice(DeviceName);
-            if (_thermostat == null || lookupThermostat != _thermostat)
-            {
-                if (_thermostat != null)
-                {
-                    _thermostat.OnUpdate -= OnUpdate;
-                }
-                _thermostat = lookupThermostat;
-                _thermostat.OnUpdate += OnUpdate;
-            }
-            return _thermostat;
+            await SetInfo();
         }
+        private async Task AwaitDevice()
+        {
+            while (true)
+            {
+                try
+                {
+                    if (string.IsNullOrWhiteSpace(DeviceName))
+                    {
+                        await Task.Delay(2000);
+                        continue;
+                    }
+                    var lookupThermostat = _handler.GetDevice(DeviceName);
+                    if (Thermostat != null)
+                    {
+                        Thermostat.OnUpdate -= OnUpdate;
+                    }
+                    Thermostat = lookupThermostat;
+                    Thermostat.OnUpdate += OnUpdate;
+                    await SetInfo();
+                    return;
+                }
+                catch
+                {
+                    await Task.Delay(2000);
+                }
+            }
+        }
+
         public void OnUpdate()
         {
-            _ = OnUpdateAsync();
+            _ = SetInfo();
         }
-
-        public async Task OnUpdateAsync()
+        public async Task SetInfo()
         {
-
-
-            if (string.IsNullOrWhiteSpace(DeviceName)) { return; }
-
-            if (CurrentMode != Thermostat.Mode)
+            if (Thermostat.Mode != ButtonMode)
             {
-                CurrentMode = Thermostat.Mode;
-                await Dispatcher.SetTitleAsync($"{Thermostat.Mode}");
+                await Dispatcher.SetImageAsync("");
+                if(ButtonMode == ThermostatMode.HEATCOOL)
+                {
+                    await Dispatcher.SetTitleAsync($"H&C");
+                    return;
+                }
+                await Dispatcher.SetTitleAsync($"{ButtonMode}");
+                return;
+            }
+            if (Thermostat.Mode == ThermostatMode.COOL)
+            {
+                await Dispatcher.SetImageAsync(ImageColors.Blue.DataUri);
+                await Dispatcher.SetTitleAsync($"{Thermostat.Mode}\n{Thermostat.SetPoint}");
+            }
+            else if (Thermostat.Mode == ThermostatMode.HEAT)
+            {
+                await Dispatcher.SetImageAsync(ImageColors.Red.DataUri);
+                await Dispatcher.SetTitleAsync($"{Thermostat.Mode}\n{Thermostat.SetPoint}");
+            }
+            else if (Thermostat.Mode == ThermostatMode.HEATCOOL)
+            {
+                await Dispatcher.SetImageAsync(ImageColors.RedBlue.DataUri);
+                await Dispatcher.SetTitleAsync($"H&C");
+            }
+            else if (Thermostat.Mode == ThermostatMode.OFF)
+            {
+                await Dispatcher.SetImageAsync("");
+                await Dispatcher.SetTitleAsync($"{Thermostat.Mode}\nNone\nSet");
             }
 
 
-        }
-        public override async Task WillAppearAsync()
-        {
-            await OnUpdateAsync();
         }
         public override async Task KeyDownAsync(int userDesiredState)
         {
             var success = false;
-            if (CurrentMode != ThermostatMode.OFF)
+            if (Thermostat.Mode != ThermostatMode.OFF)
             {
                 success = Thermostat.SetMode(ThermostatMode.OFF);
             }
             else
             {
-                success = Thermostat.SetMode(ThermostatMode.COOL);
+                success = Thermostat.SetMode(ButtonMode);
             }
-            if (!success) { await Dispatcher.ShowAlertAsync(); return; }
-            await Dispatcher.SetTitleAsync($"{Thermostat.Mode}");
-
-
+            if (!success)
+            {
+                await Dispatcher.ShowAlertAsync(); return;
+            }
+            await SetInfo();
         }
     }
 }

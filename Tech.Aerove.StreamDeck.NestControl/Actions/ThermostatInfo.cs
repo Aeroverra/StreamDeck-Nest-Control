@@ -17,8 +17,7 @@ namespace Tech.Aerove.StreamDeck.NestControl.Actions
     {
         private string DeviceName => $"{Context.Settings["device"]}";
 
-        private int TemperatureStep => int.Parse($"{Context.Settings["temperatureStep"]}");
-        private decimal CurrentSetPoint = 0;
+        private ThermostatDevice Thermostat { get; set; }
 
         private readonly ILogger<TemperatureDown> _logger;
         private readonly ExampleService _handler;
@@ -26,56 +25,63 @@ namespace Tech.Aerove.StreamDeck.NestControl.Actions
         {
             _logger = logger;
             _handler = handler;
+            _ = AwaitDevice();
             _ = Ticker();
         }
-        private ThermostatDevice Thermostat => GetThermostat();
-        private ThermostatDevice _thermostat { get; set; }
-        private ThermostatDevice GetThermostat()
+
+        private async Task AwaitDevice()
         {
-            var lookupThermostat = _handler.GetDevice(DeviceName);
-            if (_thermostat == null || lookupThermostat != _thermostat)
+            while (true)
             {
-                if (_thermostat != null)
+                try
                 {
-                    _thermostat.OnUpdate -= OnUpdate;
+                    if (string.IsNullOrWhiteSpace(DeviceName))
+                    {
+                        await Task.Delay(2000);
+                        continue;
+                    }
+                    var lookupThermostat = _handler.GetDevice(DeviceName);
+                    Thermostat = lookupThermostat;
+                    return;
                 }
-                _thermostat = lookupThermostat;
-                _thermostat.OnUpdate += OnUpdate;
+                catch
+                {
+                    await Task.Delay(2000);
+                }
             }
-            return _thermostat;
         }
-        public void OnUpdate()
-        {
-            CurrentSetPoint = Thermostat.SetPoint;
-        }
+
         public async Task Ticker()
         {
             while (true)
             {
                 await Task.Delay(5000);
-                if (string.IsNullOrWhiteSpace(DeviceName)) { continue; }
+                if (string.IsNullOrWhiteSpace(DeviceName) || Thermostat == null) { continue; }
                 try
                 {
-                    if (CurrentSetPoint != Thermostat.SetPoint)
-                    {
-                        CurrentSetPoint = Thermostat.SetPoint;
-                    }
                     var mode = Thermostat.Mode;
-                    var modeText = $"{mode}";
+                    var modeText = $"";
                     if (Thermostat.Mode == ThermostatMode.COOL)
                     {
                         await Dispatcher.SetImageAsync(ImageColors.Blue.DataUri);
+                        modeText = $"{mode}\n{Thermostat.SetPoint}";
                     }
                     if (Thermostat.Mode == ThermostatMode.HEAT)
                     {
                         await Dispatcher.SetImageAsync(ImageColors.Red.DataUri);
+                        modeText = $"{mode}\n{Thermostat.SetPoint}";
                     }
                     if (Thermostat.Mode == ThermostatMode.HEATCOOL)
                     {
                         await Dispatcher.SetImageAsync(ImageColors.RedBlue.DataUri);
-                        modeText = "H&C";
+                        modeText = "H&C\n";
                     }
-                    await Dispatcher.SetTitleAsync($"{modeText}\n{Thermostat.SetPoint}");
+                    if (Thermostat.Mode == ThermostatMode.OFF)
+                    {
+                        await Dispatcher.SetImageAsync("");
+                        modeText = $"{mode}";
+                    }
+                    await Dispatcher.SetTitleAsync($"{modeText}");
                     await Task.Delay(5000);
                     await Dispatcher.SetTitleAsync($"{Thermostat.CurrentTemperature}");
                 }
@@ -85,6 +91,6 @@ namespace Tech.Aerove.StreamDeck.NestControl.Actions
                 }
             }
         }
-       
+
     }
 }

@@ -47,6 +47,25 @@ namespace Tech.Aerove.StreamDeck.NestControl
             _eventsManager.OnDidReceiveGlobalSettings += OnDidRecieveGlobalSettings;
         }
 
+        protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+        {
+            if (_config.GetValue<bool>("DevLogParametersOnly", false)) { return; }
+            using (HttpListener listener = new HttpListener())
+            {
+                listener.Prefixes.Add("http://localhost:20777/");
+                listener.Start();
+                while (!stoppingToken.IsCancellationRequested)
+                {
+                    // Note: The GetContext method blocks while waiting for a request.
+                    HttpListenerContext context = await listener.GetContextAsync();
+
+                    //Process request without blocking in order to handle multiple requests if needed
+                    _ = Task.Run(() => ProcessRequest(context, stoppingToken));
+                }
+            }
+        }
+
+
         protected void OnSendToPlugin(object? sender, SendToPluginEvent e)
         {
             LastContext = e.Context;
@@ -61,6 +80,7 @@ namespace Tech.Aerove.StreamDeck.NestControl
                 Setup();
             }
         }
+
         private void Reset()
         {
             GlobalSettings["setup"] = false; GlobalSettings["piDevices"] = null;
@@ -68,6 +88,7 @@ namespace Tech.Aerove.StreamDeck.NestControl
             _dispatcher.SendToPropertyInspector(LastContext, LastUUID, new { Update = true });
             return;
         }
+
         private void Setup()
         {
             _dispatcher.GetGlobalSettings();
@@ -96,23 +117,6 @@ namespace Tech.Aerove.StreamDeck.NestControl
             firstLoad = false;
         }
 
-        protected override async Task ExecuteAsync(CancellationToken stoppingToken)
-        {
-            if (_config.GetValue<bool>("DevLogParametersOnly", false)) { return; }
-            using (HttpListener listener = new HttpListener())
-            {
-                listener.Prefixes.Add("http://localhost:20777/");
-                listener.Start();
-                while (!stoppingToken.IsCancellationRequested)
-                {
-                    // Note: The GetContext method blocks while waiting for a request.
-                    HttpListenerContext context = await listener.GetContextAsync();
-
-                    //Process request without blocking in order to handle multiple requests if needed
-                    _ = Task.Run(() => ProcessRequest(context, stoppingToken));
-                }
-            }
-        }
 
         protected async Task ProcessRequest(HttpListenerContext _http, CancellationToken stoppingToken)
         {
@@ -162,5 +166,7 @@ namespace Tech.Aerove.StreamDeck.NestControl
         {
             return Client.GetThermostat(name);
         }
+
+
     }
 }

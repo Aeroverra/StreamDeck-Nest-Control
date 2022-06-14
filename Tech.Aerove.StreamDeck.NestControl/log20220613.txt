@@ -1,0 +1,1327 @@
+2022-06-13 20:06:29.761 -05:00 [DBG] Hosting starting
+2022-06-13 20:07:24.242 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-06-13 20:07:24.243 -05:00 [INF] Hosting environment: Development
+2022-06-13 20:07:24.245 -05:00 [INF] Content root path: C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl
+2022-06-13 20:07:24.245 -05:00 [DBG] Hosting started
+2022-06-13 20:07:26.361 -05:00 [DBG] [Received] Event Type: "DeviceDidConnect"
+2022-06-13 20:07:26.366 -05:00 [DBG] Received first message. Holding messages until global settings are received!
+2022-06-13 20:07:26.371 -05:00 [DBG] [Sending] Event Type: getGlobalSettings
+2022-06-13 20:07:26.394 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 20:07:26.399 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 20:07:26.402 -05:00 [DBG] [Received] Event Type: "DidReceiveGlobalSettings"
+2022-06-13 20:07:28.234 -05:00 [DBG] Received global settings! Releasing 3 pending messages.
+2022-06-13 20:07:59.871 -05:00 [DBG] Listening on "ws://localhost:28196/"
+2022-06-13 20:07:59.877 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:08:04.883 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:08:09.911 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:08:14.922 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:08:19.928 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:08:24.942 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:08:29.958 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:08:34.967 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:08:39.986 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:08:44.999 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:08:50.028 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:08:55.038 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:09:00.070 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:40:15.135 -05:00 [DBG] Hosting starting
+2022-06-13 20:40:21.055 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-06-13 20:40:21.056 -05:00 [INF] Hosting environment: Development
+2022-06-13 20:40:21.058 -05:00 [INF] Content root path: C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl
+2022-06-13 20:40:21.058 -05:00 [DBG] Hosting started
+2022-06-13 20:40:23.151 -05:00 [DBG] [Received] Event Type: "DeviceDidConnect"
+2022-06-13 20:40:23.156 -05:00 [DBG] Received first message. Holding messages until global settings are received!
+2022-06-13 20:40:23.158 -05:00 [DBG] [Sending] Event Type: getGlobalSettings
+2022-06-13 20:40:23.177 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 20:40:23.183 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 20:40:23.187 -05:00 [DBG] [Received] Event Type: "DidReceiveGlobalSettings"
+2022-06-13 20:40:24.754 -05:00 [DBG] Received global settings! Releasing 3 pending messages.
+2022-06-13 20:40:33.379 -05:00 [DBG] Listening on "ws://localhost:28196/"
+2022-06-13 20:41:26.832 -05:00 [DBG] Hosting starting
+2022-06-13 20:41:27.133 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-06-13 20:41:27.134 -05:00 [INF] Hosting environment: Development
+2022-06-13 20:41:27.135 -05:00 [INF] Content root path: C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl
+2022-06-13 20:41:27.136 -05:00 [DBG] Hosting started
+2022-06-13 20:41:29.243 -05:00 [DBG] [Received] Event Type: "DeviceDidConnect"
+2022-06-13 20:41:29.248 -05:00 [DBG] Received first message. Holding messages until global settings are received!
+2022-06-13 20:41:29.250 -05:00 [DBG] [Sending] Event Type: getGlobalSettings
+2022-06-13 20:41:29.268 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 20:41:29.274 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 20:41:29.276 -05:00 [DBG] [Received] Event Type: "DidReceiveGlobalSettings"
+2022-06-13 20:41:30.770 -05:00 [DBG] Received global settings! Releasing 3 pending messages.
+2022-06-13 20:41:30.991 -05:00 [DBG] Listening on "ws://localhost:28196/"
+2022-06-13 20:42:48.187 -05:00 [DBG] Hosting starting
+2022-06-13 20:42:48.573 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-06-13 20:42:48.574 -05:00 [INF] Hosting environment: Development
+2022-06-13 20:42:48.575 -05:00 [INF] Content root path: C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl
+2022-06-13 20:42:48.576 -05:00 [DBG] Hosting started
+2022-06-13 20:42:50.695 -05:00 [DBG] [Received] Event Type: "DeviceDidConnect"
+2022-06-13 20:42:50.701 -05:00 [DBG] Received first message. Holding messages until global settings are received!
+2022-06-13 20:42:50.708 -05:00 [DBG] [Sending] Event Type: getGlobalSettings
+2022-06-13 20:42:50.727 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 20:42:50.732 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 20:42:50.734 -05:00 [DBG] [Received] Event Type: "DidReceiveGlobalSettings"
+2022-06-13 20:42:52.320 -05:00 [DBG] Received global settings! Releasing 3 pending messages.
+2022-06-13 20:44:20.580 -05:00 [DBG] Hosting starting
+2022-06-13 20:44:20.875 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-06-13 20:44:20.876 -05:00 [INF] Hosting environment: Development
+2022-06-13 20:44:20.877 -05:00 [INF] Content root path: C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl
+2022-06-13 20:44:20.878 -05:00 [DBG] Hosting started
+2022-06-13 20:44:22.987 -05:00 [DBG] [Received] Event Type: "DeviceDidConnect"
+2022-06-13 20:44:22.992 -05:00 [DBG] Received first message. Holding messages until global settings are received!
+2022-06-13 20:44:22.994 -05:00 [DBG] [Sending] Event Type: getGlobalSettings
+2022-06-13 20:44:23.016 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 20:44:23.021 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 20:44:23.024 -05:00 [DBG] [Received] Event Type: "DidReceiveGlobalSettings"
+2022-06-13 20:44:24.559 -05:00 [DBG] Received global settings! Releasing 3 pending messages.
+2022-06-13 20:44:36.987 -05:00 [DBG] Listening on "ws://localhost:28196/"
+2022-06-13 20:44:42.972 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:44:47.989 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:44:52.998 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:44:58.018 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:45:03.036 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:45:08.047 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:45:13.077 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:45:18.095 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:45:23.134 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:45:28.154 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:45:33.170 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:45:38.197 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:45:43.213 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:45:48.234 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:45:53.247 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:45:58.269 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:46:03.291 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:46:08.297 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:46:13.303 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:46:18.317 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:46:23.330 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:46:28.337 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:46:33.347 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:46:38.365 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:46:43.386 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:46:48.420 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:46:53.452 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:46:58.481 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:47:03.496 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:47:08.504 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:47:13.526 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:47:18.533 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:47:23.542 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:47:28.557 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:47:33.576 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:47:38.596 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:47:43.614 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:47:48.630 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:47:53.650 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:47:58.662 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:48:03.692 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:48:08.702 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:48:13.738 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:48:18.756 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:48:23.769 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:48:28.792 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:48:33.811 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:48:38.826 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:48:43.865 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:48:48.886 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:48:53.904 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:49:03.052 -05:00 [DBG] Hosting starting
+2022-06-13 20:49:03.370 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-06-13 20:49:03.371 -05:00 [INF] Hosting environment: Development
+2022-06-13 20:49:03.373 -05:00 [INF] Content root path: C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl
+2022-06-13 20:49:03.373 -05:00 [DBG] Hosting started
+2022-06-13 20:49:05.476 -05:00 [DBG] [Received] Event Type: "DeviceDidConnect"
+2022-06-13 20:49:05.481 -05:00 [DBG] Received first message. Holding messages until global settings are received!
+2022-06-13 20:49:05.484 -05:00 [DBG] [Sending] Event Type: getGlobalSettings
+2022-06-13 20:49:05.502 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 20:49:05.507 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 20:49:05.509 -05:00 [DBG] [Received] Event Type: "DidReceiveGlobalSettings"
+2022-06-13 20:49:06.931 -05:00 [DBG] Received global settings! Releasing 3 pending messages.
+2022-06-13 20:49:07.147 -05:00 [DBG] Listening on "ws://localhost:28196/"
+2022-06-13 20:49:36.437 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 20:49:36.444 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:49:41.460 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:49:46.469 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 20:49:46.474 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:49:51.493 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:49:56.502 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 20:49:56.507 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:50:01.521 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:50:06.537 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 20:50:06.541 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:50:11.553 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:50:16.576 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 20:50:16.590 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:50:21.639 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:50:26.668 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 20:50:26.675 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:50:31.689 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:50:36.696 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 20:50:36.700 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:50:41.719 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:50:46.738 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 20:50:46.743 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:50:51.762 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:50:56.783 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 20:50:56.795 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:51:01.810 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:51:06.821 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 20:51:06.826 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:51:11.851 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:51:16.866 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 20:51:16.870 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:51:21.881 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:51:26.893 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 20:51:26.897 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:51:31.910 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 20:51:36.926 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 20:51:36.929 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:11:53.872 -05:00 [DBG] Hosting starting
+2022-06-13 21:11:54.171 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-06-13 21:11:54.172 -05:00 [INF] Hosting environment: Development
+2022-06-13 21:11:54.174 -05:00 [INF] Content root path: C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl
+2022-06-13 21:11:54.175 -05:00 [DBG] Hosting started
+2022-06-13 21:11:56.278 -05:00 [DBG] [Received] Event Type: "DeviceDidConnect"
+2022-06-13 21:11:56.282 -05:00 [DBG] Received first message. Holding messages until global settings are received!
+2022-06-13 21:11:56.285 -05:00 [DBG] [Sending] Event Type: getGlobalSettings
+2022-06-13 21:11:56.305 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 21:11:56.310 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 21:11:56.312 -05:00 [DBG] [Received] Event Type: "DidReceiveGlobalSettings"
+2022-06-13 21:11:57.891 -05:00 [DBG] Received global settings! Releasing 3 pending messages.
+2022-06-13 21:11:58.122 -05:00 [DBG] Listening on "ws://localhost:28196/"
+2022-06-13 21:12:03.134 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:12:03.140 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:12:08.169 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:12:13.191 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:12:13.196 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:12:15.899 -05:00 [DBG] [Received] Event Type: "WillDisappear"
+2022-06-13 21:12:15.988 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 21:12:16.020 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 21:12:16.335 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidAppear"
+2022-06-13 21:12:16.339 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-13 21:12:18.221 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:12:20.824 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-13 21:12:21.740 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidAppear"
+2022-06-13 21:12:21.741 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-13 21:12:21.854 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidDisappear"
+2022-06-13 21:12:22.563 -05:00 [DBG] [Received] Event Type: "WillDisappear"
+2022-06-13 21:12:22.567 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-13 21:12:23.228 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:12:23.233 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:12:23.559 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidDisappear"
+2022-06-13 21:12:26.875 -05:00 [DBG] [Received] Event Type: "WillDisappear"
+2022-06-13 21:12:28.253 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:12:29.556 -05:00 [DBG] [Received] Event Type: "WillDisappear"
+2022-06-13 21:12:29.557 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 21:12:29.559 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 21:12:29.562 -05:00 [DBG] [Received] Event Type: "WillDisappear"
+2022-06-13 21:12:29.566 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 21:12:29.574 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 21:12:29.939 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidAppear"
+2022-06-13 21:12:29.940 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-13 21:12:30.576 -05:00 [DBG] [Received] Event Type: "WillDisappear"
+2022-06-13 21:12:30.584 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-13 21:12:31.558 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidDisappear"
+2022-06-13 21:12:31.857 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 21:12:31.861 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 21:12:32.682 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidAppear"
+2022-06-13 21:12:32.683 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-13 21:12:33.278 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:12:33.287 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:12:33.493 -05:00 [DBG] [Received] Event Type: "WillDisappear"
+2022-06-13 21:12:33.496 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-13 21:12:34.480 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidDisappear"
+2022-06-13 21:12:34.773 -05:00 [DBG] [Received] Event Type: "WillDisappear"
+2022-06-13 21:12:36.189 -05:00 [DBG] [Received] Event Type: "WillDisappear"
+2022-06-13 21:12:36.272 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 21:12:36.300 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 21:12:36.485 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidAppear"
+2022-06-13 21:12:36.487 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-13 21:12:38.293 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:12:41.292 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:12:41.296 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:12:41.307 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:12:41.311 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:12:43.326 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:12:43.342 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:12:46.303 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:12:46.321 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:12:46.558 -05:00 [DBG] [Received] Event Type: "WillDisappear"
+2022-06-13 21:12:46.599 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-13 21:12:47.416 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidDisappear"
+2022-06-13 21:12:47.656 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 21:12:47.657 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 21:12:48.362 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:12:51.334 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:12:51.342 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:12:51.344 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:12:51.347 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:12:53.375 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:12:53.379 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:13:08.041 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:13:08.074 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:13:08.099 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:13:13.069 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:13:13.075 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:13:13.143 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:13:13.143 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:13:13.149 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:13:13.151 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:13:27.132 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:13:27.132 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:13:27.133 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:13:38.470 -05:00 [DBG] Hosting starting
+2022-06-13 21:13:38.764 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-06-13 21:13:38.765 -05:00 [INF] Hosting environment: Development
+2022-06-13 21:13:38.766 -05:00 [INF] Content root path: C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl
+2022-06-13 21:13:38.766 -05:00 [DBG] Hosting started
+2022-06-13 21:13:40.883 -05:00 [DBG] [Received] Event Type: "DeviceDidConnect"
+2022-06-13 21:13:40.888 -05:00 [DBG] Received first message. Holding messages until global settings are received!
+2022-06-13 21:13:40.890 -05:00 [DBG] [Sending] Event Type: getGlobalSettings
+2022-06-13 21:13:40.908 -05:00 [DBG] Listening on "ws://localhost:28196/"
+2022-06-13 21:13:40.912 -05:00 [DBG] [Received] Event Type: "DidReceiveGlobalSettings"
+2022-06-13 21:13:42.342 -05:00 [DBG] Received global settings! Releasing 1 pending messages.
+2022-06-13 21:13:42.445 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 21:13:42.556 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 21:13:47.543 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:13:47.551 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:13:52.569 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:13:57.583 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:13:57.587 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:13:59.555 -05:00 [DBG] [Received] Event Type: "WillDisappear"
+2022-06-13 21:13:59.640 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 21:13:59.670 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 21:13:59.873 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidAppear"
+2022-06-13 21:13:59.876 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-13 21:14:06.055 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:14:11.062 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:14:11.066 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:16:32.070 -05:00 [DBG] Hosting starting
+2022-06-13 21:16:32.369 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-06-13 21:16:32.371 -05:00 [INF] Hosting environment: Development
+2022-06-13 21:16:32.372 -05:00 [INF] Content root path: C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl
+2022-06-13 21:16:32.373 -05:00 [DBG] Hosting started
+2022-06-13 21:16:34.482 -05:00 [DBG] [Received] Event Type: "DeviceDidConnect"
+2022-06-13 21:16:34.487 -05:00 [DBG] Received first message. Holding messages until global settings are received!
+2022-06-13 21:16:34.490 -05:00 [DBG] [Sending] Event Type: getGlobalSettings
+2022-06-13 21:16:34.508 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 21:16:34.514 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 21:16:34.515 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 21:16:34.516 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 21:16:34.518 -05:00 [DBG] [Received] Event Type: "DidReceiveGlobalSettings"
+2022-06-13 21:16:36.017 -05:00 [DBG] Received global settings! Releasing 5 pending messages.
+2022-06-13 21:16:36.311 -05:00 [DBG] Listening on "ws://localhost:28196/"
+2022-06-13 21:16:41.246 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:16:41.253 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:16:46.264 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:16:51.294 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:16:51.298 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:16:56.321 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:17:01.330 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:17:01.334 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:17:52.692 -05:00 [DBG] Hosting starting
+2022-06-13 21:17:53.010 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-06-13 21:17:53.011 -05:00 [INF] Hosting environment: Development
+2022-06-13 21:17:53.012 -05:00 [INF] Content root path: C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl
+2022-06-13 21:17:53.013 -05:00 [DBG] Hosting started
+2022-06-13 21:17:55.129 -05:00 [DBG] [Received] Event Type: "DeviceDidConnect"
+2022-06-13 21:17:55.134 -05:00 [DBG] Received first message. Holding messages until global settings are received!
+2022-06-13 21:17:55.137 -05:00 [DBG] [Sending] Event Type: getGlobalSettings
+2022-06-13 21:17:55.158 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 21:17:55.164 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 21:17:55.165 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 21:17:55.167 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 21:17:55.169 -05:00 [DBG] [Received] Event Type: "DidReceiveGlobalSettings"
+2022-06-13 21:17:56.629 -05:00 [DBG] Received global settings! Releasing 5 pending messages.
+2022-06-13 21:17:56.931 -05:00 [DBG] Listening on "ws://localhost:28196/"
+2022-06-13 21:18:01.851 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:18:01.863 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:18:02.602 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidAppear"
+2022-06-13 21:18:02.606 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-13 21:18:06.900 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:18:08.968 -05:00 [DBG] [Received] Event Type: "DidReceiveSettings"
+2022-06-13 21:18:10.824 -05:00 [DBG] [Received] Event Type: "DidReceiveSettings"
+2022-06-13 21:18:11.916 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:18:11.922 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:18:16.954 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:18:21.974 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:18:21.978 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:18:26.984 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:18:32.007 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:18:32.012 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:18:37.024 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:18:42.033 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:18:42.036 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:18:47.056 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:18:52.069 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:18:52.074 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:18:57.087 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:19:02.098 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:19:02.101 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:19:07.118 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:19:12.148 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:19:12.157 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:19:18.861 -05:00 [DBG] Hosting starting
+2022-06-13 21:19:19.169 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-06-13 21:19:19.170 -05:00 [INF] Hosting environment: Development
+2022-06-13 21:19:19.172 -05:00 [INF] Content root path: C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl
+2022-06-13 21:19:19.173 -05:00 [DBG] Hosting started
+2022-06-13 21:19:21.267 -05:00 [DBG] [Received] Event Type: "DeviceDidConnect"
+2022-06-13 21:19:21.272 -05:00 [DBG] Received first message. Holding messages until global settings are received!
+2022-06-13 21:19:21.275 -05:00 [DBG] [Sending] Event Type: getGlobalSettings
+2022-06-13 21:19:21.292 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 21:19:21.298 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 21:19:21.299 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 21:19:21.300 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 21:19:21.302 -05:00 [DBG] [Received] Event Type: "DidReceiveGlobalSettings"
+2022-06-13 21:19:22.760 -05:00 [DBG] Received global settings! Releasing 5 pending messages.
+2022-06-13 21:19:23.058 -05:00 [DBG] Listening on "ws://localhost:28196/"
+2022-06-13 21:19:25.075 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:19:25.080 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:19:27.999 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:19:28.006 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:19:33.023 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:19:36.127 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-13 21:19:37.124 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidDisappear"
+2022-06-13 21:19:38.036 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:19:38.041 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:19:38.516 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidAppear"
+2022-06-13 21:19:38.517 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-13 21:19:43.052 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:19:48.062 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:19:48.066 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:19:53.082 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:19:58.107 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:19:58.111 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:20:37.110 -05:00 [DBG] Hosting starting
+2022-06-13 21:20:37.440 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-06-13 21:20:37.441 -05:00 [INF] Hosting environment: Development
+2022-06-13 21:20:37.442 -05:00 [INF] Content root path: C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl
+2022-06-13 21:20:37.443 -05:00 [DBG] Hosting started
+2022-06-13 21:20:39.550 -05:00 [DBG] [Received] Event Type: "DeviceDidConnect"
+2022-06-13 21:20:39.555 -05:00 [DBG] Received first message. Holding messages until global settings are received!
+2022-06-13 21:20:39.558 -05:00 [DBG] [Sending] Event Type: getGlobalSettings
+2022-06-13 21:20:39.575 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 21:20:39.581 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 21:20:39.583 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 21:20:39.584 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 21:20:39.586 -05:00 [DBG] [Received] Event Type: "DidReceiveGlobalSettings"
+2022-06-13 21:20:41.096 -05:00 [DBG] Received global settings! Releasing 5 pending messages.
+2022-06-13 21:20:41.379 -05:00 [DBG] Listening on "ws://localhost:28196/"
+2022-06-13 21:21:25.396 -05:00 [DBG] Hosting starting
+2022-06-13 21:21:25.695 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-06-13 21:21:25.696 -05:00 [INF] Hosting environment: Development
+2022-06-13 21:21:25.698 -05:00 [INF] Content root path: C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl
+2022-06-13 21:21:25.698 -05:00 [DBG] Hosting started
+2022-06-13 21:21:27.800 -05:00 [DBG] [Received] Event Type: "DeviceDidConnect"
+2022-06-13 21:21:27.805 -05:00 [DBG] Received first message. Holding messages until global settings are received!
+2022-06-13 21:21:27.808 -05:00 [DBG] [Sending] Event Type: getGlobalSettings
+2022-06-13 21:21:27.826 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 21:21:27.831 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 21:21:27.833 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 21:21:27.833 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 21:21:27.836 -05:00 [DBG] [Received] Event Type: "DidReceiveGlobalSettings"
+2022-06-13 21:21:29.294 -05:00 [DBG] Received global settings! Releasing 5 pending messages.
+2022-06-13 21:21:29.603 -05:00 [DBG] Listening on "ws://localhost:28196/"
+2022-06-13 21:21:36.514 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:21:36.514 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:21:36.521 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:21:36.521 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:21:41.544 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:21:46.561 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:21:46.565 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:21:51.582 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:21:52.711 -05:00 [DBG] [Received] Event Type: "KeyDown"
+2022-06-13 21:21:52.949 -05:00 [DBG] [Received] Event Type: "KeyUp"
+2022-06-13 21:21:53.321 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:21:53.325 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:21:53.904 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:21:53.950 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:21:54.081 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:21:54.084 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:21:55.753 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:21:55.757 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:21:56.606 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:21:56.610 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:21:57.347 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:21:57.350 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:22:01.645 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:22:05.844 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:22:05.847 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:22:06.655 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:22:06.668 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:22:11.686 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:22:16.700 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:22:16.704 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:22:17.452 -05:00 [DBG] [Received] Event Type: "KeyDown"
+2022-06-13 21:22:17.630 -05:00 [DBG] [Received] Event Type: "KeyUp"
+2022-06-13 21:22:18.028 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:22:18.031 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:22:18.497 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:22:18.501 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:22:18.702 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:22:18.705 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:22:21.735 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:22:26.771 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:22:26.783 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:22:30.199 -05:00 [DBG] [Received] Event Type: "WillDisappear"
+2022-06-13 21:22:30.288 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 21:22:30.318 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 21:22:30.595 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidAppear"
+2022-06-13 21:22:30.599 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-13 21:22:31.808 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:22:32.660 -05:00 [DBG] [Received] Event Type: "DidReceiveSettings"
+2022-06-13 21:22:33.868 -05:00 [DBG] [Received] Event Type: "DidReceiveSettings"
+2022-06-13 21:22:34.401 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:22:34.405 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:22:36.817 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:22:36.820 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:22:39.096 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-13 21:22:40.108 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidDisappear"
+2022-06-13 21:22:41.833 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:22:42.494 -05:00 [DBG] [Received] Event Type: "KeyDown"
+2022-06-13 21:22:42.734 -05:00 [DBG] [Received] Event Type: "KeyUp"
+2022-06-13 21:22:43.123 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:22:43.127 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:22:43.786 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:22:43.790 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:22:43.794 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:22:43.866 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:22:43.880 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:22:43.979 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:22:43.979 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:22:43.982 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:22:46.853 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:22:46.859 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:22:51.886 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:22:52.575 -05:00 [DBG] [Received] Event Type: "KeyDown"
+2022-06-13 21:22:52.760 -05:00 [DBG] [Received] Event Type: "KeyUp"
+2022-06-13 21:22:53.148 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:22:53.151 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:22:53.669 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:22:53.672 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:22:53.676 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:22:53.681 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:22:53.827 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:22:53.867 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:22:53.870 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:22:53.874 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:22:56.902 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:22:56.908 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:22:57.988 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidAppear"
+2022-06-13 21:22:57.990 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-13 21:22:59.888 -05:00 [DBG] [Received] Event Type: "DidReceiveSettings"
+2022-06-13 21:23:01.916 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:23:02.228 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-13 21:23:03.228 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidDisappear"
+2022-06-13 21:23:06.928 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:23:06.931 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:23:11.950 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:23:16.955 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:23:16.959 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:23:21.970 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:23:27.001 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:23:27.018 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:23:32.024 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:23:37.039 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:23:37.050 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:23:42.074 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:23:54.004 -05:00 [DBG] Hosting starting
+2022-06-13 21:23:54.303 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-06-13 21:23:54.304 -05:00 [INF] Hosting environment: Development
+2022-06-13 21:23:54.305 -05:00 [INF] Content root path: C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl
+2022-06-13 21:23:54.306 -05:00 [DBG] Hosting started
+2022-06-13 21:23:56.443 -05:00 [DBG] [Received] Event Type: "DeviceDidConnect"
+2022-06-13 21:23:56.449 -05:00 [DBG] Received first message. Holding messages until global settings are received!
+2022-06-13 21:23:56.451 -05:00 [DBG] [Sending] Event Type: getGlobalSettings
+2022-06-13 21:23:56.470 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 21:23:56.475 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 21:23:56.477 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 21:23:56.477 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 21:23:56.478 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 21:23:56.479 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 21:23:56.481 -05:00 [DBG] [Received] Event Type: "DidReceiveGlobalSettings"
+2022-06-13 21:23:57.983 -05:00 [DBG] Received global settings! Releasing 7 pending messages.
+2022-06-13 21:23:58.328 -05:00 [DBG] Listening on "ws://localhost:28196/"
+2022-06-13 21:24:00.335 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:24:00.344 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:24:00.347 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:24:00.348 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:24:00.952 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidAppear"
+2022-06-13 21:24:00.957 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-13 21:24:03.213 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:24:03.216 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:24:04.565 -05:00 [DBG] [Received] Event Type: "DidReceiveSettings"
+2022-06-13 21:24:04.571 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:24:04.576 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:24:08.235 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:24:09.076 -05:00 [DBG] [Received] Event Type: "DidReceiveSettings"
+2022-06-13 21:24:09.083 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:24:09.087 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:24:13.256 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:24:13.260 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:24:18.289 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:24:23.304 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:24:23.309 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:24:28.318 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:24:33.335 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:24:33.340 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:24:38.348 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:24:43.353 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:24:43.357 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:24:48.390 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:24:53.395 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:24:53.400 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:24:58.419 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:25:03.426 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:25:03.429 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:25:08.454 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:25:18.473 -05:00 [DBG] Hosting starting
+2022-06-13 21:25:18.756 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-06-13 21:25:18.757 -05:00 [INF] Hosting environment: Development
+2022-06-13 21:25:18.758 -05:00 [INF] Content root path: C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl
+2022-06-13 21:25:18.759 -05:00 [DBG] Hosting started
+2022-06-13 21:25:20.859 -05:00 [DBG] [Received] Event Type: "DeviceDidConnect"
+2022-06-13 21:25:20.863 -05:00 [DBG] Received first message. Holding messages until global settings are received!
+2022-06-13 21:25:20.866 -05:00 [DBG] [Sending] Event Type: getGlobalSettings
+2022-06-13 21:25:20.883 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 21:25:20.888 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 21:25:20.890 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 21:25:20.891 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 21:25:20.892 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 21:25:20.892 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 21:25:20.894 -05:00 [DBG] [Received] Event Type: "DidReceiveGlobalSettings"
+2022-06-13 21:25:22.335 -05:00 [DBG] Received global settings! Releasing 7 pending messages.
+2022-06-13 21:25:22.694 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidAppear"
+2022-06-13 21:25:22.696 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-13 21:25:22.701 -05:00 [DBG] Listening on "ws://localhost:28196/"
+2022-06-13 21:25:24.658 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:25:24.663 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:25:24.713 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:25:24.718 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:25:27.559 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:25:27.564 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:25:30.120 -05:00 [DBG] [Received] Event Type: "KeyDown"
+2022-06-13 21:25:30.287 -05:00 [DBG] [Received] Event Type: "KeyUp"
+2022-06-13 21:25:30.724 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:25:30.728 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:25:31.441 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:25:31.504 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:25:31.508 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:25:31.512 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:25:32.579 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:25:32.655 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:25:32.659 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:25:32.662 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:25:32.666 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:25:33.038 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:25:33.043 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:25:33.046 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:25:33.050 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:25:34.716 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:25:34.719 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:25:34.722 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:25:34.726 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:25:37.595 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:25:37.607 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:25:42.632 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:25:43.699 -05:00 [DBG] [Received] Event Type: "KeyDown"
+2022-06-13 21:25:44.004 -05:00 [DBG] [Received] Event Type: "KeyUp"
+2022-06-13 21:25:44.480 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:25:44.483 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:25:44.970 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:25:44.987 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:25:44.990 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:25:44.994 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:25:45.049 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:25:45.106 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:25:45.120 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:25:45.124 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:25:47.670 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:25:47.677 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:25:52.688 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:26:28.862 -05:00 [DBG] Hosting starting
+2022-06-13 21:26:29.207 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-06-13 21:26:29.209 -05:00 [INF] Hosting environment: Development
+2022-06-13 21:26:29.210 -05:00 [INF] Content root path: C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl
+2022-06-13 21:26:29.211 -05:00 [DBG] Hosting started
+2022-06-13 21:26:31.335 -05:00 [DBG] [Received] Event Type: "DeviceDidConnect"
+2022-06-13 21:26:31.340 -05:00 [DBG] Received first message. Holding messages until global settings are received!
+2022-06-13 21:26:31.342 -05:00 [DBG] [Sending] Event Type: getGlobalSettings
+2022-06-13 21:26:31.360 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 21:26:31.365 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 21:26:31.366 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 21:26:31.367 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 21:26:31.368 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 21:26:31.369 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 21:26:31.371 -05:00 [DBG] [Received] Event Type: "DidReceiveGlobalSettings"
+2022-06-13 21:26:32.832 -05:00 [DBG] Received global settings! Releasing 7 pending messages.
+2022-06-13 21:26:33.161 -05:00 [DBG] Listening on "ws://localhost:28196/"
+2022-06-13 21:26:35.130 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:26:35.141 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:26:35.172 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:26:35.176 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:26:38.073 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:26:38.084 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:26:41.587 -05:00 [DBG] [Received] Event Type: "WillDisappear"
+2022-06-13 21:26:41.676 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 21:26:41.706 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 21:26:41.961 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidAppear"
+2022-06-13 21:26:41.965 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-13 21:26:43.102 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:26:44.356 -05:00 [DBG] [Received] Event Type: "DidReceiveSettings"
+2022-06-13 21:26:44.441 -05:00 [ERR] Unhandled error in action Tech.Aerove.StreamDeck.NestControl.Actions.SetMode
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Tech.Aerove.StreamDeck.NestControl.Actions.SetMode.SetInfo() in C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl\Actions\SetMode.cs:line 65
+   at Tech.Aerove.StreamDeck.NestControl.Actions.SetMode.DidReceiveSettingsAsync(JObject settings) in C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl\Actions\SetMode.cs:line 33
+   at Tech.Aerove.StreamDeck.Client.Actions.DefaultActionExecuter.ExecuteAsync(IElgatoEvent elgatoEvent, ActionBase action)
+2022-06-13 21:26:46.872 -05:00 [DBG] [Received] Event Type: "DidReceiveSettings"
+2022-06-13 21:26:46.915 -05:00 [ERR] Unhandled error in action Tech.Aerove.StreamDeck.NestControl.Actions.SetMode
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Tech.Aerove.StreamDeck.NestControl.Actions.SetMode.SetInfo() in C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl\Actions\SetMode.cs:line 65
+   at Tech.Aerove.StreamDeck.NestControl.Actions.SetMode.DidReceiveSettingsAsync(JObject settings) in C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl\Actions\SetMode.cs:line 33
+   at Tech.Aerove.StreamDeck.Client.Actions.DefaultActionExecuter.ExecuteAsync(IElgatoEvent elgatoEvent, ActionBase action)
+2022-06-13 21:26:47.873 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:26:47.878 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:26:48.128 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:26:48.144 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:26:53.171 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:26:57.185 -05:00 [DBG] [Received] Event Type: "KeyDown"
+2022-06-13 21:26:57.416 -05:00 [DBG] [Received] Event Type: "KeyUp"
+2022-06-13 21:26:57.806 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:26:57.811 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:26:58.195 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:26:58.200 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:26:58.620 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:26:58.640 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:26:58.660 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:26:58.660 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:26:58.663 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:26:58.664 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:26:58.687 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:26:58.688 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:26:58.693 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:26:58.694 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:26:58.698 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:26:58.699 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:01.900 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:01.903 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:01.907 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:01.912 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:01.915 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:01.919 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:03.219 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:08.227 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:08.234 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:12.084 -05:00 [DBG] [Received] Event Type: "KeyDown"
+2022-06-13 21:27:12.267 -05:00 [DBG] [Received] Event Type: "KeyUp"
+2022-06-13 21:27:12.619 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:12.623 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:13.053 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:13.056 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:13.060 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:13.063 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:13.091 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:13.096 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:13.262 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:13.263 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:13.266 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:13.269 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:13.273 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:13.278 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:13.282 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:18.272 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:18.279 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:20.757 -05:00 [DBG] [Received] Event Type: "KeyDown"
+2022-06-13 21:27:20.879 -05:00 [DBG] [Received] Event Type: "KeyUp"
+2022-06-13 21:27:21.313 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:21.316 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:21.805 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:21.809 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:21.813 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:21.816 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:21.895 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:21.895 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:21.898 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:21.899 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:21.917 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:21.938 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:21.942 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:21.946 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:23.298 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:24.347 -05:00 [DBG] [Received] Event Type: "KeyDown"
+2022-06-13 21:27:24.467 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:24.480 -05:00 [DBG] [Received] Event Type: "KeyUp"
+2022-06-13 21:27:24.480 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:24.494 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:24.498 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:24.502 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:24.506 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:24.952 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:24.969 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:24.969 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:24.973 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:24.974 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:24.978 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:24.982 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:24.986 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:25.515 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:25.565 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:25.568 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:25.620 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:25.622 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:25.623 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:25.643 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:25.667 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:25.668 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:25.682 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:25.683 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:25.697 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:25.715 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:25.717 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:25.720 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:25.720 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:25.740 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:25.744 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:26.044 -05:00 [DBG] [Received] Event Type: "KeyDown"
+2022-06-13 21:27:26.227 -05:00 [DBG] [Received] Event Type: "KeyUp"
+2022-06-13 21:27:26.687 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:26.691 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:27.319 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:27.345 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:27.374 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:27.377 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:27.402 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:27.403 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:27.411 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:27.414 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:27.420 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:27.424 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:27.427 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:27.451 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:28.338 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:28.344 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:30.824 -05:00 [DBG] [Received] Event Type: "KeyDown"
+2022-06-13 21:27:30.942 -05:00 [DBG] [Received] Event Type: "KeyUp"
+2022-06-13 21:27:31.072 -05:00 [DBG] [Sending] Event Type: showAlert
+2022-06-13 21:27:33.360 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:38.377 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:38.382 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:38.433 -05:00 [DBG] [Received] Event Type: "KeyDown"
+2022-06-13 21:27:38.674 -05:00 [DBG] [Received] Event Type: "KeyUp"
+2022-06-13 21:27:38.686 -05:00 [DBG] [Sending] Event Type: showAlert
+2022-06-13 21:27:43.398 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:48.412 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:48.415 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:53.431 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:27:58.453 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:27:58.457 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:28:00.054 -05:00 [DBG] [Received] Event Type: "KeyDown"
+2022-06-13 21:28:03.146 -05:00 [DBG] [Received] Event Type: "KeyUp"
+2022-06-13 21:28:03.882 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:28:19.413 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:28:28.290 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:28:53.847 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:28:53.918 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:28:53.964 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:28:54.030 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:28:54.032 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:28:54.033 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:28:54.035 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:28:54.038 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:28:54.040 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:28:54.179 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:28:54.181 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:28:54.183 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:28:54.185 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:28:54.187 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:28:54.205 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:28:57.651 -05:00 [DBG] [Received] Event Type: "KeyDown"
+2022-06-13 21:28:57.817 -05:00 [DBG] [Received] Event Type: "KeyUp"
+2022-06-13 21:29:01.461 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:29:01.461 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:29:01.462 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:29:01.462 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:29:01.468 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:01.470 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:01.472 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:01.472 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:01.473 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:29:01.533 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:29:01.600 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:01.666 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:01.666 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:29:01.669 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:29:01.671 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:01.688 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:04.298 -05:00 [DBG] [Received] Event Type: "KeyDown"
+2022-06-13 21:29:05.664 -05:00 [DBG] [Received] Event Type: "KeyUp"
+2022-06-13 21:29:07.514 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:07.573 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:29:07.657 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:29:07.657 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:07.662 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:07.663 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:29:07.669 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:07.741 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:29:07.746 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:08.465 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:29:08.493 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:08.497 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:29:08.500 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:08.503 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:29:08.517 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:10.480 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:29:10.485 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:10.511 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:29:10.514 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:10.518 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:29:10.521 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:12.544 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:29:12.548 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:17.569 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:18.660 -05:00 [DBG] [Received] Event Type: "KeyDown"
+2022-06-13 21:29:18.839 -05:00 [DBG] [Received] Event Type: "KeyUp"
+2022-06-13 21:29:21.274 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:29:21.279 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:22.581 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:29:22.586 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:27.607 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:32.613 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:29:32.618 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:32.987 -05:00 [DBG] [Received] Event Type: "KeyDown"
+2022-06-13 21:29:35.058 -05:00 [DBG] [Received] Event Type: "KeyUp"
+2022-06-13 21:29:39.663 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:29:39.663 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:29:39.677 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:29:39.711 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:39.717 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:39.746 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:39.728 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:39.767 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:29:39.805 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:29:39.807 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:39.809 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:39.812 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:29:39.814 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:29:39.817 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:39.818 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:44.804 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:29:44.813 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:46.054 -05:00 [DBG] [Received] Event Type: "KeyDown"
+2022-06-13 21:29:46.297 -05:00 [DBG] [Received] Event Type: "KeyUp"
+2022-06-13 21:29:48.373 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:29:48.447 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:29:48.453 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:48.492 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:29:48.496 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:29:48.497 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:29:48.497 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:48.497 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:48.500 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:48.501 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:48.506 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:29:48.507 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:29:48.511 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:48.511 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:49.831 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:29:50.048 -05:00 [DBG] [Received] Event Type: "KeyDown"
+2022-06-13 21:29:51.031 -05:00 [DBG] [Received] Event Type: "KeyUp"
+2022-06-13 21:30:00.321 -05:00 [DBG] [Sending] Event Type: showAlert
+2022-06-13 21:30:00.332 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:30:00.335 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:30:05.346 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:30:10.355 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:30:10.358 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:30:15.391 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:30:20.397 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:30:20.401 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:30:25.417 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:30:30.427 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:30:30.431 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:30:35.462 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:30:40.396 -05:00 [DBG] [Received] Event Type: "KeyDown"
+2022-06-13 21:30:40.484 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:30:40.488 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:30:40.693 -05:00 [DBG] [Received] Event Type: "KeyUp"
+2022-06-13 21:30:45.506 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:30:48.720 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:30:48.723 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:30:48.726 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:30:48.730 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:30:48.734 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:30:48.737 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:30:48.881 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:30:48.885 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:30:48.889 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:30:48.892 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:30:48.896 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:30:48.908 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:30:50.527 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:30:50.535 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:30:50.599 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:30:50.602 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:30:50.606 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:30:50.610 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:30:50.614 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:30:50.617 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:30:52.507 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:30:52.510 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:30:52.514 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:30:52.517 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:30:52.520 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:30:52.524 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:30:53.008 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:30:53.013 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:30:53.018 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:30:53.057 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:30:53.061 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:30:53.065 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:30:55.560 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:30:58.276 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:30:58.280 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:30:58.286 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:30:58.290 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:30:58.293 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:30:58.297 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:30:58.465 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:30:58.468 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:30:58.471 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:30:58.493 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:30:58.497 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:30:58.501 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:00.582 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:00.587 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:01.078 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:01.090 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:01.095 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:01.098 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:01.102 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:01.119 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:05.598 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:06.462 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:06.463 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:06.474 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:06.476 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:06.478 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:06.480 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:06.482 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:06.484 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:06.496 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:06.496 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:06.499 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:06.520 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:10.614 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:10.618 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:12.134 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:12.155 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:12.182 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:12.197 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:12.218 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:12.218 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:12.221 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:12.223 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:12.243 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:12.262 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:12.267 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:12.274 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:14.750 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:14.753 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:14.757 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:14.760 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:14.772 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:14.776 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:15.355 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:15.410 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:15.414 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:15.417 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:15.420 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:15.424 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:15.636 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:20.649 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:20.654 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:22.937 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:22.955 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:22.971 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:22.973 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:22.978 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:22.980 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:22.991 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:22.992 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:22.995 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:22.996 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:22.999 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:22.999 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:25.659 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:30.689 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:30.694 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:33.901 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:33.901 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:33.904 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:33.905 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:33.907 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:33.909 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:33.912 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:33.913 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:33.943 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:33.944 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:33.947 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:33.948 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:35.718 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:36.050 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:36.053 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:36.057 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:36.061 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:36.072 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:36.076 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:40.725 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:40.729 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:45.737 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:49.747 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:49.752 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:49.786 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:49.786 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:49.790 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:49.799 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:49.801 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:49.802 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:49.805 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:49.806 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:49.808 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:49.809 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:31:50.754 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:31:50.759 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:36:21.026 -05:00 [DBG] Hosting starting
+2022-06-13 21:36:21.316 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-06-13 21:36:21.317 -05:00 [INF] Hosting environment: Development
+2022-06-13 21:36:21.318 -05:00 [INF] Content root path: C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl
+2022-06-13 21:36:21.319 -05:00 [DBG] Hosting started
+2022-06-13 21:36:23.425 -05:00 [DBG] [Received] Event Type: "DeviceDidConnect"
+2022-06-13 21:36:23.430 -05:00 [DBG] Received first message. Holding messages until global settings are received!
+2022-06-13 21:36:23.432 -05:00 [DBG] [Sending] Event Type: getGlobalSettings
+2022-06-13 21:36:23.449 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 21:36:23.454 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 21:36:23.456 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 21:36:23.457 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 21:36:23.458 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 21:36:23.459 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 21:36:23.460 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 21:36:23.461 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 21:36:23.463 -05:00 [DBG] [Received] Event Type: "DidReceiveGlobalSettings"
+2022-06-13 21:36:24.911 -05:00 [DBG] Received global settings! Releasing 9 pending messages.
+2022-06-13 21:36:25.274 -05:00 [DBG] Listening on "ws://localhost:28196/"
+2022-06-13 21:36:27.203 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:36:27.208 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:36:27.229 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:36:27.234 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:36:27.292 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:36:27.298 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:36:30.134 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:36:30.142 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:36:34.402 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-13 21:36:34.916 -05:00 [DBG] [Received] Event Type: "WillDisappear"
+2022-06-13 21:36:35.015 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 21:36:35.044 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 21:36:35.149 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:36:35.194 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidAppear"
+2022-06-13 21:36:35.195 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-13 21:36:35.335 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidDisappear"
+2022-06-13 21:36:40.187 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:36:40.191 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:36:41.607 -05:00 [DBG] [Received] Event Type: "DidReceiveSettings"
+2022-06-13 21:36:41.686 -05:00 [ERR] Unhandled error in action Tech.Aerove.StreamDeck.NestControl.Actions.SetMode
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Tech.Aerove.StreamDeck.NestControl.Actions.SetMode.SetInfo() in C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl\Actions\SetMode.cs:line 69
+   at Tech.Aerove.StreamDeck.NestControl.Actions.SetMode.DidReceiveSettingsAsync(JObject settings) in C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl\Actions\SetMode.cs:line 33
+   at Tech.Aerove.StreamDeck.Client.Actions.DefaultActionExecuter.ExecuteAsync(IElgatoEvent elgatoEvent, ActionBase action)
+2022-06-13 21:36:45.217 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:36:50.247 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:36:50.253 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:36:53.117 -05:00 [DBG] [Received] Event Type: "DidReceiveSettings"
+2022-06-13 21:36:53.155 -05:00 [ERR] Unhandled error in action Tech.Aerove.StreamDeck.NestControl.Actions.SetMode
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Tech.Aerove.StreamDeck.NestControl.Actions.SetMode.SetInfo() in C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl\Actions\SetMode.cs:line 69
+   at Tech.Aerove.StreamDeck.NestControl.Actions.SetMode.DidReceiveSettingsAsync(JObject settings) in C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl\Actions\SetMode.cs:line 33
+   at Tech.Aerove.StreamDeck.Client.Actions.DefaultActionExecuter.ExecuteAsync(IElgatoEvent elgatoEvent, ActionBase action)
+2022-06-13 21:36:55.140 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:36:55.149 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:36:55.273 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:37:00.294 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:37:00.299 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:37:05.303 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:37:05.847 -05:00 [DBG] [Received] Event Type: "KeyDown"
+2022-06-13 21:37:09.106 -05:00 [DBG] [Received] Event Type: "KeyUp"
+2022-06-13 21:37:10.312 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:37:10.316 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:37:12.275 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:37:12.307 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:37:12.466 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:37:12.470 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:37:12.488 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:37:12.543 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:37:12.544 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:37:12.558 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:37:12.559 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:37:12.585 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:37:12.587 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:37:12.589 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:37:12.591 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:37:12.594 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:37:12.596 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:37:12.600 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:37:12.633 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:37:12.638 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:37:12.994 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:37:12.997 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:37:13.019 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:37:13.023 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:37:13.026 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:37:13.030 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:37:13.034 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:37:13.038 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:37:15.251 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:37:15.257 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:37:15.260 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:37:15.265 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:37:15.279 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:37:15.284 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:37:15.287 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:37:15.290 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:37:15.335 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:37:18.455 -05:00 [DBG] [Received] Event Type: "KeyDown"
+2022-06-13 21:37:18.758 -05:00 [DBG] [Received] Event Type: "KeyUp"
+2022-06-13 21:37:22.860 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:37:22.939 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:37:22.967 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:37:22.970 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:37:27.994 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:37:33.000 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:37:33.004 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:37:38.015 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:37:43.029 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:37:43.033 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:37:43.239 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-13 21:37:44.027 -05:00 [DBG] [Received] Event Type: "WillDisappear"
+2022-06-13 21:37:44.029 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 21:37:44.038 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 21:37:44.046 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:37:44.247 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidDisappear"
+2022-06-13 21:37:44.318 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidAppear"
+2022-06-13 21:37:44.319 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-13 21:37:45.761 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-13 21:37:46.403 -05:00 [DBG] [Received] Event Type: "WillDisappear"
+2022-06-13 21:37:46.405 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 21:37:46.406 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 21:37:46.417 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:37:46.652 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidAppear"
+2022-06-13 21:37:46.653 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-13 21:37:46.776 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidDisappear"
+2022-06-13 21:37:48.036 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:37:53.048 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:37:53.052 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:37:58.076 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:38:03.084 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:38:03.087 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:38:08.099 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:38:13.123 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:38:13.127 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:38:16.900 -05:00 [DBG] [Received] Event Type: "KeyDown"
+2022-06-13 21:38:17.150 -05:00 [DBG] [Received] Event Type: "KeyUp"
+2022-06-13 21:38:17.487 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:38:17.492 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:38:17.907 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:38:17.910 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:38:17.965 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:38:18.031 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:38:18.049 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:38:18.052 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:38:18.055 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:38:18.085 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:38:18.089 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:38:18.090 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:38:18.093 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:38:18.094 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:38:18.096 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:38:18.098 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:38:18.120 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:38:18.124 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:38:18.153 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:38:21.201 -05:00 [DBG] [Received] Event Type: "KeyDown"
+2022-06-13 21:38:21.255 -05:00 [ERR] Unhandled error in action Tech.Aerove.StreamDeck.NestControl.Actions.TemperatureUp
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Tech.Aerove.Tools.Nest.NestClient.GetThermostat(String name) in C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl\Tech.Aerove.Tools\Nest\NestClient.cs:line 163
+   at Tech.Aerove.StreamDeck.NestControl.ExampleService.GetDevice(String name) in C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl\ExampleService.cs:line 167
+   at Tech.Aerove.StreamDeck.NestControl.Actions.TemperatureUp.get_Thermostat() in C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl\Actions\TemperatureUp.cs:line 21
+   at Tech.Aerove.StreamDeck.NestControl.Actions.TemperatureUp.KeyDownAsync(Int32 userDesiredState) in C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl\Actions\TemperatureUp.cs:line 39
+   at Tech.Aerove.StreamDeck.Client.Actions.DefaultActionExecuter.ExecuteAsync(IElgatoEvent elgatoEvent, ActionBase action)
+2022-06-13 21:38:21.447 -05:00 [DBG] [Received] Event Type: "KeyUp"
+2022-06-13 21:38:23.185 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:38:23.190 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:38:27.648 -05:00 [DBG] [Received] Event Type: "DidReceiveSettings"
+2022-06-13 21:38:28.195 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:38:29.161 -05:00 [DBG] [Received] Event Type: "DidReceiveSettings"
+2022-06-13 21:38:33.207 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:38:33.211 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:38:34.455 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-13 21:38:35.485 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidDisappear"
+2022-06-13 21:38:35.538 -05:00 [DBG] [Received] Event Type: "WillDisappear"
+2022-06-13 21:38:35.598 -05:00 [DBG] [Received] Event Type: "WillDisappear"
+2022-06-13 21:38:35.599 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 21:38:35.601 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 21:38:35.603 -05:00 [DBG] [Received] Event Type: "WillDisappear"
+2022-06-13 21:38:35.604 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-06-13 21:38:35.605 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:38:35.606 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-06-13 21:38:35.610 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:38:36.702 -05:00 [DBG] [Received] Event Type: "PropertyInspectorDidAppear"
+2022-06-13 21:38:36.703 -05:00 [DBG] [Received] Event Type: "SendToPlugin"
+2022-06-13 21:38:38.226 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:38:38.848 -05:00 [DBG] [Received] Event Type: "DidReceiveSettings"
+2022-06-13 21:38:39.984 -05:00 [DBG] [Received] Event Type: "DidReceiveSettings"
+2022-06-13 21:38:43.243 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:38:43.248 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:38:43.416 -05:00 [DBG] [Received] Event Type: "KeyDown"
+2022-06-13 21:38:43.718 -05:00 [DBG] [Received] Event Type: "KeyUp"
+2022-06-13 21:38:44.045 -05:00 [DBG] [Sending] Event Type: showOk
+2022-06-13 21:38:44.604 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:38:44.621 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:38:44.666 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:38:44.669 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:38:44.671 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:38:44.673 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:38:44.675 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:38:44.677 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:38:44.680 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:38:44.682 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:38:44.685 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:38:44.685 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:38:44.692 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:38:44.693 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:38:44.696 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:38:44.697 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:38:48.263 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:38:49.335 -05:00 [DBG] [Received] Event Type: "KeyDown"
+2022-06-13 21:38:49.579 -05:00 [DBG] [Received] Event Type: "KeyUp"
+2022-06-13 21:38:49.895 -05:00 [DBG] [Sending] Event Type: showOk
+2022-06-13 21:38:50.461 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:38:50.527 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:38:50.528 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:38:50.532 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:38:50.533 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:38:50.537 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:38:50.538 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:38:50.562 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:38:50.562 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:38:50.567 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:38:50.567 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:38:50.571 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:38:50.573 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:38:50.576 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:38:50.578 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:38:50.597 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:38:53.270 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:38:53.274 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:38:58.298 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-06-13 21:39:03.318 -05:00 [DBG] [Sending] Event Type: setImage
+2022-06-13 21:39:03.322 -05:00 [DBG] [Sending] Event Type: setTitle

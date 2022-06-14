@@ -124,7 +124,6 @@ namespace Tech.Aerove.Tools.Nest
                 return Task.FromResult(SubscriberClient.Reply.Ack);
             }
             LastMsgPublish = publishedTime;
-            Console.WriteLine($"Received message {msg.MessageId} published at {publishedTime}");
 
             var jobject = JObject.Parse(content);
             var device = jobject["resourceUpdate"].ToObject<Device>();
