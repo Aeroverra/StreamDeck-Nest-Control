@@ -15,7 +15,7 @@ namespace Tech.Aerove.StreamDeck.NestControl
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Debug()
                 .WriteTo.Console()
-                .WriteTo.File("log.txt", rollingInterval: RollingInterval.Day)
+                .WriteTo.File("log.txt", rollingInterval: RollingInterval.Day,retainedFileCountLimit:4)
                 .CreateLogger();
         }
     }

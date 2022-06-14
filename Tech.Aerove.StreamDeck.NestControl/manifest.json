@@ -3,7 +3,7 @@
   "Author": "Aeroverra",
   "CodePath": "Tech.Aerove.StreamDeck.NestControl.exe",
   "CodePathMac": "Tech.Aerove.StreamDeck.NestControl",
-  "Category": "Nest Control",
+  "Category": "Nest Control [Aerove]",
   "CategoryIcon": "PropertyInspector/images/actionImage",
   "PropertyInspectorPath": "PropertyInspector/TempUpDown.html",
   "Description": "Control your nest thermostat from the Stream Deck.",
