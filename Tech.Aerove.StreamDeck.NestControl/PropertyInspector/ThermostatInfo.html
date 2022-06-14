@@ -12,7 +12,11 @@
 </head>
 <body>
     <!--<embed type="text/html" src="https://autobuy.io" width="500" height="200">-->
-    <input type="text" id="wow" />
+    <input type="text" style="display:none" id="wow" />
+    <div class="sdpi-item" id="dvInstructions">
+        <div class="sdpi-item-label"></div>
+        <button onclick="openWebsite()">Instructions</button>
+    </div>
     <div class="sdpi-wrapper">
         <div class="sdpi-item" id="dvCloudProjectId">
             <div class="sdpi-item-label">Cloud Project Id</div>
@@ -35,14 +39,19 @@
             <button onclick="sendValueToPlugin(true,'Setup')">Setup</button>
             <p>Click here after setting the Client Id, Client Secret, and Project Id</p>
         </div>
+
+        <div class="sdpi-item" id="dvDevice">
+            <div class="sdpi-item-label">Device</div>
+            <select class="sdpi-item-value select sdProperty" id="device" oninput="setSettings()"></select>
+        </div>
+        <div class="sdpi-item" id="dvDiscord">
+            <div class="sdpi-item-label"></div>
+            <a href="https://discord.aerove.tech/" target="_blank">Help / Discord</a>
+        </div>
         <div class="sdpi-item" id="dvReset">
             <div class="sdpi-item-label">Reset</div>
             <button onclick="sendValueToPlugin(true,'Reset')">Reset</button>
             <p>Click here to restart the setup process.</p>
-        </div>
-        <div class="sdpi-item" id="dvDevice">
-            <div class="sdpi-item-label">Device</div>
-            <select class="sdpi-item-value select sdProperty" id="device" oninput="setSettings()"></select>
         </div>
         <!--<div class="sdpi-item" id="dvDevice">
         <div class="sdpi-item-label">Device</div>

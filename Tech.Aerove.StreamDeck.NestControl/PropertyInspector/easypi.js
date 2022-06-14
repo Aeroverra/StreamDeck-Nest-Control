@@ -37,7 +37,7 @@ function connectElgatoStreamDeckSocket(inPort, inUUID, inRegisterEvent, inInfo, 
     var event = new Event('websocketCreate');
     document.dispatchEvent(event);
 
-    loadConfiguration(actionInfo.payload.settings,false);
+    loadConfiguration(actionInfo.payload.settings, false);
     initPropertyInspector();
 }
 
@@ -309,12 +309,13 @@ function openWebsite() {
         const json = {
             'event': 'openUrl',
             'payload': {
-                'url': 'https://BarRaider.com'
+                'url': 'https://aerove.tech/streamdeck/nestcontrol'
             }
         };
         websocket.send(JSON.stringify(json));
     }
 }
+
 
 if (!isQT) {
     document.addEventListener('DOMContentLoaded', function () {

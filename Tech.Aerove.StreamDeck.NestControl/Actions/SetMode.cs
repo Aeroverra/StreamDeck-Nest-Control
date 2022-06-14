@@ -68,6 +68,7 @@ namespace Tech.Aerove.StreamDeck.NestControl.Actions
         {
             if (Thermostat.Mode != ButtonMode)
             {
+                await Dispatcher.SetStateAsync(0);
                 await Dispatcher.SetImageAsync("");
                 if(ButtonMode == ThermostatMode.HEATCOOL)
                 {
@@ -77,6 +78,7 @@ namespace Tech.Aerove.StreamDeck.NestControl.Actions
                 await Dispatcher.SetTitleAsync($"{ButtonMode}");
                 return;
             }
+            await Dispatcher.SetStateAsync(1);
             if (Thermostat.Mode == ThermostatMode.COOL)
             {
                 await Dispatcher.SetImageAsync(ImageColors.Blue.DataUri);
