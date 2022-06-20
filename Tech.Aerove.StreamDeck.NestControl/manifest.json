@@ -26,7 +26,7 @@
   },
   "Actions": [
     {
-      "Icon": "PropertyInspector/images/actionImage",
+      "Icon": "PropertyInspector/images/info",
       "Name": "Temperature Info",
       "States": [
         {
@@ -46,7 +46,7 @@
       "PropertyInspectorPath": "PropertyInspector/ThermostatInfo.html"
     },
     {
-      "Icon": "PropertyInspector/images/actionImage",
+      "Icon": "PropertyInspector/images/up",
       "Name": "Temperature Up",
       "States": [
         {
@@ -61,7 +61,7 @@
       "PropertyInspectorPath": "PropertyInspector/TempUpDown.html"
     },
     {
-      "Icon": "PropertyInspector/images/actionImage",
+      "Icon": "PropertyInspector/images/down",
       "Name": "Temperature Down",
       "States": [
         {
@@ -76,7 +76,7 @@
       "PropertyInspectorPath": "PropertyInspector/TempUpDown.html"
     },
     {
-      "Icon": "PropertyInspector/images/actionImage",
+      "Icon": "PropertyInspector/images/mode",
       "Name": "Set Mode",
       "States": [
         {
