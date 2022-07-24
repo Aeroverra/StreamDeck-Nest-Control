@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>dotnet-Tech.Aerove.StreamDeck.NestControl-B0263304-C0D9-4345-A97B-5C51678F12AA</UserSecretsId>
+    <Version>1.1.5</Version>
   </PropertyGroup>
 
   <ItemGroup>

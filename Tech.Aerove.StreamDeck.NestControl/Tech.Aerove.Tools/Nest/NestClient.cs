@@ -19,7 +19,7 @@ namespace Tech.Aerove.Tools.Nest
         internal DevicesResponse DevicesResponse { get; set; } = new DevicesResponse();
         private List<ThermostatDevice> ThermostatDevices = new List<ThermostatDevice>();
         private static SemaphoreSlim Lock = new SemaphoreSlim(1);
-
+        private readonly Timer timer;
         public string GetAccessToken()
         {
             var t = GetAccessToken;
@@ -32,6 +32,7 @@ namespace Tech.Aerove.Tools.Nest
         /// </summary>
         public NestClient(string clientId, string clientSecret, string projectId, string cloudProjectId, Action<string> saveSubscriptionId)
         {
+            timer = new Timer(TimerStartTask);
             ClientId = clientId;
             ClientSecret = clientSecret;
             ProjectId = projectId;
@@ -45,6 +46,7 @@ namespace Tech.Aerove.Tools.Nest
         /// </summary>
         public NestClient(string clientId, string clientSecret, string projectId, string refreshToken, string scopes, string cloudProjectId, string subscriptionId, Action<string> saveSubscriptionId)
         {
+            timer = new Timer(TimerStartTask);
             ClientId = clientId;
             ClientSecret = clientSecret;
             ProjectId = projectId;
@@ -53,7 +55,7 @@ namespace Tech.Aerove.Tools.Nest
             CloudProjectId = cloudProjectId;
             PubSubClient = new PubSubClient(subscriptionId, CloudProjectId, ProjectId, saveSubscriptionId, GetAccessToken);
             PubSubClient.OnDeviceUpdated += OnDeviceUpdated;
-            UpdateDevices();
+            UpdateDevices(true);
             _ = PubSubClient.Start(Scopes);
         }
 
@@ -147,22 +149,34 @@ namespace Tech.Aerove.Tools.Nest
             RefreshToken = response.RefreshToken;
             AccessToken = response.AccessToken;
             AccessTokenExpireTime = DateTime.Now.AddSeconds(response.ExpiresIn - 10);
+            var ts = AccessTokenExpireTime.AddSeconds(10) - DateTime.Now;
+            timer.Change(Convert.ToInt64(ts.TotalMilliseconds), Timeout.Infinite);
             if (!UpdateDevices()) { return null; }
             _ = PubSubClient.Start(Scopes);
             return RefreshToken;
         }
 
+
+        private readonly SemaphoreSlim GetLock = new SemaphoreSlim(1);
         public ThermostatDevice GetThermostat(string name)
         {
-            var thermostatDevice = ThermostatDevices.FirstOrDefault(x => x.Name == name);
-            if (thermostatDevice != null)
+            GetLock.Wait();
+            try
             {
+                var thermostatDevice = ThermostatDevices.FirstOrDefault(x => x.Name == name);
+                if (thermostatDevice != null)
+                {
+                    return thermostatDevice;
+                }
+                var device = DevicesResponse.Devices.FirstOrDefault(x => x.Name.ToLower() == name.ToLower());
+                thermostatDevice = new ThermostatDevice(this, device.Name);
+                ThermostatDevices.Add(thermostatDevice);
                 return thermostatDevice;
             }
-            var device = DevicesResponse.Devices.FirstOrDefault(x => x.Name.ToLower() == name.ToLower());
-            thermostatDevice = new ThermostatDevice(this, device.Name);
-            ThermostatDevices.Add(thermostatDevice);
-            return thermostatDevice;
+            finally
+            {
+                GetLock.Release();
+            }
         }
 
         public List<ThermostatDevice> GetThermostats()
@@ -178,17 +192,25 @@ namespace Tech.Aerove.Tools.Nest
             return ThermostatDevices;
         }
 
-        private bool UpdateDevices()
+        private bool UpdateDevices(bool skipPubSub = false)
         {
-            CheckUpdateToken();
+
+            //used for constructor call to prevent two pubsubclients
+            CheckUpdateToken(skipPubSub);
+
             var newDevicesResponse = WebCalls.GetDevices(ProjectId, AccessToken);
             if (DevicesResponse == null) { return false; }
             DevicesResponse.Update(newDevicesResponse);
             return true;
         }
 
-
-        private void CheckUpdateToken()
+       
+        private void TimerStartTask(object state)
+        {
+            CheckUpdateToken();
+        }
+    
+        private void CheckUpdateToken(bool skippubsub = false)
         {
 
             if (AccessTokenExpireTime > DateTime.Now)
@@ -201,7 +223,13 @@ namespace Tech.Aerove.Tools.Nest
             if (response == null) { throw new Exception("Failed to refresh token!"); }
             AccessTokenExpireTime = DateTime.Now.AddSeconds(response.ExpiresIn - 10);
             AccessToken = response.AccessToken;
-            _ = PubSubClient.Start(Scopes);
+            var ts = AccessTokenExpireTime.AddSeconds(10) - DateTime.Now;
+            timer.Change(Convert.ToInt64(ts.TotalMilliseconds), Timeout.Infinite);
+            if (!skippubsub)
+            {
+                _ = PubSubClient.Start(Scopes);
+            }
+       
         }
 
         public bool SetMode(ThermostatDevice thermostat, ThermostatMode mode)

@@ -10,7 +10,7 @@
   "Name": "Nest Control",
   "Icon": "PropertyInspector/images/default",
   "URL": "https://aerove.tech",
-  "Version": "1.0",
+  "Version": "1.1.5",
   "OS": [
     {
       "Platform": "mac",

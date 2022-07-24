@@ -50,12 +50,13 @@ namespace Tech.Aerove.Tools.Nest
             try
             {
                 var r = JObject.Parse(response.Content).ToObject<AccessTokenResponse>();
-                if (String.IsNullOrWhiteSpace(r.AccessToken)) { return null; }
+                if (String.IsNullOrWhiteSpace(r.AccessToken)) { throw new Exception($"bad response: {response.Content}"); }
                 return r;
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return null;
+
+                throw e;
             }
         }
 

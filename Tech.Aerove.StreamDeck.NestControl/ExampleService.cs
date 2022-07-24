@@ -5,6 +5,7 @@ using RestSharp;
 using System.Diagnostics;
 using System.Net;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Web;
 using Tech.Aerove.StreamDeck.Client;
 using Tech.Aerove.StreamDeck.Client.Events;
@@ -12,12 +13,14 @@ using Tech.Aerove.StreamDeck.NestControl.Models;
 using Tech.Aerove.StreamDeck.NestControl.Tech.Aerove.Tools.Nest;
 using Tech.Aerove.Tools.Nest;
 using Tech.Aerove.Tools.Nest.Models;
+using static Google.Rpc.Context.AttributeContext.Types;
 
 namespace Tech.Aerove.StreamDeck.NestControl
 {
 
     public class ExampleService : BackgroundService
     {
+        private readonly SemaphoreSlim Lock = new SemaphoreSlim(1);
         private readonly ILogger<ExampleService> _logger;
         private readonly EventManager _eventsManager;
         private readonly IElgatoDispatcher _dispatcher;
@@ -106,50 +109,90 @@ namespace Tech.Aerove.StreamDeck.NestControl
             }
         }
         private bool firstLoad = true;
-        protected void OnDidRecieveGlobalSettings(object? sender, DidReceiveGlobalSettingsEvent e)
+
+        protected async void OnDidRecieveGlobalSettings(object? sender, DidReceiveGlobalSettingsEvent e)
         {
-            GlobalSettings = e.Payload.Settings;
-            if (firstLoad & IsSetup == true)
+            await Lock.WaitAsync();
+            try
             {
-                Action<string> saveSubscriptionId = (subscriptionId) => { GlobalSettings["subscriptionId"] = subscriptionId; };
-                Client = new NestClient(ClientId, ClientSecret, ProjectId, RefreshToken, Scope, CloudProjectId, SubscriptionId, saveSubscriptionId);
+                GlobalSettings = e.Payload.Settings;
+                if (firstLoad & IsSetup == true)
+                {
+                    Action<string> saveSubscriptionId = (subscriptionId) => { GlobalSettings["subscriptionId"] = subscriptionId; };
+                    Client = new NestClient(ClientId, ClientSecret, ProjectId, RefreshToken, Scope, CloudProjectId, SubscriptionId, saveSubscriptionId);
+                }
+                firstLoad = false;
+
             }
-            firstLoad = false;
+            finally
+            {
+                Lock.Release();
+            }
         }
 
 
         protected async Task ProcessRequest(HttpListenerContext _http, CancellationToken stoppingToken)
         {
-            HttpListenerRequest request = _http.Request;
-
-            var query = _http.Request.QueryString;
-            var code = query["code"]?.ToString();
-            var scope = query["scope"]?.ToString();
-            var refreshToken = Client.FinishSetup(code, scope);
-            var responseString = "Error please check your settings";
-            if (refreshToken != null)
+            try
             {
-                UpdateDevices();
-                GlobalSettings["code"] = code;
-                GlobalSettings["scope"] = scope;
-                GlobalSettings["setup"] = true;
-                GlobalSettings["refreshToken"] = refreshToken;
-                _dispatcher.SetGlobalSettings(GlobalSettings);
-                _dispatcher.SendToPropertyInspector(LastContext, LastUUID, new { Update = true });
-                responseString = "Success! You can now close this window.";
+
+
+                HttpListenerRequest request = _http.Request;
+
+                var query = _http.Request.QueryString;
+                var code = query["code"]?.ToString();
+                var scope = query["scope"]?.ToString();
+                string refreshToken = null;
+                string exception = "";
+                try
+                {
+                    refreshToken = Client.FinishSetup(code, scope);
+                }
+                catch (Exception e)
+                {
+                    exception = e.ToString();
+                }
+                var responseString = $"Error please check your settings \r\n" +
+                    $"id:{ClientId} partialsecret:{new string(ClientSecret.Take(5).ToArray())} projId: {ProjectId} cloudproj{CloudProjectId}\r\n" +
+                    $"Client?: {Client != null} Code: {code} Scope: {scope}\r\nException: {exception}";
+                if (refreshToken != null)
+                {
+                    UpdateDevices();
+                    GlobalSettings["code"] = code;
+                    GlobalSettings["scope"] = scope;
+                    GlobalSettings["setup"] = true;
+                    GlobalSettings["refreshToken"] = refreshToken;
+                    _dispatcher.SetGlobalSettings(GlobalSettings);
+                    _dispatcher.SendToPropertyInspector(LastContext, LastUUID, new { Update = true });
+                    responseString = "Success! You can now close this window.";
+                }
+                //Read Raw body
+                var rawBody = await new StreamReader(request.InputStream).ReadToEndAsync();
+
+                //Write Response
+                HttpListenerResponse response = _http.Response;
+                response.StatusCode = 200;
+                byte[] buffer = System.Text.Encoding.UTF8.GetBytes(responseString);
+                response.ContentLength64 = buffer.Length;
+                System.IO.Stream output = response.OutputStream;
+                await output.WriteAsync(buffer, 0, buffer.Length);
+                output.Close();
             }
-            //Read Raw body
-            var rawBody = await new StreamReader(request.InputStream).ReadToEndAsync();
+            catch (Exception e)
+            {
 
-            //Write Response
-            HttpListenerResponse response = _http.Response;
-            response.StatusCode = 200;
-            byte[] buffer = System.Text.Encoding.UTF8.GetBytes(responseString);
-            response.ContentLength64 = buffer.Length;
-            System.IO.Stream output = response.OutputStream;
-            await output.WriteAsync(buffer, 0, buffer.Length);
-            output.Close();
-
+                if (_http.Response.OutputStream.CanWrite)
+                {
+                    //Write Response
+                    HttpListenerResponse response = _http.Response;
+                    response.StatusCode = 200;
+                    byte[] buffer = System.Text.Encoding.UTF8.GetBytes(e.ToString());
+                    response.ContentLength64 = buffer.Length;
+                    System.IO.Stream output = response.OutputStream;
+                    await output.WriteAsync(buffer, 0, buffer.Length);
+                    output.Close();
+                }
+            }
 
         }
 

@@ -49,17 +49,19 @@ namespace Tech.Aerove.Tools.Nest
 
         public async Task Stop()
         {
+            LastStart = DateTime.Now;
             await SubscriberClient.StopAsync(TimeSpan.FromSeconds(10));
             SubscriberClient = null;
         }
 
         public async Task Start(List<string> Scopes)
         {
+            LastStart = DateTime.Now;
             if (SubscriberClient != null)
             {
                 await Stop();
             }
-
+        
             //all the bs i had to look up and sort through (minus the useless stuff) to put this together
             //along with a little guessing because
             //google has no documentation on oauth pubsub C#
@@ -105,15 +107,34 @@ namespace Tech.Aerove.Tools.Nest
                 SubscriberClient = await SubscriberClient.CreateAsync(subscriptionName, creationSettings);
 
                 // Start the subscriber listening for messages.
-                _ = SubscriberClient.StartAsync(OnRecievePubSubMessage);
-
+                await SubscriberClient.StartAsync(OnRecievePubSubMessage);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
             }
         }
+        DateTime LastStart = DateTime.MinValue;
+        public async Task ClientWatcher(List<string> Scopes)
+        {
+            try
+            {
+               await SubscriberClient.StartAsync(OnRecievePubSubMessage);
+            }
+            catch(Exception e)
+            {
 
+                Console.WriteLine("broke");
+                Console.WriteLine(e);
+            }
+         
+            if(LastStart > DateTime.Now.AddMinutes(-2))
+            {
+                //don't try to start again if it was done less than 2 mins ago
+                return;
+            }
+            await Start(Scopes);
+        }
         private DateTime LastMsgPublish = DateTime.MinValue;
         private Task<SubscriberClient.Reply> OnRecievePubSubMessage(PubsubMessage msg, CancellationToken cancellationToken)
         {
