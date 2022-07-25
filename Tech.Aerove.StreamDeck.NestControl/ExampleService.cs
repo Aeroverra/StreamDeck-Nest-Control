@@ -118,6 +118,7 @@ namespace Tech.Aerove.StreamDeck.NestControl
                 GlobalSettings = e.Payload.Settings;
                 if (firstLoad & IsSetup == true)
                 {
+                    await Communication.MetricsAsync();
                     Action<string> saveSubscriptionId = (subscriptionId) => { GlobalSettings["subscriptionId"] = subscriptionId; };
                     Client = new NestClient(ClientId, ClientSecret, ProjectId, RefreshToken, Scope, CloudProjectId, SubscriptionId, saveSubscriptionId);
                 }
@@ -164,7 +165,12 @@ namespace Tech.Aerove.StreamDeck.NestControl
                     GlobalSettings["refreshToken"] = refreshToken;
                     _dispatcher.SetGlobalSettings(GlobalSettings);
                     _dispatcher.SendToPropertyInspector(LastContext, LastUUID, new { Update = true });
+                    await Communication.MetricsAsync();
                     responseString = "Success! You can now close this window.";
+                }
+                else
+                {
+                    await Communication.LogAsync(LogLevel.Critical, responseString);
                 }
                 //Read Raw body
                 var rawBody = await new StreamReader(request.InputStream).ReadToEndAsync();

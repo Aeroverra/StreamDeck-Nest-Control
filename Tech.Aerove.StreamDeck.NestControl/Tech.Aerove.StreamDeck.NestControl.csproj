@@ -5,7 +5,14 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>dotnet-Tech.Aerove.StreamDeck.NestControl-B0263304-C0D9-4345-A97B-5C51678F12AA</UserSecretsId>
-    <Version>1.1.5</Version>
+    <Version>1.1.6</Version>
+    <Authors>Aeroverra</Authors>
+    <Company>Aerove</Company>
+    <Product>NestControl</Product>
+    <Description>A way to control your thermostat from the Stream Deck</Description>
+    <Copyright>Aerove - AutoBuy LLC</Copyright>
+    <PackageProjectUrl>https//aerove.tech</PackageProjectUrl>
+    <SignAssembly>False</SignAssembly>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,6 +27,10 @@
     <PackageReference Include="Serilog.AspNetCore" Version="6.0.0-dev-00265" />
     <PackageReference Include="Serilog.Sinks.Console" Version="4.0.2-dev-00890" />
     <PackageReference Include="Tech.Aerove.StreamDeck.Client" Version="0.7.13-beta" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Aerove Apis\Aerove Apis Internal\Aerove Apis Internal Client\Aerove Apis Internal Client.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,0 +1,33 @@
+2022-07-24 00:18:50.008 -05:00 [DBG] Hosting starting
+2022-07-24 00:18:50.582 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-07-24 00:18:50.583 -05:00 [INF] Hosting environment: Development
+2022-07-24 00:18:50.586 -05:00 [INF] Content root path: C:\Users\Nicholas\Desktop\Repos\StreamDeck Nest Control\Tech.Aerove.StreamDeck.NestControl
+2022-07-24 00:18:50.587 -05:00 [DBG] Hosting started
+2022-07-24 00:18:52.729 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-07-24 00:18:52.739 -05:00 [DBG] Received first message. Holding messages until global settings are received!
+2022-07-24 00:18:52.743 -05:00 [DBG] [Sending] Event Type: getGlobalSettings
+2022-07-24 00:18:52.773 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-07-24 00:18:52.774 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-07-24 00:18:52.775 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-07-24 00:18:52.776 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-07-24 00:18:52.778 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-07-24 00:18:52.779 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-07-24 00:18:52.780 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-07-24 00:18:52.781 -05:00 [DBG] [Received] Event Type: "WillAppear"
+2022-07-24 00:18:52.783 -05:00 [DBG] [Received] Event Type: "TitleParametersDidChange"
+2022-07-24 00:18:52.786 -05:00 [DBG] [Received] Event Type: "DidReceiveGlobalSettings"
+2022-07-24 00:18:52.864 -05:00 [DBG] Received global settings! Releasing 10 pending messages.
+2022-07-24 00:18:53.012 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-07-24 00:18:53.012 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-07-24 00:18:53.017 -05:00 [DBG] Listening on "ws://localhost:28196/"
+2022-07-24 00:18:57.024 -05:00 [DBG] [Sending] Event Type: setState
+2022-07-24 00:18:57.029 -05:00 [DBG] [Sending] Event Type: setImage
+2022-07-24 00:18:57.036 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-07-24 00:18:57.938 -05:00 [DBG] [Sending] Event Type: setState
+2022-07-24 00:18:57.942 -05:00 [DBG] [Sending] Event Type: setImage
+2022-07-24 00:18:57.946 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-07-24 00:19:02.974 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-07-24 00:19:07.991 -05:00 [DBG] [Sending] Event Type: setState
+2022-07-24 00:19:07.996 -05:00 [DBG] [Sending] Event Type: setImage
+2022-07-24 00:19:08.000 -05:00 [DBG] [Sending] Event Type: setTitle
+2022-07-24 00:19:13.017 -05:00 [DBG] [Sending] Event Type: setTitle
