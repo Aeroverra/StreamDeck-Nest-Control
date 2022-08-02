@@ -8,6 +8,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using Tech.Aerove.StreamDeck.NestControl;
 using Tech.Aerove.StreamDeck.NestControl.Tech.Aerove.Tools.Nest.Models.WebCalls;
 using Tech.Aerove.Tools.Nest.Models.WebCalls;
 
@@ -70,7 +71,9 @@ namespace Tech.Aerove.Tools.Nest
             IRestResponse response = client.Execute(request);
             if (response.StatusCode != HttpStatusCode.OK)
             {
-                return null;
+                var msg = $"Google did not return devices\r\n{response.StatusCode}\r\n{response.Content}";
+                _ = Communication.LogAsync(LogLevel.Critical, msg);
+                throw new Exception(msg);
             }
             return JObject.Parse(response.Content).ToObject<DevicesResponse>();
         }
