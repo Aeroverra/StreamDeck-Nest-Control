@@ -40,6 +40,10 @@
             <p>Click here after setting the Client Id, Client Secret, and Project Id</p>
         </div>
 
+        <div class="sdpi-item" id="dvDelay">
+            <div class="sdpi-item-label">MS Delay</div>
+            <input type="number" class="sdpi-item-value sdProperty" placeholder="" value="5000" id="delay" oninput="setSettings()">
+        </div>
         <div class="sdpi-item" id="dvDevice">
             <div class="sdpi-item-label">Device</div>
             <select class="sdpi-item-value select sdProperty" id="device" oninput="setSettings()"></select>
@@ -54,12 +58,12 @@
             <p>Click here to restart the setup process.</p>
         </div>
         <!--<div class="sdpi-item" id="dvDevice">
-        <div class="sdpi-item-label">Device</div>
-        <select class="sdpi-item-value select sdProperty sdList"
-                id="piDevices" oninput="setSettings()"
-                sdListTextProperty="displayName"
-                sdListValueProperty="name"
-                sdValueField="device"></select>-->
+    <div class="sdpi-item-label">Device</div>
+    <select class="sdpi-item-value select sdProperty sdList"
+            id="piDevices" oninput="setSettings()"
+            sdListTextProperty="displayName"
+            sdListValueProperty="name"
+            sdValueField="device"></select>-->
 
     </div>
     </div>

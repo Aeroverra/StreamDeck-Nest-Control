@@ -16,6 +16,19 @@ namespace Tech.Aerove.StreamDeck.NestControl.Actions
     public class ThermostatInfo : ActionBase
     {
         private string DeviceName => $"{Context.Settings["device"]}";
+        private int MsDelay
+        {
+            get
+            {
+                int.TryParse($"{Context.Settings["delay"]}", out int val);
+                if(val < 1000)
+                {
+                    val = 5000; 
+                }
+                return val;
+            }
+        }
+
 
         private ThermostatDevice Thermostat { get; set; }
 
@@ -53,9 +66,11 @@ namespace Tech.Aerove.StreamDeck.NestControl.Actions
 
         public async Task Ticker()
         {
+            var delay = 5000;
             while (true)
             {
-                await Task.Delay(5000);
+         
+                await Task.Delay(delay);
                 if (string.IsNullOrWhiteSpace(DeviceName) || Thermostat == null) { continue; }
                 try
                 {
@@ -86,7 +101,8 @@ namespace Tech.Aerove.StreamDeck.NestControl.Actions
                         modeText = $"{mode}";
                     }
                     await Dispatcher.SetTitleAsync($"{modeText}");
-                    await Task.Delay(5000);
+                    delay = MsDelay;
+                    await Task.Delay(delay);
                     await Dispatcher.SetTitleAsync($"{Thermostat.CurrentTemperature}");
                 }
                 catch (Exception)
