@@ -249,28 +249,38 @@ namespace Tech.Aerove.Tools.Nest
             return success;
         }
 
-        public bool SetTemp(ThermostatDevice thermostat, decimal value)
+        public bool SetTemp(ThermostatDevice thermostat, SdmDevicesTraitsThermostatTemperatureSetpoint value)
         {
             CheckUpdateToken();
 
             //api always takes celsius even if thermostat is not
             if (thermostat.Scale == TemperatureScale.FAHRENHEIT)
             {
-                value = value.ToCelsius();
+                value = value.Clone();
+                value.HeatCelsius = value.HeatCelsius.ToCelsius();
+                value.CoolCelsius = value.CoolCelsius.ToCelsius();
             }
 
-            if (thermostat.Mode != ThermostatMode.HEAT && thermostat.Mode != ThermostatMode.COOL) { return false; }
-
             var command = new CommandBody();
-            if (thermostat.Mode == ThermostatMode.COOL)
+            var mode = thermostat.Mode;
+            if (mode == ThermostatMode.COOL)
             {
                 command.Command = "sdm.devices.commands.ThermostatTemperatureSetpoint.SetCool";
-                command.Params.Add("coolCelsius", value);
+                command.Params.Add("coolCelsius", value.CoolCelsius);
+            }
+            else if (mode == ThermostatMode.HEAT)
+            {
+                command.Command = "sdm.devices.commands.ThermostatTemperatureSetpoint.SetHeat";
+                command.Params.Add("heatCelsius", value.HeatCelsius);
+            }
+            else if (mode == ThermostatMode.HEATCOOL) {
+                command.Command = "sdm.devices.commands.ThermostatTemperatureSetpoint.SetRange";
+                command.Params.Add("heatCelsius", value.HeatCelsius);
+                command.Params.Add("coolCelsius", value.CoolCelsius);
             }
             else
             {
-                command.Command = "sdm.devices.commands.ThermostatTemperatureSetpoint.SetHeat";
-                command.Params.Add("heatCelsius", value);
+                return false;
             }
             var success = WebCalls.ExecuteCommand(thermostat.Name, AccessToken, command);
             if (success)
@@ -283,15 +293,17 @@ namespace Tech.Aerove.Tools.Nest
 
         public bool SetTempUp(ThermostatDevice thermostat, int value)
         {
-            var currentValue = thermostat.SetPointExact;
-            currentValue += value;
+            var currentValue = thermostat.SetPointsExact;
+            currentValue.CoolCelsius += value;
+            currentValue.HeatCelsius += value;
             return SetTemp(thermostat, currentValue);
         }
 
         public bool SetTempDown(ThermostatDevice thermostat, int value)
         {
-            var currentValue = thermostat.SetPointExact;
-            currentValue -= value;
+            var currentValue = thermostat.SetPointsExact;
+            currentValue.CoolCelsius -= value;
+            currentValue.HeatCelsius -= value;
             return SetTemp(thermostat, currentValue);
         }
     }

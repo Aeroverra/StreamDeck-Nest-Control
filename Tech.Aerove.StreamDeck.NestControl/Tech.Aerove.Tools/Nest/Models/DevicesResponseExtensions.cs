@@ -29,40 +29,26 @@ namespace Tech.Aerove.Tools.Nest.Models
             return (TemperatureScale)Enum.Parse(typeof(TemperatureScale), device.Traits.SdmDevicesTraitsSettings.TemperatureScale);
         }
 
-        public static decimal GetTemperatureSetPoint(this Device device, bool convertScale = false)
+        public static SdmDevicesTraitsThermostatTemperatureSetpoint GetTemperatureSetPoint(this Device device, bool convertScale = false)
         {
-            var mode = device.GetMode();
-            if (mode != ThermostatMode.COOL && mode != ThermostatMode.HEAT) { return 0; }
-            decimal setPoint = 0;
-            if (mode == ThermostatMode.COOL)
-            {
-                setPoint = device.Traits.SdmDevicesTraitsThermostatTemperatureSetpoint.CoolCelsius;
-            }
-            else
-            {
-                setPoint = device.Traits.SdmDevicesTraitsThermostatTemperatureSetpoint.HeatCelsius;
-            }
+            var setPoint = device.Traits.SdmDevicesTraitsThermostatTemperatureSetpoint.Clone();
             if (convertScale && device.GetTemperatureScale() == TemperatureScale.FAHRENHEIT)
             {
-                setPoint = setPoint.ToFahrenheit();
+                setPoint.CoolCelsius = setPoint.CoolCelsius.ToFahrenheit();
+                setPoint.HeatCelsius = setPoint.HeatCelsius.ToFahrenheit();
             }
             return setPoint;
         }
-        public static int GetTemperatureSetPointAsInt(this Device device, bool convertScale = false)
-        {
-            var setPoint = device.GetTemperatureSetPoint(convertScale);
-            return Convert.ToInt32(Math.Round(setPoint));
-        }
 
-        public static void SetTemperatureSetPoint(this Device device, ThermostatMode mode, decimal value)
+        public static void SetTemperatureSetPoint(this Device device, ThermostatMode mode, SdmDevicesTraitsThermostatTemperatureSetpoint value)
         {
-            if (mode == ThermostatMode.COOL)
+            if (mode == ThermostatMode.COOL || mode == ThermostatMode.HEATCOOL)
             {
-                device.Traits.SdmDevicesTraitsThermostatTemperatureSetpoint.CoolCelsius = value;
+                device.Traits.SdmDevicesTraitsThermostatTemperatureSetpoint.CoolCelsius = value.CoolCelsius;
             }
-            else
+            if(mode == ThermostatMode.HEAT || mode == ThermostatMode.HEATCOOL)
             {
-                device.Traits.SdmDevicesTraitsThermostatTemperatureSetpoint.HeatCelsius = value;
+                device.Traits.SdmDevicesTraitsThermostatTemperatureSetpoint.HeatCelsius = value.HeatCelsius;
             }
         }
 

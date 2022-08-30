@@ -82,12 +82,12 @@ namespace Tech.Aerove.StreamDeck.NestControl.Actions
             if (Thermostat.Mode == ThermostatMode.COOL)
             {
                 await Dispatcher.SetImageAsync(ImageColors.Blue.DataUri);
-                await Dispatcher.SetTitleAsync($"{Thermostat.Mode}\n{Thermostat.SetPoint}");
+                await Dispatcher.SetTitleAsync($"{Thermostat.Mode}\n{Thermostat.SetPointRender}");
             }
             else if (Thermostat.Mode == ThermostatMode.HEAT)
             {
                 await Dispatcher.SetImageAsync(ImageColors.Red.DataUri);
-                await Dispatcher.SetTitleAsync($"{Thermostat.Mode}\n{Thermostat.SetPoint}");
+                await Dispatcher.SetTitleAsync($"{Thermostat.Mode}\n{Thermostat.SetPointRender}");
             }
             else if (Thermostat.Mode == ThermostatMode.HEATCOOL)
             {
