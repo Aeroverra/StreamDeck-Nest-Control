@@ -133,11 +133,18 @@ namespace Tech.Aerove.Tools.Nest.Models.WebCalls
         public List<string> AvailableModes { get; set; }
     }
 
-    internal partial class SdmDevicesTraitsThermostatTemperatureSetpoint
+    public partial class SdmDevicesTraitsThermostatTemperatureSetpoint
     {
         [JsonProperty("coolCelsius")]
         public decimal CoolCelsius { get; set; }
         [JsonProperty("heatCelsius")]
         public decimal HeatCelsius { get; set; }
+
+        public SdmDevicesTraitsThermostatTemperatureSetpoint Clone() => 
+            new SdmDevicesTraitsThermostatTemperatureSetpoint
+                {
+                    CoolCelsius = CoolCelsius,
+                    HeatCelsius = HeatCelsius
+                };
     }
 }

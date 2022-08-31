@@ -32,7 +32,6 @@ namespace Tech.Aerove.StreamDeck.NestControl.Actions
         }
         public override async Task KeyDownAsync(int userDesiredState)
         {
-            if (Thermostat.Mode == ThermostatMode.HEATCOOL) { await Dispatcher.ShowAlertAsync(); return; }
             if (Thermostat.Mode == ThermostatMode.OFF)
             {
                 Thermostat.SetMode(ThermostatMode.COOL);
