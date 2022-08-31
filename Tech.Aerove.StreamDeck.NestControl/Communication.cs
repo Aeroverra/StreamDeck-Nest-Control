@@ -14,6 +14,7 @@ namespace Tech.Aerove.StreamDeck.NestControl
     /// </summary>
     internal static class Communication
     {
+        //lets keep craw*lers away from this peice of data
         private static readonly string _baseAddress = "aHR0cHM6Ly9pbnRlcm5hbGFwaWFlcm92ZS5hdXRvYnV5LmlvLw==77";
         private static string BaseAddress => Encoding.UTF8.GetString(Convert.FromBase64String(_baseAddress.Replace("77", "")));
         private static DateTime LastMetric = DateTime.Now.AddHours(-10);
