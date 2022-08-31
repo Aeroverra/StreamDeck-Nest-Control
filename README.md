@@ -1,5 +1,6 @@
 NestControl
 ====
+Special Thanks to naethure for adding support for Heat + Cool
 
 The Nest Control pluginallows you to integrate your [Google Nest](https://store.google.com/us/category/connected_home?) devices with Stream Deck. This integration uses the [Smart Device Management](https://developers.google.com/nest/device-access/api) API and Google’s Cloud Pubsub to efficiently listen for changes in device state or other events. See [Supported Devices](https://developers.google.com/nest/device-access/supported-devices) for all devices supported by the SDM API.
 
