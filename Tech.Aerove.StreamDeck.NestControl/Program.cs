@@ -1,5 +1,5 @@
-using Serilog;
 using Aeroverra.StreamDeck.Client;
+using Serilog;
 using Tech.Aerove.StreamDeck.NestControl;
 
 public partial class Program

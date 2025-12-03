@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Tech.Aerove.Tools.Nest.Models.WebCalls;
-
-namespace Tech.Aerove.Tools.Nest.Models
+﻿namespace Tech.Aerove.Tools.Nest.Models
 {
     public abstract class NestDevice
     {
@@ -21,7 +14,7 @@ namespace Tech.Aerove.Tools.Nest.Models
 
         private void OnDevicesUpdated(object? sender, string name)
         {
-            if(name == DeviceName)
+            if (name == DeviceName)
             {
                 OnUpdate?.Invoke();
             }

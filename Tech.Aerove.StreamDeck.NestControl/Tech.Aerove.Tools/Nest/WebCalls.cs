@@ -1,13 +1,7 @@
-﻿using Google.Apis.SmartDeviceManagement.v1;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using Tech.Aerove.StreamDeck.NestControl;
 using Tech.Aerove.StreamDeck.NestControl.Tech.Aerove.Tools.Nest.Models.WebCalls;
 using Tech.Aerove.Tools.Nest.Models.WebCalls;
@@ -101,7 +95,7 @@ namespace Tech.Aerove.Tools.Nest
         }
 
         //https://developers.google.com/nest/device-access/traits/device/thermostat-temperature-setpoint#setcool
-       
+
         public static bool ExecuteCommand(string deviceName, string accessToken, CommandBody command)
         {
             var client = new RestClient($"https://smartdevicemanagement.googleapis.com/v1/{deviceName}:executeCommand");

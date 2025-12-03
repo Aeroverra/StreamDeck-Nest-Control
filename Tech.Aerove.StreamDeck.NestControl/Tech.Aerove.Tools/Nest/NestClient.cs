@@ -204,12 +204,12 @@ namespace Tech.Aerove.Tools.Nest
             return true;
         }
 
-       
+
         private void TimerStartTask(object state)
         {
             CheckUpdateToken();
         }
-    
+
         private void CheckUpdateToken(bool skippubsub = false)
         {
 
@@ -229,7 +229,7 @@ namespace Tech.Aerove.Tools.Nest
             {
                 _ = PubSubClient.Start(Scopes);
             }
-       
+
         }
 
         public bool SetMode(ThermostatDevice thermostat, ThermostatMode mode)
@@ -273,7 +273,8 @@ namespace Tech.Aerove.Tools.Nest
                 command.Command = "sdm.devices.commands.ThermostatTemperatureSetpoint.SetHeat";
                 command.Params.Add("heatCelsius", value.HeatCelsius);
             }
-            else if (mode == ThermostatMode.HEATCOOL) {
+            else if (mode == ThermostatMode.HEATCOOL)
+            {
                 command.Command = "sdm.devices.commands.ThermostatTemperatureSetpoint.SetRange";
                 command.Params.Add("heatCelsius", value.HeatCelsius);
                 command.Params.Add("coolCelsius", value.CoolCelsius);

@@ -1,19 +1,7 @@
 ﻿using Google.Apis.Auth.OAuth2;
-using Google.Apis.Auth.OAuth2.Flows;
-using Google.Apis.Auth.OAuth2.Responses;
 using Google.Cloud.PubSub.V1;
-using Google.Protobuf.WellKnownTypes;
 using Grpc.Auth;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Tech.Aerove.StreamDeck.NestControl.Tech.Aerove.Tools.Nest.Models;
-using Tech.Aerove.StreamDeck.NestControl.Tech.Aerove.Tools.Nest.Models.WebCalls;
-using Tech.Aerove.Tools.Nest.Models;
 using Tech.Aerove.Tools.Nest.Models.WebCalls;
 
 namespace Tech.Aerove.Tools.Nest
@@ -61,7 +49,7 @@ namespace Tech.Aerove.Tools.Nest
             {
                 await Stop();
             }
-        
+
             //all the bs i had to look up and sort through (minus the useless stuff) to put this together
             //along with a little guessing because
             //google has no documentation on oauth pubsub C#
@@ -119,16 +107,16 @@ namespace Tech.Aerove.Tools.Nest
         {
             try
             {
-               await SubscriberClient.StartAsync(OnRecievePubSubMessage);
+                await SubscriberClient.StartAsync(OnRecievePubSubMessage);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
 
                 Console.WriteLine("broke");
                 Console.WriteLine(e);
             }
-         
-            if(LastStart > DateTime.Now.AddMinutes(-2))
+
+            if (LastStart > DateTime.Now.AddMinutes(-2))
             {
                 //don't try to start again if it was done less than 2 mins ago
                 return;

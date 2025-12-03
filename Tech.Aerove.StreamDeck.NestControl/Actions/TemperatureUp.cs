@@ -1,13 +1,4 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Aeroverra.StreamDeck.Client.Actions;
-using Tech.Aerove.StreamDeck.NestControl.Tech.Aerove.Tools.Nest;
-using Tech.Aerove.Tools.Nest;
+﻿using Aeroverra.StreamDeck.Client.Actions;
 using Tech.Aerove.Tools.Nest.Models;
 
 namespace Tech.Aerove.StreamDeck.NestControl.Actions
@@ -28,7 +19,7 @@ namespace Tech.Aerove.StreamDeck.NestControl.Actions
             _handler = handler;
         }
 
-      
+
 
         public override async Task WillAppearAsync()
         {
