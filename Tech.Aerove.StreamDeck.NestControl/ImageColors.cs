@@ -1,4 +1,4 @@
-﻿namespace Tech.Aerove.StreamDeck.NestControl
+﻿namespace Aeroverra.StreamDeck.NestControl
 {
     internal struct ImageColors
     {

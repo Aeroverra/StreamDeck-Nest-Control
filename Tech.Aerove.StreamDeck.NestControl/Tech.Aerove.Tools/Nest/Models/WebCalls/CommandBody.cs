@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace Tech.Aerove.StreamDeck.NestControl.Tech.Aerove.Tools.Nest.Models.WebCalls
+namespace Aeroverra.StreamDeck.NestControl.Tech.Aerove.Tools.Nest.Models.WebCalls
 {
     internal class CommandBody
     {

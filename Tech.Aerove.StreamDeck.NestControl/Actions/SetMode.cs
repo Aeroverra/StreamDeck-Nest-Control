@@ -2,7 +2,7 @@
 using Newtonsoft.Json.Linq;
 using Tech.Aerove.Tools.Nest.Models;
 
-namespace Tech.Aerove.StreamDeck.NestControl.Actions
+namespace Aeroverra.StreamDeck.NestControl.Actions
 {
 
     [PluginAction("tech.aerove.streamdeck.nestcontrol.setmode")]

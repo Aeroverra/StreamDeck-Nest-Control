@@ -5,11 +5,11 @@ using Newtonsoft.Json.Linq;
 using System.Diagnostics;
 using System.Net;
 using System.Runtime.InteropServices;
-using Tech.Aerove.StreamDeck.NestControl.Models;
+using Aeroverra.StreamDeck.NestControl.Models;
 using Tech.Aerove.Tools.Nest;
 using Tech.Aerove.Tools.Nest.Models;
 
-namespace Tech.Aerove.StreamDeck.NestControl
+namespace Aeroverra.StreamDeck.NestControl
 {
 
     public class ExampleService : BackgroundService

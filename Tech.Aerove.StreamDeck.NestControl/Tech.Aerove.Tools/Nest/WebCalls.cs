@@ -2,8 +2,8 @@
 using Newtonsoft.Json.Linq;
 using RestSharp;
 using System.Net;
-using Tech.Aerove.StreamDeck.NestControl;
-using Tech.Aerove.StreamDeck.NestControl.Tech.Aerove.Tools.Nest.Models.WebCalls;
+using Aeroverra.StreamDeck.NestControl;
+using Aeroverra.StreamDeck.NestControl.Tech.Aerove.Tools.Nest.Models.WebCalls;
 using Tech.Aerove.Tools.Nest.Models.WebCalls;
 
 namespace Tech.Aerove.Tools.Nest

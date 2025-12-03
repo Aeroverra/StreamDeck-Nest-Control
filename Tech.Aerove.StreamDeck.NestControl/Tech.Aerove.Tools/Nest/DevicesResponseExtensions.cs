@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using Tech.Aerove.StreamDeck.NestControl;
+using Aeroverra.StreamDeck.NestControl;
 using Tech.Aerove.Tools.Nest.Models.WebCalls;
 
 namespace Tech.Aerove.Tools.Nest

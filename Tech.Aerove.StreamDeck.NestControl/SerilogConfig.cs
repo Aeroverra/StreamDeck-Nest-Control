@@ -1,6 +1,6 @@
 ﻿using Serilog;
 
-namespace Tech.Aerove.StreamDeck.NestControl
+namespace Aeroverra.StreamDeck.NestControl
 {
     internal class SerilogConfig
     {

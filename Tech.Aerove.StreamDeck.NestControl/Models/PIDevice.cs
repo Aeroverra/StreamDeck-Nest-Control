@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Tech.Aerove.Tools.Nest.Models;
 
-namespace Tech.Aerove.StreamDeck.NestControl.Models
+namespace Aeroverra.StreamDeck.NestControl.Models
 {
     internal class PIDevice
     {

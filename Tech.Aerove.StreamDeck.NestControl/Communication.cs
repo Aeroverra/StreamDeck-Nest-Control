@@ -1,7 +1,7 @@
 ﻿using System.Text;
 using Tech.Aerove.ApiClient.Internal;
 
-namespace Tech.Aerove.StreamDeck.NestControl
+namespace Aeroverra.StreamDeck.NestControl
 {
 
     /// <summary>

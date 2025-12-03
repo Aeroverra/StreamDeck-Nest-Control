@@ -1,7 +1,7 @@
 ﻿using Aeroverra.StreamDeck.Client.Actions;
 using Tech.Aerove.Tools.Nest.Models;
 
-namespace Tech.Aerove.StreamDeck.NestControl.Actions
+namespace Aeroverra.StreamDeck.NestControl.Actions
 {
 
     [PluginAction("tech.aerove.streamdeck.nestcontrol.temperatureup")]
