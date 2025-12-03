@@ -1,8 +1,8 @@
 {
   "SDKVersion": 2,
   "Author": "Aeroverra",
-  "CodePath": "Tech.Aerove.StreamDeck.NestControl.exe",
-  "CodePathMac": "Tech.Aerove.StreamDeck.NestControl",
+  "CodePath": "Aeroverra.StreamDeck.NestControl.exe",
+  "CodePathMac": "Aeroverra.StreamDeck.NestControl",
   "Category": "Nest Control [Aerove]",
   "CategoryIcon": "PropertyInspector/images/actionImage",
   "PropertyInspectorPath": "PropertyInspector/TempUpDown.html",

@@ -17,15 +17,16 @@
     <_WebToolingArtifacts Remove="Properties\PublishProfiles\osx-64 and win-64.pubxml" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Aeroverra.StreamDeck.Client" Version="0.8.1-beta" />
-    <PackageReference Include="Google.Apis.SmartDeviceManagement.v1" Version="1.57.0.2346" />
-    <PackageReference Include="Google.Cloud.PubSub.V1" Version="3.0.0-beta01" />
+	      <!--<PackageReference Include="Aeroverra.StreamDeck.Client" Version="0.8.1-beta" />-->
+    <PackageReference Include="Google.Apis.SmartDeviceManagement.v1" Version="1.68.0.3244" />
+    <PackageReference Include="Google.Cloud.PubSub.V1" Version="3.30.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.0" />
     <PackageReference Include="RestSharp" Version="106.15.0" />
     <PackageReference Include="Serilog.AspNetCore" Version="10.0.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Aerove-Apis\Aerove Apis Internal\Aerove Apis Internal Client\Aerove Apis Internal Client.csproj" />
+    <ProjectReference Include="..\..\Stream-Deck-CSharp-Client\Aeroverra.StreamDeck.Client\Aeroverra.StreamDeck.Client.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Update="PropertyInspector\easypi.js">
