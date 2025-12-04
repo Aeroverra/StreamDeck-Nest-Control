@@ -1,21 +1,15 @@
-using Microsoft.AspNetCore.WebUtilities;
+using Aeroverra.StreamDeck.Client;
+using Aeroverra.StreamDeck.Client.Events;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using RestSharp;
 using System.Diagnostics;
 using System.Net;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Web;
-using Tech.Aerove.StreamDeck.Client;
-using Tech.Aerove.StreamDeck.Client.Events;
-using Tech.Aerove.StreamDeck.NestControl.Models;
-using Tech.Aerove.StreamDeck.NestControl.Tech.Aerove.Tools.Nest;
+using Aeroverra.StreamDeck.NestControl.Models;
 using Tech.Aerove.Tools.Nest;
 using Tech.Aerove.Tools.Nest.Models;
-using static Google.Rpc.Context.AttributeContext.Types;
 
-namespace Tech.Aerove.StreamDeck.NestControl
+namespace Aeroverra.StreamDeck.NestControl
 {
 
     public class ExampleService : BackgroundService

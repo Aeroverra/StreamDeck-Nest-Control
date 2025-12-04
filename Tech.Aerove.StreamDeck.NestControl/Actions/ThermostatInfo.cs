@@ -1,16 +1,7 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Tech.Aerove.StreamDeck.Client.Actions;
-using Tech.Aerove.StreamDeck.NestControl.Tech.Aerove.Tools.Nest;
-using Tech.Aerove.Tools.Nest;
+﻿using Aeroverra.StreamDeck.Client.Actions;
 using Tech.Aerove.Tools.Nest.Models;
 
-namespace Tech.Aerove.StreamDeck.NestControl.Actions
+namespace Aeroverra.StreamDeck.NestControl.Actions
 {
     [PluginAction("tech.aerove.streamdeck.nestcontrol.thermostatinfo")]
     public class ThermostatInfo : ActionBase
@@ -21,9 +12,9 @@ namespace Tech.Aerove.StreamDeck.NestControl.Actions
             get
             {
                 int.TryParse($"{Context.Settings["delay"]}", out int val);
-                if(val < 1000)
+                if (val < 1000)
                 {
-                    val = 5000; 
+                    val = 5000;
                 }
                 return val;
             }
@@ -42,6 +33,7 @@ namespace Tech.Aerove.StreamDeck.NestControl.Actions
             _ = Ticker();
         }
 
+   
         private async Task AwaitDevice()
         {
             while (true)
@@ -69,7 +61,7 @@ namespace Tech.Aerove.StreamDeck.NestControl.Actions
             var delay = 5000;
             while (true)
             {
-         
+
                 await Task.Delay(delay);
                 if (string.IsNullOrWhiteSpace(DeviceName) || Thermostat == null) { continue; }
                 try

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Tech.Aerove.Tools.Nest.Models.WebCalls;
+﻿using Tech.Aerove.Tools.Nest.Models.WebCalls;
 
 namespace Tech.Aerove.Tools.Nest.Models
 {
@@ -46,7 +41,7 @@ namespace Tech.Aerove.Tools.Nest.Models
             {
                 device.Traits.SdmDevicesTraitsThermostatTemperatureSetpoint.CoolCelsius = value.CoolCelsius;
             }
-            if(mode == ThermostatMode.HEAT || mode == ThermostatMode.HEATCOOL)
+            if (mode == ThermostatMode.HEAT || mode == ThermostatMode.HEATCOOL)
             {
                 device.Traits.SdmDevicesTraitsThermostatTemperatureSetpoint.HeatCelsius = value.HeatCelsius;
             }

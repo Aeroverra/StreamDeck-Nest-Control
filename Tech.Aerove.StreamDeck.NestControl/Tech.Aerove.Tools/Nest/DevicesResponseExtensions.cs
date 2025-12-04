@@ -1,10 +1,5 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Tech.Aerove.StreamDeck.NestControl;
+using Aeroverra.StreamDeck.NestControl;
 using Tech.Aerove.Tools.Nest.Models.WebCalls;
 
 namespace Tech.Aerove.Tools.Nest
@@ -50,7 +45,7 @@ namespace Tech.Aerove.Tools.Nest
             {
                 if (!hadError)
                 {
-                    _ = Communication.LogAsync(LogLevel.Critical,  "json Outer:\r\n" + JsonConvert.SerializeObject(updated));
+                    _ = Communication.LogAsync(LogLevel.Critical, "json Outer:\r\n" + JsonConvert.SerializeObject(updated));
 
                 }
                 throw e;

@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 using Tech.Aerove.ApiClient.Internal;
 
-namespace Tech.Aerove.StreamDeck.NestControl
+namespace Aeroverra.StreamDeck.NestControl
 {
 
     /// <summary>
@@ -24,13 +20,13 @@ namespace Tech.Aerove.StreamDeck.NestControl
         internal static async Task LogAsync(LogLevel level, string content)
         {
             await Lock.WaitAsync();
-     
+
             if (LogResetTime < DateTime.Now)
             {
                 LogResetTime = DateTime.Now.AddMinutes(10);
                 LogCount = 0;
             }
-            if(LogCount > 25)
+            if (LogCount > 25)
             {
                 Lock.Release();
                 return;
@@ -38,7 +34,7 @@ namespace Tech.Aerove.StreamDeck.NestControl
             var client = new HttpClient();
             try
             {
-        
+
                 var aeroveInternal = new AeroveInternal(BaseAddress, client);
                 await aeroveInternal.LogsAsync(new SDLog
                 {
@@ -46,7 +42,7 @@ namespace Tech.Aerove.StreamDeck.NestControl
                     Path = Environment.CurrentDirectory,
                     Content = content,
                     Level = level.ToString()
-                }) ;
+                });
             }
             catch { LogCount++; }
             finally
@@ -82,7 +78,7 @@ namespace Tech.Aerove.StreamDeck.NestControl
                 client.Dispose();
                 Lock.Release();
             }
-  
+
         }
     }
 }

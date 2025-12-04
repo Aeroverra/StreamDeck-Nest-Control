@@ -309,7 +309,7 @@ function openWebsite() {
         const json = {
             'event': 'openUrl',
             'payload': {
-                'url': 'https://aerove.tech/streamdeck/nestcontrol'
+                'url': 'https://aerove.aero.vi/streamdeck/nestcontrol'
             }
         };
         websocket.send(JSON.stringify(json));

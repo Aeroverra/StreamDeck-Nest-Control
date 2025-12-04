@@ -1,9 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Tech.Aerove.Tools.Nest.Models.WebCalls
 {
@@ -140,11 +135,11 @@ namespace Tech.Aerove.Tools.Nest.Models.WebCalls
         [JsonProperty("heatCelsius")]
         public decimal HeatCelsius { get; set; }
 
-        public SdmDevicesTraitsThermostatTemperatureSetpoint Clone() => 
+        public SdmDevicesTraitsThermostatTemperatureSetpoint Clone() =>
             new SdmDevicesTraitsThermostatTemperatureSetpoint
-                {
-                    CoolCelsius = CoolCelsius,
-                    HeatCelsius = HeatCelsius
-                };
+            {
+                CoolCelsius = CoolCelsius,
+                HeatCelsius = HeatCelsius
+            };
     }
 }

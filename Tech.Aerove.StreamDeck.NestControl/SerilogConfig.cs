@@ -1,11 +1,6 @@
 ﻿using Serilog;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Tech.Aerove.StreamDeck.NestControl
+namespace Aeroverra.StreamDeck.NestControl
 {
     internal class SerilogConfig
     {
@@ -15,8 +10,7 @@ namespace Tech.Aerove.StreamDeck.NestControl
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Debug()
                 .WriteTo.Console()
-                .WriteTo.File("log.txt", rollingInterval: RollingInterval.Day, retainedFileCountLimit: 4)
-                .WriteTo.File("log.txt", rollingInterval: RollingInterval.Day, retainedFileCountLimit: 4)
+                .WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Day, retainedFileCountLimit: 4)
                 .CreateLogger();
         }
     }
