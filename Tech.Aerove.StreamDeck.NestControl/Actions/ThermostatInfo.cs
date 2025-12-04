@@ -33,6 +33,7 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
             _ = Ticker();
         }
 
+   
         private async Task AwaitDevice()
         {
             while (true)
