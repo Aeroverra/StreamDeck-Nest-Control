@@ -1,6 +1,8 @@
 ﻿using Aeroverra.StreamDeck.Client.Actions;
+using Aeroverra.StreamDeck.NestControl.Services.Nest;
+using Aeroverra.StreamDeck.NestControl.Services.Nest.Models;
+using Google.Apis.SmartDeviceManagement.v1.Data;
 using Newtonsoft.Json.Linq;
-using Tech.Aerove.Tools.Nest.Models;
 
 namespace Aeroverra.StreamDeck.NestControl.Actions
 {
@@ -10,55 +12,62 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
     {
         private string DeviceName => $"{Context.Settings["device"]}";
         private ThermostatMode ButtonMode => (ThermostatMode)Enum.Parse(typeof(ThermostatMode), $"{Context.Settings["setMode"]}");
-        private ThermostatDevice Thermostat { get; set; }
+        private GoogleHomeEnterpriseSdmV1Device? Thermostat { get; set; } = null;
 
-        private readonly ExampleService _handler;
+        private readonly NestService _nestService;
         private readonly ILogger<TemperatureUp> _logger;
-        public SetMode(ILogger<TemperatureUp> logger, ExampleService handler)
+        public SetMode(ILogger<TemperatureUp> logger, NestService nestService)
         {
             _logger = logger;
-            _handler = handler;
-            _ = AwaitDevice();
+            _nestService = nestService;
+            nestService.OnSetupComplete += NestService_OnSetupComplete;
+            nestService.OnDeviceUpdated  += NestService_OnDeviceUpdated;
         }
-        public override async Task DidReceiveSettingsAsync(JObject settings)
+
+        private void NestService_OnDeviceUpdated(object? sender, GoogleHomeEnterpriseSdmV1Device e)
         {
-            await SetInfo();
-        }
-        private async Task AwaitDevice()
-        {
-            while (true)
+            if (e.Name == DeviceName)
             {
-                try
-                {
-                    if (string.IsNullOrWhiteSpace(DeviceName))
-                    {
-                        await Task.Delay(2000);
-                        continue;
-                    }
-                    var lookupThermostat = _handler.GetDevice(DeviceName);
-                    if (Thermostat != null)
-                    {
-                        Thermostat.OnUpdate -= OnUpdate;
-                    }
-                    Thermostat = lookupThermostat;
-                    Thermostat.OnUpdate += OnUpdate;
-                    await SetInfo();
-                    return;
-                }
-                catch
-                {
-                    await Task.Delay(2000);
-                }
+                Thermostat = e;
+                _= SetInfo();
             }
         }
 
-        public void OnUpdate()
+        private void NestService_OnSetupComplete(object? sender, EventArgs e)
         {
-            _ = SetInfo();
+            Thermostat = _nestService.Devices
+                .Where(x => x.Name == DeviceName)
+                .FirstOrDefault();
+
+            _= SetInfo();
         }
+
+        public override async Task WillAppearAsync()
+        {
+            await Dispatcher.SetTitleAsync($"Aero");
+            Thermostat = _nestService.Devices
+                .Where(x => x.Name == DeviceName)
+                .FirstOrDefault();
+        }
+
+        public override async Task DidReceiveSettingsAsync(JObject settings)
+        {
+            Thermostat = _nestService.Devices
+                .Where(x => x.Name == DeviceName)
+                .FirstOrDefault();
+
+            await SetInfo();
+        }
+
         public async Task SetInfo()
         {
-            if (Thermostat.Mode != ButtonMode)
+            if (Thermostat == null)
+                return;
+
+            var thermostatMode = Thermostat.Traits.GetTrait<ThermostatModeTrait>("sdm.devices.traits.ThermostatMode");
+            var setPoint = Thermostat.Traits.GetTrait<ThermostatSetpointTrait>("sdm.devices.traits.ThermostatTemperatureSetpoint");
+            var setPointRender = SetPointRender(thermostatMode.Mode, setPoint);
+            if (thermostatMode.Mode != ButtonMode)
             {
                 await Dispatcher.SetStateAsync(0);
                 await Dispatcher.SetImageAsync("");
@@ -71,39 +80,62 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
                 return;
             }
             await Dispatcher.SetStateAsync(1);
-            if (Thermostat.Mode == ThermostatMode.COOL)
+            if (thermostatMode.Mode == ThermostatMode.COOL)
             {
                 await Dispatcher.SetImageAsync(ImageColors.Blue.DataUri);
-                await Dispatcher.SetTitleAsync($"{Thermostat.Mode}\n{Thermostat.SetPointRender}");
+                await Dispatcher.SetTitleAsync($"{thermostatMode.Mode}\n{setPointRender}");
             }
-            else if (Thermostat.Mode == ThermostatMode.HEAT)
+            else if (thermostatMode.Mode == ThermostatMode.HEAT)
             {
                 await Dispatcher.SetImageAsync(ImageColors.Red.DataUri);
-                await Dispatcher.SetTitleAsync($"{Thermostat.Mode}\n{Thermostat.SetPointRender}");
+                await Dispatcher.SetTitleAsync($"{thermostatMode.Mode}\n{setPointRender}");
             }
-            else if (Thermostat.Mode == ThermostatMode.HEATCOOL)
+            else if (thermostatMode.Mode == ThermostatMode.HEATCOOL)
             {
                 await Dispatcher.SetImageAsync(ImageColors.RedBlue.DataUri);
                 await Dispatcher.SetTitleAsync($"H&C");
             }
-            else if (Thermostat.Mode == ThermostatMode.OFF)
+            else if (thermostatMode.Mode == ThermostatMode.OFF)
             {
                 await Dispatcher.SetImageAsync("");
-                await Dispatcher.SetTitleAsync($"{Thermostat.Mode}\nNone\nSet");
+                await Dispatcher.SetTitleAsync($"{thermostatMode.Mode}\nNone\nSet");
             }
 
 
         }
+
+        public string SetPointRender(ThermostatMode mode, ThermostatSetpointTrait setPoint)
+        {
+            if (mode == ThermostatMode.COOL)
+            {
+                return setPoint.CoolCelsius.ToFahrenheit().ToString("F0");
+            }
+            else if (mode == ThermostatMode.HEAT)
+            {
+                return setPoint.HeatCelsius.ToFahrenheit().ToString("F0");
+            }
+            else if (mode == ThermostatMode.HEATCOOL)
+            {
+                return $"{setPoint.CoolCelsius.ToFahrenheit().ToString("F0")}-{setPoint.HeatCelsius.ToFahrenheit().ToString("F0")}";
+            }
+            return "Err";
+        }
+
         public override async Task KeyDownAsync(int userDesiredState)
         {
+            if (Thermostat == null)
+                return;
+
+            var thermostatMode = Thermostat.Traits.GetTrait<ThermostatModeTrait>("sdm.devices.traits.ThermostatMode");
+
             var success = false;
-            if (Thermostat.Mode != ThermostatMode.OFF)
+            if (thermostatMode.Mode != ThermostatMode.OFF)
             {
-                success = Thermostat.SetMode(ThermostatMode.OFF);
+                _nestService.SetMode(Thermostat, ThermostatMode.OFF);
             }
             else
             {
-                success = Thermostat.SetMode(ButtonMode);
+                _nestService.SetMode(Thermostat, ButtonMode);
             }
             if (!success)
             {
