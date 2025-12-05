@@ -1,6 +1,9 @@
 using Aeroverra.StreamDeck.Client;
-using Serilog;
+using Aeroverra.StreamDeck.Client.Services;
 using Aeroverra.StreamDeck.NestControl;
+using Aeroverra.StreamDeck.NestControl.Services;
+using Aeroverra.StreamDeck.NestControl.Services.Nest;
+using Serilog;
 
 public partial class Program
 {
@@ -16,8 +19,11 @@ public partial class Program
             .ConfigureServices((context, services) =>
             {
                 services.AddAeroveStreamDeckClient(context);
-                services.AddHostedService((sp) => sp.GetRequiredService<ExampleService>());
-                services.AddSingleton<ExampleService>();
+                services.AddHostedService<CoreWorker>();
+                services.AddSingleton<GlobalSettings>();
+                services.AddSingleton<IGlobalSettings>(x => x.GetRequiredService<GlobalSettings>());
+                services.AddSingleton<NestService>();
+                services.AddSingleton<CoreWorker>();
             })
             .Build();
 

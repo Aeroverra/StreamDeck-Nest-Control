@@ -1,12 +1,9 @@
 ﻿using Aeroverra.StreamDeck.Client.Actions;
 using Aeroverra.StreamDeck.Client.Events.SharedModels;
-using Aeroverra.StreamDeck.Client.Feedback;
-using Google.Api;
-using Microsoft.AspNetCore.Components;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Tech.Aerove.Tools.Nest.Models;
+using Aeroverra.StreamDeck.NestControl.Services.Nest;
+using Aeroverra.StreamDeck.NestControl.Services.Nest.Models;
+using Google.Apis.SmartDeviceManagement.v1.Data;
+using Newtonsoft.Json.Linq;
 
 namespace Aeroverra.StreamDeck.NestControl.Actions
 {
@@ -28,75 +25,134 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
         }
 
 
-        private ThermostatDevice Thermostat { get; set; }
+        private GoogleHomeEnterpriseSdmV1Device? Thermostat { get; set; }
 
         private readonly ILogger<TemperatureDown> _logger;
-        private readonly ExampleService _handler;
-        public ThermostatDial(ILogger<TemperatureDown> logger, ExampleService handler)
+        private readonly NestService _nestService;
+        public ThermostatDial(ILogger<TemperatureDown> logger, NestService nestService)
         {
             _logger = logger;
-            _handler = handler;
-            _ = AwaitDevice();
+            _nestService = nestService;
             _ = Ticker();
+            nestService.OnDeviceUpdated += NestService_OnDeviceUpdated;
+            nestService.OnSetupComplete += NestService_OnSetupComplete;
         }
 
-        public override  async Task DialRotateAsync(DialRotatePayload payload)
+        public override async Task WillAppearAsync()
         {
-            if (Thermostat.Mode == ThermostatMode.OFF)
+            await Dispatcher.SetTitleAsync($"Aero");
+            Thermostat = _nestService.Devices
+                .Where(x => x.Name == DeviceName)
+                .FirstOrDefault();
+        }
+
+        public override async Task DialRotateAsync(DialRotatePayload payload)
+        {
+            if (Thermostat == null)
+                return;
+
+            var thermostatMode = Thermostat.Traits.GetTrait<ThermostatModeTrait>("sdm.devices.traits.ThermostatMode");
+            if (thermostatMode.Mode == ThermostatMode.OFF)
             {
-                if(payload.Ticks > 0)
+                if (payload.Ticks > 0)
                 {
-                    Thermostat.SetMode(ThermostatMode.HEAT);
+                    _nestService.SetMode(Thermostat, ThermostatMode.HEAT);
                 }
                 else
                 {
-                    Thermostat.SetMode(ThermostatMode.COOL);
+                    _nestService.SetMode(Thermostat, ThermostatMode.COOL);
                 }
             }
             bool success = false;
+            var setPoint = Thermostat.Traits.GetTrait<ThermostatSetpointTrait>("sdm.devices.traits.ThermostatTemperatureSetpoint");
+            decimal heat = setPoint.HeatCelsius.ToFahrenheit();
+            decimal cool = setPoint.CoolCelsius.ToFahrenheit();
+
             if (payload.Ticks > 0)
             {
-                 success = Thermostat.SetTempUp(payload.Ticks);
+                heat += payload.Ticks;
+                cool += payload.Ticks;
             }
             else
             {
-                success = Thermostat.SetTempDown(payload.Ticks * -1);
+                heat -= payload.Ticks;
+                cool -= payload.Ticks;
             }
+
+            setPoint.HeatCelsius = heat.ToCelsius();
+            setPoint.CoolCelsius = cool.ToCelsius();
+            success = _nestService.SetTemp(Thermostat, setPoint.HeatCelsius, setPoint.CoolCelsius);
+
+
             if (!success)
             {
                 await Dispatcher.ShowAlertAsync();
             }
             else
             {
+                var setPointRender = SetPointRender(thermostatMode.Mode, setPoint);
                 await Dispatcher.ShowOkAsync();
                 await Dispatcher.SetFeedbackAsync(new
                 {
-                    value = $"{Thermostat.SetPointRender}"
+                    value = $"{setPointRender}"
                 });
+
             }
         }
 
-        private async Task AwaitDevice()
+        public override async Task DialUpAsync(EncoderPayload payload)
         {
-            while (true)
+            if (Thermostat == null)
+                return;
+
+            var thermostatMode = Thermostat.Traits.GetTrait<ThermostatModeTrait>("sdm.devices.traits.ThermostatMode");
+            if (thermostatMode.Mode != ThermostatMode.OFF)
             {
-                try
-                {
-                    if (string.IsNullOrWhiteSpace(DeviceName))
-                    {
-                        await Task.Delay(2000);
-                        continue;
-                    }
-                    var lookupThermostat = _handler.GetDevice(DeviceName);
-                    Thermostat = lookupThermostat;
-                    return;
-                }
-                catch
-                {
-                    await Task.Delay(2000);
-                }
+                _nestService.SetMode(Thermostat, ThermostatMode.OFF);
             }
         }
+
+        private void NestService_OnSetupComplete(object? sender, EventArgs e)
+        {
+            Thermostat = _nestService.Devices
+                .Where(x => x.Name == DeviceName)
+                .FirstOrDefault();
+        }
+
+        private void NestService_OnDeviceUpdated(object? sender, Google.Apis.SmartDeviceManagement.v1.Data.GoogleHomeEnterpriseSdmV1Device e)
+        {
+            if (e.Name == DeviceName)
+            {
+                Thermostat = e;
+            }
+        }
+
+        public override Task DidReceiveSettingsAsync(JObject settings)
+        {
+            Thermostat = _nestService.Devices
+                .Where(x => x.Name == DeviceName)
+                .FirstOrDefault();
+
+            return Task.CompletedTask;
+        }
+
+        public string SetPointRender(ThermostatMode mode, ThermostatSetpointTrait setPoint)
+        {
+            if (mode == ThermostatMode.COOL)
+            {
+                return setPoint.CoolCelsius.ToFahrenheit().ToString("F0");
+            }
+            else if (mode == ThermostatMode.HEAT)
+            {
+                return setPoint.HeatCelsius.ToFahrenheit().ToString("F0");
+            }
+            else if (mode == ThermostatMode.HEATCOOL)
+            {
+                return $"{setPoint.CoolCelsius.ToFahrenheit().ToString("F0")}-{setPoint.HeatCelsius.ToFahrenheit().ToString("F0")}";
+            }
+            return "Err";
+        }
+
 
         public async Task Ticker()
         {
@@ -105,42 +161,41 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
             {
 
                 await Task.Delay(delay);
-                if (string.IsNullOrWhiteSpace(DeviceName) || Thermostat == null) { continue; }
+                if (string.IsNullOrWhiteSpace(DeviceName) || Thermostat == null)
+                    continue;
+
                 try
                 {
-                    await Dispatcher.SetFeedbackAsync(new
-                    {
-                        key = "value",
-                        type = "text",
-                        rect = new[] { 76, 40, 108, 32 },
-                        font = new { size = 40, weight = 600 },
-                        alignment = "right"
-                    });
-                    var mode = Thermostat.Mode;
+                    var thermostatMode = Thermostat.Traits.GetTrait<ThermostatModeTrait>("sdm.devices.traits.ThermostatMode");
+                    var temp = Thermostat.Traits.GetTrait<TemperatureTrait>("sdm.devices.traits.Temperature");
+                    var setPoint = Thermostat.Traits.GetTrait<ThermostatSetpointTrait>("sdm.devices.traits.ThermostatTemperatureSetpoint");
+
+                    var setPointRender = SetPointRender(thermostatMode.Mode, setPoint);
+
                     var modeText = $"";
-                    if (Thermostat.Mode == ThermostatMode.COOL)
+                    if (thermostatMode.Mode == ThermostatMode.COOL)
                     {
                         await Dispatcher.SetStateAsync(1);
                         await Dispatcher.SetImageAsync(ImageColors.Blue.DataUri);
-                        modeText = $"{mode}\n{Thermostat.SetPointRender}";
+                        modeText = $"{thermostatMode.Mode}\n{setPointRender}";
                     }
-                    if (Thermostat.Mode == ThermostatMode.HEAT)
+                    if (thermostatMode.Mode == ThermostatMode.HEAT)
                     {
                         await Dispatcher.SetStateAsync(1);
                         await Dispatcher.SetImageAsync(ImageColors.Red.DataUri);
-                        modeText = $"{mode}\n{Thermostat.SetPointRender}";
+                        modeText = $"{thermostatMode.Mode}\n{setPointRender}";
                     }
-                    if (Thermostat.Mode == ThermostatMode.HEATCOOL)
+                    if (thermostatMode.Mode == ThermostatMode.HEATCOOL)
                     {
                         await Dispatcher.SetStateAsync(1);
                         await Dispatcher.SetImageAsync(ImageColors.RedBlue.DataUri);
-                        modeText = $"H&C\n{Thermostat.SetPointRender}";
+                        modeText = $"H&C\n{setPointRender}";
                     }
-                    if (Thermostat.Mode == ThermostatMode.OFF)
+                    if (thermostatMode.Mode == ThermostatMode.OFF)
                     {
                         await Dispatcher.SetStateAsync(0);
                         await Dispatcher.SetImageAsync("");
-                        modeText = $"{mode}";
+                        modeText = $"{thermostatMode.Mode}";
                     }
                     await Dispatcher.SetTitleAsync($"{modeText}");
                     await Dispatcher.SetFeedbackAsync(new
@@ -149,10 +204,10 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
                     });
                     delay = MsDelay;
                     await Task.Delay(delay);
-                    await Dispatcher.SetTitleAsync($"{Thermostat.CurrentTemperature}");
+                    await Dispatcher.SetTitleAsync($"{temp.AmbientTemperatureCelsius.ToFahrenheit().ToString("F0")}");
                     await Dispatcher.SetFeedbackAsync(new
                     {
-                        value = $"{Thermostat.CurrentTemperature}"
+                        value = $"{temp.AmbientTemperatureCelsius.ToFahrenheit().ToString("F0")}"
                     });
                 }
                 catch (Exception)
