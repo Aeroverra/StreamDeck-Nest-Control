@@ -35,10 +35,10 @@ namespace Aeroverra.StreamDeck.NestControl.Services
             _nestService = nestService;
             _eventsManager.OnSendToPlugin += OnSendToPlugin;
             _eventsManager.OnDidReceiveGlobalSettings += OnDidRecieveGlobalSettings;
-            _nestService.OnSetupComplete += _nestService_OnSetupComplete;
+            _nestService.OnConnected += OnConnected;
         }
 
-        private void _nestService_OnSetupComplete(object? sender, EventArgs e)
+        private void OnConnected(object? sender, EventArgs e)
         {
             isRunning = true;
             var piDevices = PIDevice.GetList(_nestService.Devices.ToList());
@@ -49,9 +49,21 @@ namespace Aeroverra.StreamDeck.NestControl.Services
 
         }
 
-        protected override Task ExecuteAsync(CancellationToken stoppingToken)
+        protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            return Task.CompletedTask;
+            try
+            {
+                while (!stoppingToken.IsCancellationRequested)
+                {
+                    await Task.Delay(1000, stoppingToken);
+                }
+            }
+            catch(OperationCanceledException) { }
+
+            await _cancellationTokenSource.CancelAsync();
+
+            await _nestService.StopAsync();
+    
         }
 
         protected void OnSendToPlugin(object? sender, SendToPluginEvent e)
@@ -69,7 +81,6 @@ namespace Aeroverra.StreamDeck.NestControl.Services
             }
         }
 
-
         protected async void OnDidRecieveGlobalSettings(object? sender, DidReceiveGlobalSettingsEvent e)
         {
             await Lock.WaitAsync();
@@ -78,7 +89,7 @@ namespace Aeroverra.StreamDeck.NestControl.Services
             {
                 if (isRunning == false && _globalSettings.Setup == true)
                 {
-                    await _nestService.ConnectWithRefreshToken(_globalSettings.ProjectId!, _globalSettings.CloudProjectId!, _globalSettings.ClientId!, _globalSettings.ClientSecret!, _globalSettings.RefreshToken!, _globalSettings.SubscriptionId!);
+                    await _nestService.ConnectWithRefreshToken(_globalSettings.ProjectId!, _globalSettings.CloudProjectId!, _globalSettings.ClientId!, _globalSettings.ClientSecret!, _globalSettings.RefreshToken!, _globalSettings.SubscriptionId!, _cancellationTokenSource.Token);
                 }
             }
             finally
@@ -103,6 +114,7 @@ namespace Aeroverra.StreamDeck.NestControl.Services
                 }
             }
         }
+
         private void Reset()
         {
             _globalSettings.Setup = false;
@@ -151,7 +163,7 @@ namespace Aeroverra.StreamDeck.NestControl.Services
                 string exception = "";
                 try
                 {
-                    await _nestService.ConnectWithCode(_globalSettings.ProjectId!, _globalSettings.CloudProjectId!, _globalSettings.ClientId!, _globalSettings.ClientSecret!, "http://localhost:20777", code!);
+                    await _nestService.ConnectWithCode(_globalSettings.ProjectId!, _globalSettings.CloudProjectId!, _globalSettings.ClientId!, _globalSettings.ClientSecret!, "http://localhost:20777", code!, _cancellationTokenSource.Token);
                 }
                 catch (Exception e)
                 {
@@ -209,7 +221,7 @@ namespace Aeroverra.StreamDeck.NestControl.Services
 
         public async ValueTask DisposeAsync()
         {
-            await _cancellationTokenSource.CancelAsync();
+ 
         }
     }
 }

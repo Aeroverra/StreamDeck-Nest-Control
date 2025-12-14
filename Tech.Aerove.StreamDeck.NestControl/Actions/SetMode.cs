@@ -20,7 +20,7 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
         {
             _logger = logger;
             _nestService = nestService;
-            nestService.OnSetupComplete += NestService_OnSetupComplete;
+            nestService.OnConnected += NestService_OnConnected;
             nestService.OnDeviceUpdated  += NestService_OnDeviceUpdated;
         }
 
@@ -33,7 +33,7 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
             }
         }
 
-        private void NestService_OnSetupComplete(object? sender, EventArgs e)
+        private void NestService_OnConnected(object? sender, EventArgs e)
         {
             Thermostat = _nestService.Devices
                 .Where(x => x.Name == DeviceName)
@@ -64,8 +64,9 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
             if (Thermostat == null)
                 return;
 
-            var thermostatMode = Thermostat.Traits.GetTrait<ThermostatModeTrait>("sdm.devices.traits.ThermostatMode");
-            var setPoint = Thermostat.Traits.GetTrait<ThermostatSetpointTrait>("sdm.devices.traits.ThermostatTemperatureSetpoint");
+            var thermostatMode = Thermostat.GetThermostatMode();
+            var setPoint = Thermostat.GetThermostatSetPoint();
+
             var setPointRender = SetPointRender(thermostatMode.Mode, setPoint);
             if (thermostatMode.Mode != ButtonMode)
             {
@@ -126,7 +127,7 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
             if (Thermostat == null)
                 return;
 
-            var thermostatMode = Thermostat.Traits.GetTrait<ThermostatModeTrait>("sdm.devices.traits.ThermostatMode");
+            var thermostatMode = Thermostat.GetThermostatMode();
 
             var success = false;
             if (thermostatMode.Mode != ThermostatMode.OFF)

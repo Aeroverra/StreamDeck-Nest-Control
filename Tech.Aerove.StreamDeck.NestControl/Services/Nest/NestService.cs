@@ -1,4 +1,4 @@
-﻿using Aeroverra.StreamDeck.NestControl.Services.Nest.Models;
+using Aeroverra.StreamDeck.NestControl.Services.Nest.Models;
 using Google.Api.Gax.ResourceNames;
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Auth.OAuth2.Flows;
@@ -13,39 +13,53 @@ using System.Net;
 
 namespace Aeroverra.StreamDeck.NestControl.Services.Nest
 {
-    public class NestService
+    public class NestService(ILogger<NestService> logger)
     {
+
+        public event EventHandler<GoogleHomeEnterpriseSdmV1Device>? OnDeviceUpdated;
+        public event EventHandler? OnConnected;
+
+        public IReadOnlyList<GoogleHomeEnterpriseSdmV1Device> Devices => DeviceDictionary.Values.ToList();
 
         public string? ProjectId { get; private set; }
         public string? RefreshToken => _credentials?.Token.RefreshToken;
         public string? SubscriptionId { get; private set; }
         public string? CloudProjectId { get; private set; }
 
-
         private SubscriberClient? SubscriberClient = null;
-        public IReadOnlyList<GoogleHomeEnterpriseSdmV1Device> Devices => DeviceDictionary.Values.ToList();
+
         private Dictionary<string, GoogleHomeEnterpriseSdmV1Device> DeviceDictionary = new Dictionary<string, GoogleHomeEnterpriseSdmV1Device>();
-        public event EventHandler<GoogleHomeEnterpriseSdmV1Device>? OnDeviceUpdated;
-        public event EventHandler? OnSetupComplete;
+
+        /// <summary>
+        /// Google handles automatic refresh and the refresh token does not change
+        /// </summary>
         private UserCredential? _credentials;
 
-        public async Task ConnectWithCode(string projectId, string cloudProjectId, string clientId, string clientSecret, string redirectUrl, string code)
+        public async Task ConnectWithCode(string projectId, string cloudProjectId, string clientId, string clientSecret, string redirectUrl, string code, CancellationToken cancellationToken)
         {
-            _credentials = await GetToken(clientId, clientSecret, null, code, redirectUrl);
-            ProjectId = projectId;
-            await ConnectPrivate();
+            try
+            {
+                _credentials = await GetToken(clientId, clientSecret, null, code, redirectUrl, cancellationToken);
+                ProjectId = projectId;
+                await ConnectPrivate(cancellationToken);
+            }
+            catch (TaskCanceledException) { }
         }
 
-        public async Task ConnectWithRefreshToken(string projectId, string cloudProjectId, string clientId, string clientSecret, string refreshToken, string subscriptionId)
+        public async Task ConnectWithRefreshToken(string projectId, string cloudProjectId, string clientId, string clientSecret, string refreshToken, string subscriptionId, CancellationToken cancellationToken)
         {
-            _credentials = await GetToken(clientId, clientSecret, refreshToken, null, null);
-            ProjectId = projectId;
-            CloudProjectId = cloudProjectId;
-            SubscriptionId = subscriptionId;
-            await ConnectPrivate();
+            try
+            {
+                _credentials = await GetToken(clientId, clientSecret, refreshToken, null, null, cancellationToken);
+                ProjectId = projectId;
+                CloudProjectId = cloudProjectId;
+                SubscriptionId = subscriptionId;
+                await ConnectPrivate(cancellationToken);
+            }
+            catch (TaskCanceledException) { }
         }
 
-        private async Task ConnectPrivate()
+        private async Task ConnectPrivate(CancellationToken cancellationToken)
         {
             try
             {
@@ -55,16 +69,17 @@ namespace Aeroverra.StreamDeck.NestControl.Services.Nest
                     ApplicationName = "Aeroverra Stream Deck Nest Control"
                 });
 
-                GoogleHomeEnterpriseSdmV1ListDevicesResponse response = await service.Enterprises.Devices.List($"enterprises/{ProjectId}").ExecuteAsync();
+                GoogleHomeEnterpriseSdmV1ListDevicesResponse response = await service.Enterprises.Devices.List($"enterprises/{ProjectId}").ExecuteAsync(cancellationToken);
+
                 if (response?.Devices == null)
                 {
                     var msg = "Google did not return devices (empty response).";
                     _ = Communication.LogAsync(LogLevel.Critical, msg);
                     throw new Exception(msg);
                 }
-                DeviceDictionary  = response.Devices.ToDictionary(x => x.Name!, x => x);
 
-
+                DeviceDictionary = response.Devices.ToDictionary(x => x.Name!, x => x);
+                var t = response.Devices.First();
                 //all the bs i had to look up and sort through (minus the useless stuff) to put this together
                 //along with a little guessing because
                 //google has no documentation on oauth pubsub C#
@@ -82,10 +97,10 @@ namespace Aeroverra.StreamDeck.NestControl.Services.Nest
                     {
                         ChannelCredentials = _credentials?.ToChannelCredentials()
                     };
-                    PublisherServiceApiClient pubClient = await pubBuilder.BuildAsync();
+                    PublisherServiceApiClient pubClient = await pubBuilder.BuildAsync(cancellationToken);
 
                     // List topics in the project
-                    var topics = pubClient.ListTopics(new ProjectName(CloudProjectId!)).ToList();
+                    var topics = pubClient.ListTopics(new ProjectName(CloudProjectId!));
                     var topic = topics.FirstOrDefault();
 
                     if (topic == null)
@@ -99,23 +114,22 @@ namespace Aeroverra.StreamDeck.NestControl.Services.Nest
                     {
                         ChannelCredentials = _credentials?.ToChannelCredentials()
                     };
-                    SubscriberServiceApiClient subscriberService = await builder.BuildAsync();
+                    SubscriberServiceApiClient subscriberService = await builder.BuildAsync(cancellationToken);
 
                     Subscription? existingSubscription = null;
                     try
                     {
-                        existingSubscription = await subscriberService.GetSubscriptionAsync(subscriptionName);
+                        existingSubscription = await subscriberService.GetSubscriptionAsync(subscriptionName, cancellationToken);
                     }
                     catch (Grpc.Core.RpcException e)
                     {
                         if (e.Message.Contains("Resource not found") == false)
                             throw;
-
                     }
 
                     if (existingSubscription == null)
                     {
-                        subscriberService.CreateSubscription(subscriptionName, topic.TopicName, pushConfig: null, ackDeadlineSeconds: 60);
+                        existingSubscription = await subscriberService.CreateSubscriptionAsync(subscriptionName, topic.TopicName, pushConfig: null, ackDeadlineSeconds: 60, cancellationToken);
                     }
                 }
                 else
@@ -123,16 +137,18 @@ namespace Aeroverra.StreamDeck.NestControl.Services.Nest
                     subscriptionName = new SubscriptionName(CloudProjectId, SubscriptionId);
                 }
 
-                // Pull messages from the subscription using SubscriberClient.
-                var grpcCredentials = _credentials?.ToChannelCredentials();
-                var creationSettings = new SubscriberClient.ClientCreationSettings(credentials: grpcCredentials);
+                SubscriberClientBuilder clientBuilder = new SubscriberClientBuilder()
+                {
+                    ChannelCredentials = _credentials?.ToChannelCredentials(),
+                    SubscriptionName = subscriptionName,
+                };
 
-                SubscriberClient = await SubscriberClient.CreateAsync(subscriptionName, creationSettings);
+                SubscriberClient = await clientBuilder.BuildAsync(cancellationToken);
 
                 // Start the subscriber listening for messages.
                 _=  SubscriberClient.StartAsync(OnRecievePubSubMessage);
 
-                OnSetupComplete?.Invoke(this, EventArgs.Empty);
+                OnConnected?.Invoke(this, EventArgs.Empty);
 
             }
             catch (Exception e)
@@ -143,7 +159,17 @@ namespace Aeroverra.StreamDeck.NestControl.Services.Nest
             }
         }
 
+        public async Task StopAsync()
+        {
+            if (SubscriberClient != null)
+            {
+                await SubscriberClient.StopAsync(CancellationToken.None);
+                SubscriberClient = null;
+            }
+        }
+
         private DateTime LastMsgPublish = DateTime.MinValue;
+
         private Task<SubscriberClient.Reply> OnRecievePubSubMessage(PubsubMessage msg, CancellationToken cancellationToken)
         {
             var publishedTime = msg.PublishTime.ToDateTime();
@@ -155,67 +181,69 @@ namespace Aeroverra.StreamDeck.NestControl.Services.Nest
             LastMsgPublish = publishedTime;
 
             var jobject = JObject.Parse(content);
-            var device = jobject["resourceUpdate"].ToObject<GoogleHomeEnterpriseSdmV1Device>();
-
-            if (DeviceDictionary.TryGetValue(device.Name!, out var existingDevice))
+            try
             {
-                foreach (var trait in device.Traits)
+                var device = jobject["resourceUpdate"]!.ToObject<GoogleHomeEnterpriseSdmV1Device>();
+
+                if (DeviceDictionary.TryGetValue(device!.Name!, out var existingDevice))
                 {
-                    existingDevice.Traits[trait.Key] = trait.Value;
+                    foreach (var trait in device.Traits)
+                    {
+                        existingDevice.Traits[trait.Key] = trait.Value;
+                    }
+                    OnDeviceUpdated?.Invoke(this, existingDevice);
                 }
-                OnDeviceUpdated?.Invoke(this, existingDevice);
+            }
+            catch (Exception ex)
+            {
+                _ = Communication.LogAsync(LogLevel.Error, $"Failed to process Pub/Sub message:\r\n{ex}\r\nMessage Content:\r\n{content}");
+                logger.LogError(ex, "Failed to process Pub/Sub message");
             }
 
 
             return Task.FromResult(SubscriberClient.Reply.Ack);
         }
 
-        private async Task<UserCredential> GetToken(string clientId, string clientSecret, string? refreshToken, string? code, string? redirectUrl)
+        private async Task<UserCredential> GetToken(string clientId, string clientSecret, string? refreshToken, string? code, string? redirectUrl, CancellationToken cancellationToken)
         {
-            try
+            var scopes = new[]
             {
-                var scopes = new[]
-                {
                     SmartDeviceManagementService.ScopeConstants.SdmService,
                     "https://www.googleapis.com/auth/pubsub"
                 };
 
-                var flow = new GoogleAuthorizationCodeFlow(new GoogleAuthorizationCodeFlow.Initializer
-                {
-                    ClientSecrets = new ClientSecrets { ClientId = clientId, ClientSecret = clientSecret },
-                    Scopes = scopes
-                });
-
-                TokenResponse? token = null;
-                if (code is not null)
-                {
-                    token = await flow.ExchangeCodeForTokenAsync("user", code, redirectUrl, CancellationToken.None);
-                }
-                else
-                {
-                    token = await flow.RefreshTokenAsync("user", refreshToken, CancellationToken.None);
-                }
-
-
-                if (string.IsNullOrWhiteSpace(token.AccessToken))
-                {
-                    throw new Exception("Google returned an empty access token when exchanging the authorization code.");
-                }
-
-                var returnedScopes = token.Scope.Split(" ").ToList();
-                if (!returnedScopes.Contains("https://www.googleapis.com/auth/pubsub"))
-                {
-                    throw new Exception($"The required permission: 'https://www.googleapis.com/auth/pubsub' is not present.");
-                }
-
-                var credentials = new UserCredential(flow, "user", token);
-
-                return credentials;
-            }
-            catch (Exception)
+            var flow = new GoogleAuthorizationCodeFlow(new GoogleAuthorizationCodeFlow.Initializer
             {
-                throw;
+                ClientSecrets = new ClientSecrets { ClientId = clientId, ClientSecret = clientSecret },
+                Scopes = scopes,
+            });
+
+            TokenResponse? token = null;
+            if (code is not null)
+            {
+                token = await flow.ExchangeCodeForTokenAsync("user", code, redirectUrl, cancellationToken);
             }
+            else
+            {
+                token = await flow.RefreshTokenAsync("user", refreshToken, cancellationToken);
+            }
+
+
+            if (string.IsNullOrWhiteSpace(token.AccessToken))
+            {
+                throw new Exception("Google returned an empty access token when exchanging the authorization code.");
+            }
+
+            var returnedScopes = token.Scope.Split(" ").ToList();
+            if (!returnedScopes.Contains("https://www.googleapis.com/auth/pubsub"))
+            {
+                throw new Exception($"The required permission: 'https://www.googleapis.com/auth/pubsub' is not present.");
+            }
+
+            var credentials = new UserCredential(flow, "user", token);
+
+            return credentials;
+
         }
 
         /// <summary>
@@ -250,22 +278,22 @@ namespace Aeroverra.StreamDeck.NestControl.Services.Nest
         public bool SetTemp(GoogleHomeEnterpriseSdmV1Device thermostat, decimal heat, decimal cool)
         {
             var command = new CommandBody();
-            var mode = thermostat.Traits.GetTrait<ThermostatModeTrait>("sdm.devices.traits.ThermostatMode").Mode;
+            var mode = thermostat.GetThermostatMode().Mode;
             if (mode == ThermostatMode.COOL)
             {
-                command.Command = "sdm.devices.commands.ThermostatTemperatureSetpoint.SetCool";
-                command.Params.Add("coolCelsius", cool);
+                command.Command = NestConstants.COMMAND_SET_COOLING_TEMPERATURE_PARAMETER;
+                command.Params.Add(NestConstants.COMMAND_SET_COOLING_TEMPERATURE_PARAMETER, cool);
             }
             else if (mode == ThermostatMode.HEAT)
             {
-                command.Command = "sdm.devices.commands.ThermostatTemperatureSetpoint.SetHeat";
-                command.Params.Add("heatCelsius", heat);
+                command.Command = NestConstants.COMMAND_SET_HEATING_TEMPERATURE;
+                command.Params.Add(NestConstants.COMMAND_SET_HEATING_TEMPERATURE_PARAMETER, heat);
             }
             else if (mode == ThermostatMode.HEATCOOL)
             {
-                command.Command = "sdm.devices.commands.ThermostatTemperatureSetpoint.SetRange";
-                command.Params.Add("heatCelsius", heat);
-                command.Params.Add("coolCelsius", cool);
+                command.Command = NestConstants.COMMAND_SET_RANGE_TEMPERATURE;
+                command.Params.Add(NestConstants.COMMAND_SET_HEATING_TEMPERATURE_PARAMETER, heat);
+                command.Params.Add(NestConstants.COMMAND_SET_COOLING_TEMPERATURE_PARAMETER, cool);
             }
             else
             {
