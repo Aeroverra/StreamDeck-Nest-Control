@@ -9,7 +9,6 @@ using Google.Apis.SmartDeviceManagement.v1.Data;
 using Google.Cloud.PubSub.V1;
 using Grpc.Auth;
 using Newtonsoft.Json.Linq;
-using System.Net;
 
 namespace Aeroverra.StreamDeck.NestControl.Services.Nest
 {
@@ -101,6 +100,10 @@ namespace Aeroverra.StreamDeck.NestControl.Services.Nest
 
                     // List topics in the project
                     var topics = pubClient.ListTopics(new ProjectName(CloudProjectId!));
+
+                    if(topics.Count() > 1)
+                        throw new Exception($"User has more than 1 Pub/Sub topic");
+
                     var topic = topics.FirstOrDefault();
 
                     if (topic == null)
@@ -264,18 +267,18 @@ namespace Aeroverra.StreamDeck.NestControl.Services.Nest
             return url;
         }
 
-        public bool SetMode(GoogleHomeEnterpriseSdmV1Device thermostat, ThermostatMode mode)
+        public Task<bool> SetMode(GoogleHomeEnterpriseSdmV1Device thermostat, ThermostatMode mode)
         {
             var command = new CommandBody
             {
-                Command = "sdm.devices.commands.ThermostatMode.SetMode",
+                Command = NestConstants.COMMAND_SET_MODE,
             };
-            command.Params.Add("mode", $"{mode}");
+            command.Params.Add(NestConstants.COMMAND_SET_MODE_PARAMETER, $"{mode}");
             var success = ExecuteCommand(thermostat.Name, command);
             return success;
         }
 
-        public bool SetTemp(GoogleHomeEnterpriseSdmV1Device thermostat, decimal heat, decimal cool)
+        public async Task<bool> SetTemp(GoogleHomeEnterpriseSdmV1Device thermostat, decimal heat, decimal cool)
         {
             var command = new CommandBody();
             var mode = thermostat.GetThermostatMode().Mode;
@@ -299,11 +302,11 @@ namespace Aeroverra.StreamDeck.NestControl.Services.Nest
             {
                 return false;
             }
-            var success = ExecuteCommand(thermostat.Name, command);
+            var success = await ExecuteCommand(thermostat.Name, command);
             return success;
         }
 
-        private bool ExecuteCommand(string deviceName, CommandBody command)
+        private async Task<bool> ExecuteCommand(string deviceName, CommandBody command)
         {
             var service = new SmartDeviceManagementService(new BaseClientService.Initializer
             {
@@ -318,12 +321,13 @@ namespace Aeroverra.StreamDeck.NestControl.Services.Nest
                     Params__ = command.Params?.ToObject<Dictionary<string, object>>() ?? new Dictionary<string, object>()
                 };
                 var request = service.Enterprises.Devices.ExecuteCommand(requestBody, deviceName);
-                _ = request.Execute();
+                await request.ExecuteAsync();
                 return true;
             }
             catch (Exception e)
             {
                 _ = Communication.LogAsync(LogLevel.Critical, $"ExecuteCommand failed for {deviceName}\r\n{e}");
+                logger.LogError(e, "ExecuteCommand failed for {deviceName}", deviceName);
                 return false;
             }
             finally

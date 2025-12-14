@@ -7,7 +7,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Aeroverra.StreamDeck.NestControl.Actions
 {
-    [PluginAction("tech.aerove.streamdeck.nestcontrol.thermostatdial")]
+    [PluginAction("aeroverra.streamdeck.nestcontrol.thermostatdial")]
     public class ThermostatDial : ActionBase
     {
         private string DeviceName => $"{Context.Settings["device"]}";
@@ -56,11 +56,11 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
             {
                 if (payload.Ticks > 0)
                 {
-                    _nestService.SetMode(Thermostat, ThermostatMode.HEAT);
+                    await _nestService.SetMode(Thermostat, ThermostatMode.HEAT);
                 }
                 else
                 {
-                    _nestService.SetMode(Thermostat, ThermostatMode.COOL);
+                    await _nestService.SetMode(Thermostat, ThermostatMode.COOL);
                 }
             }
             bool success = false;
@@ -81,7 +81,7 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
 
             setPoint.HeatCelsius = heat.ToCelsius();
             setPoint.CoolCelsius = cool.ToCelsius();
-            success = _nestService.SetTemp(Thermostat, setPoint.HeatCelsius, setPoint.CoolCelsius);
+            success = await _nestService.SetTemp(Thermostat, setPoint.HeatCelsius, setPoint.CoolCelsius);
 
 
             if (!success)
@@ -108,7 +108,7 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
             var thermostatMode = Thermostat.GetThermostatMode();
             if (thermostatMode.Mode != ThermostatMode.OFF)
             {
-                _nestService.SetMode(Thermostat, ThermostatMode.OFF);
+                await _nestService.SetMode(Thermostat, ThermostatMode.OFF);
             }
         }
 

@@ -7,7 +7,7 @@ using Newtonsoft.Json.Linq;
 namespace Aeroverra.StreamDeck.NestControl.Actions
 {
 
-    [PluginAction("tech.aerove.streamdeck.nestcontrol.setmode")]
+    [PluginAction("aeroverra.streamdeck.nestcontrol.setmode")]
     public class SetMode : ActionBase
     {
         private string DeviceName => $"{Context.Settings["device"]}";
@@ -132,11 +132,11 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
             var success = false;
             if (thermostatMode.Mode != ThermostatMode.OFF)
             {
-                _nestService.SetMode(Thermostat, ThermostatMode.OFF);
+                success = await _nestService.SetMode(Thermostat, ThermostatMode.OFF);
             }
             else
             {
-                _nestService.SetMode(Thermostat, ButtonMode);
+                success = await _nestService.SetMode(Thermostat, ButtonMode);
             }
             if (!success)
             {

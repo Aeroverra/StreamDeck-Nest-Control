@@ -58,12 +58,12 @@ namespace Aeroverra.StreamDeck.NestControl.Services
                     await Task.Delay(1000, stoppingToken);
                 }
             }
-            catch(OperationCanceledException) { }
+            catch (OperationCanceledException) { }
 
             await _cancellationTokenSource.CancelAsync();
 
             await _nestService.StopAsync();
-    
+
         }
 
         protected void OnSendToPlugin(object? sender, SendToPluginEvent e)
@@ -221,7 +221,7 @@ namespace Aeroverra.StreamDeck.NestControl.Services
 
         public async ValueTask DisposeAsync()
         {
- 
+
         }
     }
 }

@@ -1,16 +1,16 @@
-<Project Sdk="Microsoft.NET.Sdk.Worker">
+﻿<Project Sdk="Microsoft.NET.Sdk.Worker">
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>dotnet-Tech.Aerove.StreamDeck.NestControl-B0263304-C0D9-4345-A97B-5C51678F12AA</UserSecretsId>
     <Version>1.1.9</Version>
-    <Authors>Aeroverra</Authors>
-    <Company>Aerove</Company>
+    <Authors>Aeroverra aka Nicholas Halka</Authors>
+    <Company>AutoBuy LLC</Company>
     <Product>NestControl</Product>
     <Description>A way to control your thermostat from the Stream Deck</Description>
-    <Copyright>Aerove - AutoBuy LLC</Copyright>
-    <PackageProjectUrl>https//aerove.tech</PackageProjectUrl>
+    <Copyright>Aeroverra aka Nicholas Halka - AutoBuy LLC</Copyright>
+    <PackageProjectUrl>https//aero.vi</PackageProjectUrl>
     <SignAssembly>False</SignAssembly>
   </PropertyGroup>
   <ItemGroup>
@@ -103,5 +103,8 @@
   </ItemGroup>
   <ItemGroup>
     <Using Include="Aeroverra.StreamDeck.NestControl.Services.Nest.Extensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="logs\" />
   </ItemGroup>
 </Project>

@@ -6,7 +6,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Aeroverra.StreamDeck.NestControl.Actions
 {
-    [PluginAction("tech.aerove.streamdeck.nestcontrol.thermostatinfo")]
+    [PluginAction("aeroverra.streamdeck.nestcontrol.thermostatinfo")]
     public class ThermostatInfo : ActionBase
     {
         private string DeviceName => $"{Context.Settings["device"]}";
@@ -68,7 +68,7 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
 
             return Task.CompletedTask;
         }
-      
+
         public string SetPointRender(ThermostatMode mode, ThermostatSetpointTrait setPoint)
         {
             if (mode == ThermostatMode.COOL)

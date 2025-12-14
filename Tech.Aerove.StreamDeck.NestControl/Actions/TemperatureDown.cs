@@ -6,7 +6,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Aeroverra.StreamDeck.NestControl.Actions
 {
-    [PluginAction("tech.aerove.streamdeck.nestcontrol.temperaturedown")]
+    [PluginAction("aeroverra.streamdeck.nestcontrol.temperaturedown")]
     public class TemperatureDown : ActionBase
     {
         private string DeviceName => $"{Context.Settings["device"]}";
@@ -54,7 +54,7 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
 
             if (thermostatMode.Mode == ThermostatMode.OFF)
             {
-                _nestService.SetMode(Thermostat, ThermostatMode.COOL);
+                await _nestService.SetMode(Thermostat, ThermostatMode.COOL);
                 return;
             }
 
@@ -66,7 +66,7 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
             setPoint.HeatCelsius = heat.ToCelsius();
             setPoint.CoolCelsius = cool.ToCelsius();
 
-            var success = _nestService.SetTemp(Thermostat, setPoint.HeatCelsius, setPoint.CoolCelsius);
+            var success = await _nestService.SetTemp(Thermostat, setPoint.HeatCelsius, setPoint.CoolCelsius);
 
             if (!success) { await Dispatcher.ShowAlertAsync(); return; }
             await Dispatcher.ShowOkAsync();

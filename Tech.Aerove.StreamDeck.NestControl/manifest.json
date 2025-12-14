@@ -9,7 +9,7 @@
   "Description": "Control your nest thermostat from the Stream Deck.",
   "Name": "Nest Control",
   "Icon": "PropertyInspector/images/default",
-  "URL": "https://aerove.tech",
+  "URL": "https://aero.vi",
   "Version": "1.1.9",
   "OS": [
     {
@@ -42,7 +42,7 @@
       ],
       "SupportedInMultiActions": true,
       "Tooltip": "Displays Thermostat Info",
-      "UUID": "tech.aerove.streamdeck.nestcontrol.thermostatinfo",
+      "UUID": "aeroverra.streamdeck.nestcontrol.thermostatinfo",
       "PropertyInspectorPath": "PropertyInspector/ThermostatInfo.html"
     },
     {
@@ -57,7 +57,7 @@
       ],
       "SupportedInMultiActions": true,
       "Tooltip": "Sets the temperature up.",
-      "UUID": "tech.aerove.streamdeck.nestcontrol.temperatureup",
+      "UUID": "aeroverra.streamdeck.nestcontrol.temperatureup",
       "PropertyInspectorPath": "PropertyInspector/TempUpDown.html"
     },
     {
@@ -72,7 +72,7 @@
       ],
       "SupportedInMultiActions": true,
       "Tooltip": "Sets the temperature down.",
-      "UUID": "tech.aerove.streamdeck.nestcontrol.temperaturedown",
+      "UUID": "aeroverra.streamdeck.nestcontrol.temperaturedown",
       "PropertyInspectorPath": "PropertyInspector/TempUpDown.html"
     },
     {
@@ -92,7 +92,7 @@
       ],
       "SupportedInMultiActions": true,
       "Tooltip": "Sets the thermostat mode.",
-      "UUID": "tech.aerove.streamdeck.nestcontrol.setmode",
+      "UUID": "aeroverra.streamdeck.nestcontrol.setmode",
       "PropertyInspectorPath": "PropertyInspector/SetMode.html"
     }
   ]
