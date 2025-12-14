@@ -1,4 +1,5 @@
 {
+  "UUID": "aeroverra.streamdeck.nestcontrol",
   "SDKVersion": 2,
   "Author": "Aeroverra",
   "CodePath": "Aeroverra.StreamDeck.NestControl.exe",
@@ -22,7 +23,7 @@
     }
   ],
   "Software": {
-    "MinimumVersion": "5.0"
+    "MinimumVersion": "7.0"
   },
   "Actions": [
     {
@@ -32,12 +33,12 @@
         {
           "Image": "PropertyInspector/images/aimage",
           "TitleAlignment": "middle",
-          "FontSize": "16"
+          "FontSize": 16
         },
         {
           "Image": "PropertyInspector/images/aimage",
           "TitleAlignment": "middle",
-          "FontSize": "18"
+          "FontSize": 18
         }
       ],
       "SupportedInMultiActions": true,
@@ -52,7 +53,7 @@
         {
           "Image": "PropertyInspector/images/aimage",
           "TitleAlignment": "middle",
-          "FontSize": "18"
+          "FontSize": 18
         }
       ],
       "SupportedInMultiActions": true,
@@ -67,7 +68,7 @@
         {
           "Image": "PropertyInspector/images/aimage",
           "TitleAlignment": "middle",
-          "FontSize": "18"
+          "FontSize": 18
         }
       ],
       "SupportedInMultiActions": true,
@@ -82,12 +83,12 @@
         {
           "Image": "PropertyInspector/images/aimage",
           "TitleAlignment": "middle",
-          "FontSize": "16"
+          "FontSize": 16
         },
         {
           "Image": "PropertyInspector/images/aimage",
           "TitleAlignment": "middle",
-          "FontSize": "18"
+          "FontSize": 18
         }
       ],
       "SupportedInMultiActions": true,
