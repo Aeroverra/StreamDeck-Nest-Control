@@ -10,7 +10,7 @@
   "Name": "Nest Control",
   "Icon": "PropertyInspector/images/default",
   "URL": "https://aero.vi",
-  "Version": "1.1.9",
+  "Version": "1.5.0",
   "OS": [
     {
       "Platform": "mac",

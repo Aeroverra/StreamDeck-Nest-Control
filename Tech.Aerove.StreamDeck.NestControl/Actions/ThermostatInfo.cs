@@ -9,6 +9,7 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
     [PluginAction("aeroverra.streamdeck.nestcontrol.thermostatinfo")]
     public class ThermostatInfo : ActionBase
     {
+        private CancellationTokenSource _tickerCts = new CancellationTokenSource();
         private string DeviceName => $"{Context.Settings["device"]}";
         private int MsDelay
         {
@@ -49,6 +50,7 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
             if (e.Name == DeviceName)
             {
                 Thermostat = e;
+                try { _tickerCts.Cancel(); } catch { }
             }
         }
 
@@ -88,56 +90,81 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
 
         public async Task Ticker()
         {
-            var delay = 1000;
+            await Task.Delay(1000);
             while (true)
             {
-
-                await Task.Delay(delay);
                 if (string.IsNullOrWhiteSpace(DeviceName) || Thermostat == null)
+                {
+                    await Task.Delay(MsDelay);
                     continue;
+                }
+
+                await UpdateUI();
 
                 try
                 {
-                    var thermostatMode = Thermostat.GetThermostatMode();
+                    await Task.Delay(MsDelay, _tickerCts.Token);
+                    
                     var temp = Thermostat.GetThermostatTemperature();
-                    var setPoint = Thermostat.GetThermostatSetPoint();
-
-                    var setPointRender = SetPointRender(thermostatMode.Mode, setPoint);
-
-                    var modeText = $"";
-                    if (thermostatMode.Mode == ThermostatMode.COOL)
-                    {
-                        await Dispatcher.SetStateAsync(1);
-                        await Dispatcher.SetImageAsync(ImageColors.Blue.DataUri);
-                        modeText = $"{thermostatMode.Mode}\n{setPointRender}";
-                    }
-                    if (thermostatMode.Mode == ThermostatMode.HEAT)
-                    {
-                        await Dispatcher.SetStateAsync(1);
-                        await Dispatcher.SetImageAsync(ImageColors.Red.DataUri);
-                        modeText = $"{thermostatMode.Mode}\n{setPointRender}";
-                    }
-                    if (thermostatMode.Mode == ThermostatMode.HEATCOOL)
-                    {
-                        await Dispatcher.SetStateAsync(1);
-                        await Dispatcher.SetImageAsync(ImageColors.RedBlue.DataUri);
-                        modeText = $"H&C\n{setPointRender}";
-                    }
-                    if (thermostatMode.Mode == ThermostatMode.OFF)
-                    {
-                        await Dispatcher.SetStateAsync(0);
-                        await Dispatcher.SetImageAsync("");
-                        modeText = $"{thermostatMode.Mode}";
-                    }
-                    await Dispatcher.SetTitleAsync($"{modeText}");
-                    delay = MsDelay;
-                    await Task.Delay(delay);
                     await Dispatcher.SetTitleAsync($"{temp.AmbientTemperatureCelsius.ToFahrenheit().ToString("F0")}");
+                    
+                    await Task.Delay(MsDelay, _tickerCts.Token);
                 }
-                catch (Exception)
+                catch (OperationCanceledException)
                 {
-
+                    _tickerCts.Dispose();
+                    _tickerCts = new CancellationTokenSource();
+                    continue;
                 }
+                catch
+                {
+                     // Ignore other errors
+                }
+            }
+        }
+
+        private async Task UpdateUI()
+        {
+            if (string.IsNullOrWhiteSpace(DeviceName) || Thermostat == null)
+                return;
+
+            try
+            {
+                var thermostatMode = Thermostat.GetThermostatMode();
+                var setPoint = Thermostat.GetThermostatSetPoint();
+
+                var setPointRender = SetPointRender(thermostatMode.Mode, setPoint);
+
+                var modeText = $"";
+                if (thermostatMode.Mode == ThermostatMode.COOL)
+                {
+                    await Dispatcher.SetStateAsync(1);
+                    await Dispatcher.SetImageAsync(ImageColors.Blue.DataUri);
+                    modeText = $"{thermostatMode.Mode}\n{setPointRender}";
+                }
+                if (thermostatMode.Mode == ThermostatMode.HEAT)
+                {
+                    await Dispatcher.SetStateAsync(1);
+                    await Dispatcher.SetImageAsync(ImageColors.Red.DataUri);
+                    modeText = $"{thermostatMode.Mode}\n{setPointRender}";
+                }
+                if (thermostatMode.Mode == ThermostatMode.HEATCOOL)
+                {
+                    await Dispatcher.SetStateAsync(1);
+                    await Dispatcher.SetImageAsync(ImageColors.RedBlue.DataUri);
+                    modeText = $"H&C\n{setPointRender}";
+                }
+                if (thermostatMode.Mode == ThermostatMode.OFF)
+                {
+                    await Dispatcher.SetStateAsync(0);
+                    await Dispatcher.SetImageAsync("");
+                    modeText = $"{thermostatMode.Mode}";
+                }
+                await Dispatcher.SetTitleAsync($"{modeText}");
+            }
+            catch (Exception)
+            {
+
             }
         }
 
