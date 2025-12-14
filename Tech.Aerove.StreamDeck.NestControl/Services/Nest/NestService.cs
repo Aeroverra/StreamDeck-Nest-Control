@@ -1,4 +1,5 @@
 ﻿using Aeroverra.StreamDeck.NestControl.Services.Nest.Models;
+using Google.Api.Gax.ResourceNames;
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Auth.OAuth2.Flows;
 using Google.Apis.Auth.OAuth2.Responses;
@@ -8,6 +9,7 @@ using Google.Apis.SmartDeviceManagement.v1.Data;
 using Google.Cloud.PubSub.V1;
 using Grpc.Auth;
 using Newtonsoft.Json.Linq;
+using System.Net;
 
 namespace Aeroverra.StreamDeck.NestControl.Services.Nest
 {
@@ -15,45 +17,28 @@ namespace Aeroverra.StreamDeck.NestControl.Services.Nest
     {
 
         public string? ProjectId { get; private set; }
-        public string? AccessToken { get; private set; }
-        public string? RefreshToken { get; private set; }
+        public string? RefreshToken => _credentials?.Token.RefreshToken;
         public string? SubscriptionId { get; private set; }
         public string? CloudProjectId { get; private set; }
-        public IReadOnlyList<string> Scopes { get; private set; } = new List<string>();
-        private DateTime AccessTokenExpireTime = DateTime.MinValue;
+
+
         private SubscriberClient? SubscriberClient = null;
         public IReadOnlyList<GoogleHomeEnterpriseSdmV1Device> Devices => DeviceDictionary.Values.ToList();
         private Dictionary<string, GoogleHomeEnterpriseSdmV1Device> DeviceDictionary = new Dictionary<string, GoogleHomeEnterpriseSdmV1Device>();
         public event EventHandler<GoogleHomeEnterpriseSdmV1Device>? OnDeviceUpdated;
         public event EventHandler? OnSetupComplete;
-        private TokenResponse? _token;
+        private UserCredential? _credentials;
 
         public async Task ConnectWithCode(string projectId, string cloudProjectId, string clientId, string clientSecret, string redirectUrl, string code)
         {
-            var token = await GetToken(clientId, clientSecret, null, code, redirectUrl);
-            Scopes = token.Scope.Split(" ").ToList();
-            if (!Scopes.Contains("https://www.googleapis.com/auth/pubsub"))
-            {
-                throw new Exception($"The required permission: 'https://www.googleapis.com/auth/pubsub' is not present.");
-            }
-            AccessToken = token.AccessToken;
-            RefreshToken = token.RefreshToken;
-            AccessTokenExpireTime = DateTime.Now.AddSeconds(token.ExpiresInSeconds!.Value - 10);
+            _credentials = await GetToken(clientId, clientSecret, null, code, redirectUrl);
             ProjectId = projectId;
             await ConnectPrivate();
         }
 
         public async Task ConnectWithRefreshToken(string projectId, string cloudProjectId, string clientId, string clientSecret, string refreshToken, string subscriptionId)
         {
-            _token = await GetToken(clientId, clientSecret, refreshToken, null, null);
-            Scopes = _token.Scope.Split(" ").ToList();
-            if (!Scopes.Contains("https://www.googleapis.com/auth/pubsub"))
-            {
-                throw new Exception($"The required permission: 'https://www.googleapis.com/auth/pubsub' is not present.");
-            }
-            AccessToken = _token.AccessToken;
-            RefreshToken = _token.RefreshToken;
-            AccessTokenExpireTime = DateTime.Now.AddSeconds(_token.ExpiresInSeconds!.Value - 10);
+            _credentials = await GetToken(clientId, clientSecret, refreshToken, null, null);
             ProjectId = projectId;
             CloudProjectId = cloudProjectId;
             SubscriptionId = subscriptionId;
@@ -64,11 +49,10 @@ namespace Aeroverra.StreamDeck.NestControl.Services.Nest
         {
             try
             {
-                var credentials = GoogleCredential.FromAccessToken(AccessToken);
                 var service = new SmartDeviceManagementService(new BaseClientService.Initializer
                 {
-                    HttpClientInitializer = credentials,
-                    ApplicationName = "Aerove Stream Deck Nest Control"
+                    HttpClientInitializer = _credentials,
+                    ApplicationName = "Aeroverra Stream Deck Nest Control"
                 });
 
                 GoogleHomeEnterpriseSdmV1ListDevicesResponse response = await service.Enterprises.Devices.List($"enterprises/{ProjectId}").ExecuteAsync();
@@ -89,24 +73,50 @@ namespace Aeroverra.StreamDeck.NestControl.Services.Nest
                 //https://stackoverflow.com/questions/71437035/google-googleapiexception-google-apis-requests-requesterror-request-had-insuff
                 //https://stackoverflow.com/questions/45806451/authenticate-for-google-cloud-pubsub-using-parameters-from-a-config-file-in-c-n
 
-
-                GoogleCredential googleCredentials = GoogleCredential
-                   .FromAccessToken(AccessToken)
-                   .CreateScoped("https://www.googleapis.com/auth/sdm.service", "https://www.googleapis.com/auth/pubsub");
-
                 SubscriptionName subscriptionName;
 
                 if (SubscriptionId == null)
                 {
-                    SubscriptionId = $"AeroveStreamDeck{Guid.NewGuid()}";
+                    // Create a PublisherServiceApiClient to list topics
+                    PublisherServiceApiClientBuilder pubBuilder = new PublisherServiceApiClientBuilder
+                    {
+                        ChannelCredentials = _credentials?.ToChannelCredentials()
+                    };
+                    PublisherServiceApiClient pubClient = await pubBuilder.BuildAsync();
+
+                    // List topics in the project
+                    var topics = pubClient.ListTopics(new ProjectName(CloudProjectId!)).ToList();
+                    var topic = topics.FirstOrDefault();
+
+                    if (topic == null)
+                        throw new Exception($"No Pub/Sub topics found in project {CloudProjectId}. Please create a topic for Nest Device Access.");
+
+
+                    SubscriptionId = $"Aeroverra_StreamDeck";
                     subscriptionName = new SubscriptionName(CloudProjectId, SubscriptionId);
 
-                    // Subscribe to the topic.
-                    TopicName topicName = TopicName.Parse("#TODOGetFromUserOrAutomatically");
-                    SubscriberServiceApiClientBuilder builder = new SubscriberServiceApiClientBuilder();
-                    builder.Credential = googleCredentials;
-                    SubscriberServiceApiClient subscriberService = builder.Build();
-                    subscriberService.CreateSubscription(subscriptionName, topicName, pushConfig: null, ackDeadlineSeconds: 60);
+                    SubscriberServiceApiClientBuilder builder = new SubscriberServiceApiClientBuilder()
+                    {
+                        ChannelCredentials = _credentials?.ToChannelCredentials()
+                    };
+                    SubscriberServiceApiClient subscriberService = await builder.BuildAsync();
+
+                    Subscription? existingSubscription = null;
+                    try
+                    {
+                        existingSubscription = await subscriberService.GetSubscriptionAsync(subscriptionName);
+                    }
+                    catch (Grpc.Core.RpcException e)
+                    {
+                        if (e.Message.Contains("Resource not found") == false)
+                            throw;
+
+                    }
+
+                    if (existingSubscription == null)
+                    {
+                        subscriberService.CreateSubscription(subscriptionName, topic.TopicName, pushConfig: null, ackDeadlineSeconds: 60);
+                    }
                 }
                 else
                 {
@@ -114,7 +124,7 @@ namespace Aeroverra.StreamDeck.NestControl.Services.Nest
                 }
 
                 // Pull messages from the subscription using SubscriberClient.
-                var grpcCredentials = googleCredentials.ToChannelCredentials();
+                var grpcCredentials = _credentials?.ToChannelCredentials();
                 var creationSettings = new SubscriberClient.ClientCreationSettings(credentials: grpcCredentials);
 
                 SubscriberClient = await SubscriberClient.CreateAsync(subscriptionName, creationSettings);
@@ -160,7 +170,7 @@ namespace Aeroverra.StreamDeck.NestControl.Services.Nest
             return Task.FromResult(SubscriberClient.Reply.Ack);
         }
 
-        private async Task<TokenResponse> GetToken(string clientId, string clientSecret, string? refreshToken, string? code, string? redirectUrl)
+        private async Task<UserCredential> GetToken(string clientId, string clientSecret, string? refreshToken, string? code, string? redirectUrl)
         {
             try
             {
@@ -192,7 +202,15 @@ namespace Aeroverra.StreamDeck.NestControl.Services.Nest
                     throw new Exception("Google returned an empty access token when exchanging the authorization code.");
                 }
 
-                return token;
+                var returnedScopes = token.Scope.Split(" ").ToList();
+                if (!returnedScopes.Contains("https://www.googleapis.com/auth/pubsub"))
+                {
+                    throw new Exception($"The required permission: 'https://www.googleapis.com/auth/pubsub' is not present.");
+                }
+
+                var credentials = new UserCredential(flow, "user", token);
+
+                return credentials;
             }
             catch (Exception)
             {
@@ -259,10 +277,9 @@ namespace Aeroverra.StreamDeck.NestControl.Services.Nest
 
         private bool ExecuteCommand(string deviceName, CommandBody command)
         {
-            var credentials = GoogleCredential.FromAccessToken(AccessToken);
             var service = new SmartDeviceManagementService(new BaseClientService.Initializer
             {
-                HttpClientInitializer = credentials,
+                HttpClientInitializer = _credentials,
                 ApplicationName = "Aerove Stream Deck Nest Control"
             });
             try

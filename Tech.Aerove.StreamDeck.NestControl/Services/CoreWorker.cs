@@ -23,6 +23,7 @@ namespace Aeroverra.StreamDeck.NestControl.Services
         private string LastUUID = "";
         private readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         private Task? ListenerTask = null;
+        public bool isRunning = false;
 
         public CoreWorker(ILogger<CoreWorker> logger, EventManager eventsManager, IElgatoDispatcher dispatcher, IConfiguration config, GlobalSettings globalSettings, NestService nestService)
         {
@@ -39,8 +40,10 @@ namespace Aeroverra.StreamDeck.NestControl.Services
 
         private void _nestService_OnSetupComplete(object? sender, EventArgs e)
         {
+            isRunning = true;
             var piDevices = PIDevice.GetList(_nestService.Devices.ToList());
             _globalSettings.PiDevices = JsonConvert.SerializeObject(piDevices);
+            _globalSettings.SubscriptionId = _nestService.SubscriptionId;
             _dispatcher.SetGlobalSettingsAsync(_globalSettings);
             _dispatcher.SendToPropertyInspector(LastContext, LastUUID, new { Update = true });
 
@@ -66,7 +69,7 @@ namespace Aeroverra.StreamDeck.NestControl.Services
             }
         }
 
-        public bool isRunning = false;
+
         protected async void OnDidRecieveGlobalSettings(object? sender, DidReceiveGlobalSettingsEvent e)
         {
             await Lock.WaitAsync();
@@ -75,7 +78,7 @@ namespace Aeroverra.StreamDeck.NestControl.Services
             {
                 if (isRunning == false && _globalSettings.Setup == true)
                 {
-                    await _nestService.ConnectWithRefreshToken(_globalSettings.ProjectId, _globalSettings.CloudProjectId, _globalSettings.ClientId, _globalSettings.ClientSecret, _globalSettings.RefreshToken, _globalSettings.SubscriptionId);
+                    await _nestService.ConnectWithRefreshToken(_globalSettings.ProjectId!, _globalSettings.CloudProjectId!, _globalSettings.ClientId!, _globalSettings.ClientSecret!, _globalSettings.RefreshToken!, _globalSettings.SubscriptionId!);
                 }
             }
             finally
@@ -155,12 +158,11 @@ namespace Aeroverra.StreamDeck.NestControl.Services
                     exception = e.ToString();
                 }
                 var responseString = $"Error please check your settings \r\n" +
-                    $"id:{_globalSettings.ClientId} partialsecret:{new string(_globalSettings.ClientSecret.Take(5).ToArray())} projId: {_globalSettings.ProjectId} cloudproj{_globalSettings.CloudProjectId}\r\n" +
+                    $"id:{_globalSettings.ClientId} partialsecret:{new string(_globalSettings.ClientSecret?.Take(5).ToArray())} projId: {_globalSettings.ProjectId} cloudproj{_globalSettings.CloudProjectId}\r\n" +
                     $"Code: {code} Scope: {scope}\r\nException: {exception}";
 
                 if (_nestService.RefreshToken != null)
                 {
-                    isRunning = true;
                     _globalSettings.Code = code;
                     _globalSettings.Scope = scope;
                     _globalSettings.Setup = true;
