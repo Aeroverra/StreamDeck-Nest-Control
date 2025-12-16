@@ -29,10 +29,13 @@
     {
       "Icon": "PropertyInspector/images/info",
       "Name": "Temperature Dial",
-      "Controllers": [ "Keypad", "Encoder" ],
+      "Controllers": [
+        "Keypad",
+        "Encoder"
+      ],
       "Encoder": {
         "background": "PropertyInspector/images/aimage",
-        "layout": "$A1",
+        "layout": "Layouts/ThermostatDialLayout.json",
         "TriggerDescription": {
           "Push": "On / Off",
           "Rotate": "Adjust Temp",
@@ -54,7 +57,7 @@
       ],
       "SupportedInMultiActions": true,
       "Tooltip": "Displays Thermostat Info",
-      "UUID": "tech.aerove.streamdeck.nestcontrol.thermostatdial",
+      "UUID": "aeroverra.streamdeck.nestcontrol.thermostatdial",
       "PropertyInspectorPath": "PropertyInspector/ThermostatDial.html"
     },
     {
