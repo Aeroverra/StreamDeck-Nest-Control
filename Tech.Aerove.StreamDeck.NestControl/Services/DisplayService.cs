@@ -81,7 +81,6 @@ namespace Aeroverra.StreamDeck.NestControl.Services
             var setPointRender = thermostat.GetThermostatRenderedSetPoint(TemperatureScale.FAHRENHEIT);
 
             var modeText = "";
-            var combinedText = "";
             
             if (thermostatMode.Mode == ThermostatMode.COOL)
             {
@@ -108,7 +107,7 @@ namespace Aeroverra.StreamDeck.NestControl.Services
                 modeText = $"{thermostatMode.Mode}";
             }
 
-            combinedText = $"{temp}\n{modeText}";
+            var combinedText = $"{temp}\n{modeText}";
             await dispatcher.SetTitleAsync(combinedText);
 
             if (isDial)
