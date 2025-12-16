@@ -153,6 +153,11 @@ namespace Aeroverra.StreamDeck.NestControl.Services.Nest
 
                 OnConnected?.Invoke(this, EventArgs.Empty);
 
+                foreach(var device in DeviceDictionary.Values)
+                {
+                    OnDeviceUpdated?.Invoke(this, device);
+                }
+
             }
             catch (Exception e)
             {

@@ -7,7 +7,7 @@ using Newtonsoft.Json.Linq;
 namespace Aeroverra.StreamDeck.NestControl.Actions
 {
 
-    [PluginAction("aeroverra.streamdeck.nestcontrol.setmode")]
+    [PluginActionAttribute("aeroverra.streamdeck.nestcontrol.setmode")]
     public class SetMode : ActionBase
     {
         private string DeviceName => $"{Context.Settings["device"]}";
@@ -67,7 +67,7 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
             var thermostatMode = Thermostat.GetThermostatMode();
             var setPoint = Thermostat.GetThermostatSetPoint();
 
-            var setPointRender = SetPointRender(thermostatMode.Mode, setPoint);
+            var setPointRender = Thermostat.GetThermostatRenderedSetPoint(TemperatureScale.FAHRENHEIT);
             if (thermostatMode.Mode != ButtonMode)
             {
                 await Dispatcher.SetStateAsync(0);
@@ -103,23 +103,6 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
             }
 
 
-        }
-
-        public string SetPointRender(ThermostatMode mode, ThermostatSetpointTrait setPoint)
-        {
-            if (mode == ThermostatMode.COOL)
-            {
-                return setPoint.CoolCelsius.ToFahrenheit().ToString("F0");
-            }
-            else if (mode == ThermostatMode.HEAT)
-            {
-                return setPoint.HeatCelsius.ToFahrenheit().ToString("F0");
-            }
-            else if (mode == ThermostatMode.HEATCOOL)
-            {
-                return $"{setPoint.CoolCelsius.ToFahrenheit().ToString("F0")}-{setPoint.HeatCelsius.ToFahrenheit().ToString("F0")}";
-            }
-            return "Err";
         }
 
         public override async Task KeyDownAsync(int userDesiredState)

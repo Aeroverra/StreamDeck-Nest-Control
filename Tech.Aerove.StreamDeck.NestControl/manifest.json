@@ -1,5 +1,5 @@
 {
-  "UUID": "aeroverra.streamdeck.nestcontrol",
+  "UUID": "tech.aerove.streamdeck.nestcontrol",
   "SDKVersion": 2,
   "Author": "Aeroverra",
   "CodePath": "Aeroverra.StreamDeck.NestControl.exe",
@@ -26,6 +26,37 @@
     "MinimumVersion": "7.0"
   },
   "Actions": [
+    {
+      "Icon": "PropertyInspector/images/info",
+      "Name": "Temperature Dial",
+      "Controllers": [ "Keypad", "Encoder" ],
+      "Encoder": {
+        "background": "PropertyInspector/images/aimage",
+        "layout": "$A1",
+        "TriggerDescription": {
+          "Push": "On / Off",
+          "Rotate": "Adjust Temp",
+          "Touch": "Set Mode",
+          "LongTouch": "Skip Track"
+        }
+      },
+      "States": [
+        {
+          "Image": "PropertyInspector/images/aimage",
+          "TitleAlignment": "middle",
+          "FontSize": "16"
+        },
+        {
+          "Image": "PropertyInspector/images/aimage",
+          "TitleAlignment": "middle",
+          "FontSize": "18"
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "Tooltip": "Displays Thermostat Info",
+      "UUID": "tech.aerove.streamdeck.nestcontrol.thermostatdial",
+      "PropertyInspectorPath": "PropertyInspector/ThermostatDial.html"
+    },
     {
       "Icon": "PropertyInspector/images/info",
       "Name": "Temperature Info",

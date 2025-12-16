@@ -7,7 +7,7 @@ using Newtonsoft.Json.Linq;
 namespace Aeroverra.StreamDeck.NestControl.Actions
 {
 
-    [PluginAction("aeroverra.streamdeck.nestcontrol.temperatureup")]
+    [PluginActionAttribute("aeroverra.streamdeck.nestcontrol.temperatureup")]
     public class TemperatureUp : ActionBase
     {
         private string DeviceName => $"{Context.Settings["device"]}";
