@@ -70,5 +70,54 @@ namespace Aeroverra.StreamDeck.NestControl.Services
                 });
             }
         }
+
+        public async Task DisplayCombined(IActionDispatcher dispatcher, GoogleHomeEnterpriseSdmV1Device? thermostat, bool isDial = false)
+        {
+            if (thermostat == null)
+                return;
+
+            var temp = thermostat.GetThermostatRenderedTemperature(TemperatureScale.FAHRENHEIT);
+            var thermostatMode = thermostat.GetThermostatMode();
+            var setPointRender = thermostat.GetThermostatRenderedSetPoint(TemperatureScale.FAHRENHEIT);
+
+            var modeText = "";
+            var combinedText = "";
+            
+            if (thermostatMode.Mode == ThermostatMode.COOL)
+            {
+                await dispatcher.SetStateAsync(1);
+                await dispatcher.SetImageAsync(ImageColors.Blue.DataUri);
+                modeText = $"{thermostatMode.Mode} {setPointRender}";
+            }
+            else if (thermostatMode.Mode == ThermostatMode.HEAT)
+            {
+                await dispatcher.SetStateAsync(1);
+                await dispatcher.SetImageAsync(ImageColors.Red.DataUri);
+                modeText = $"{thermostatMode.Mode} {setPointRender}";
+            }
+            else if (thermostatMode.Mode == ThermostatMode.HEATCOOL)
+            {
+                await dispatcher.SetStateAsync(1);
+                await dispatcher.SetImageAsync(ImageColors.RedBlue.DataUri);
+                modeText = $"H&C {setPointRender}";
+            }
+            else if (thermostatMode.Mode == ThermostatMode.OFF)
+            {
+                await dispatcher.SetStateAsync(0);
+                await dispatcher.SetImageAsync("");
+                modeText = $"{thermostatMode.Mode}";
+            }
+
+            combinedText = $"{temp}\n{modeText}";
+            await dispatcher.SetTitleAsync(combinedText);
+
+            if (isDial)
+            {
+                await dispatcher.SetFeedbackAsync(new
+                {
+                    value = combinedText
+                });
+            }
+        }
     }
 }
