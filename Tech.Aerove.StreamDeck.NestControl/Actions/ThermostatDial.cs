@@ -74,6 +74,20 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
             }
         }
 
+        public override async Task WillAppearAsync()
+        {
+            await _stateLock.WaitAsync();
+            try
+            {
+                await RefreshThermostatAsync();
+                await RenderIdleAsync();
+            }
+            finally
+            {
+                _stateLock.Release();
+            }
+        }
+
         public override Task DialDownAsync(EncoderPayload payload)
         {
             _dialDownAt = DateTime.UtcNow;
