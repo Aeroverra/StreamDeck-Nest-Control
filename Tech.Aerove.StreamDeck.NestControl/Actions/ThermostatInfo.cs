@@ -31,6 +31,22 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
             }
         }
 
+        private bool StopAnimation
+        {
+            get
+            {
+                try
+                {
+                    bool.TryParse($"{Context.Settings["stopAnimation"]}", out bool val);
+                    return val;
+                }
+                catch (Exception e)
+                {
+                    return false;
+                }
+            }
+        }
+
         [Inject] private ILogger<ThermostatInfo> _logger { get; set; } = null!;
 
         [Inject] private DisplayService _displayService { get; set; } = null!;
@@ -70,7 +86,15 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
             if (e.Name == DeviceName)
             {
                 Thermostat = e;
-                await UpdateDisplay("setpoint");
+                if (StopAnimation)
+                {
+                    // If stop animation is enabled, directly update the combined display
+                    await _displayService.DisplayCombined(Dispatcher, Thermostat);
+                }
+                else
+                {
+                    await UpdateDisplay("setpoint");
+                }
             }
         }
 
@@ -107,27 +131,39 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
             var displayNext = viewName ?? "temperature";
             try
             {
-                while (!_cancellationTokenSource.IsCancellationRequested)
+                if (StopAnimation)
                 {
-                    if (displayNext == "setpoint")
+                    // Display combined view without animation
+                    await _displayService.DisplayCombined(Dispatcher, Thermostat);
+                    
+                    // Wait indefinitely until cancelled
+                    await Task.Delay(Timeout.Infinite, _cancellationTokenSource.Token);
+                }
+                else
+                {
+                    // Original animation behavior
+                    while (!_cancellationTokenSource.IsCancellationRequested)
                     {
-                        await _displayService.DisplaySetPoint(Dispatcher, Thermostat);
-                    }
-                    else
-                    {
-                        await _displayService.DisplayTemperature(Dispatcher, Thermostat);
-                    }
+                        if (displayNext == "setpoint")
+                        {
+                            await _displayService.DisplaySetPoint(Dispatcher, Thermostat);
+                        }
+                        else
+                        {
+                            await _displayService.DisplayTemperature(Dispatcher, Thermostat);
+                        }
 
-                    if (displayNext == "setpoint")
-                    {
-                        displayNext = "temperature";
-                    }
-                    else
-                    {
-                        displayNext = "setpoint";
-                    }
+                        if (displayNext == "setpoint")
+                        {
+                            displayNext = "temperature";
+                        }
+                        else
+                        {
+                            displayNext = "setpoint";
+                        }
 
-                    await Task.Delay(MsDelay, _cancellationTokenSource.Token);
+                        await Task.Delay(MsDelay, _cancellationTokenSource.Token);
+                    }
                 }
             }
             catch (Exception ex) when (ex is OperationCanceledException || ex is ObjectDisposedException) { }
