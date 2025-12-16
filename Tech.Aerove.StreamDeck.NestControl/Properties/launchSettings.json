@@ -1,6 +1,6 @@
 ﻿{
   "profiles": {
-    "tech.aerove.streamdeck.nestcontrol": {
+    "aeroverra.streamdeck.nestcontrol": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "environmentVariables": {

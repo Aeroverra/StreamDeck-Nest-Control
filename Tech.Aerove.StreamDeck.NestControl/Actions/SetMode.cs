@@ -7,7 +7,7 @@ using Newtonsoft.Json.Linq;
 namespace Aeroverra.StreamDeck.NestControl.Actions
 {
 
-    [PluginAction("tech.aerove.streamdeck.nestcontrol.setmode")]
+    [PluginActionAttribute("aeroverra.streamdeck.nestcontrol.setmode")]
     public class SetMode : ActionBase
     {
         private string DeviceName => $"{Context.Settings["device"]}";
@@ -20,7 +20,7 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
         {
             _logger = logger;
             _nestService = nestService;
-            nestService.OnSetupComplete += NestService_OnSetupComplete;
+            nestService.OnConnected += NestService_OnConnected;
             nestService.OnDeviceUpdated  += NestService_OnDeviceUpdated;
         }
 
@@ -33,7 +33,7 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
             }
         }
 
-        private void NestService_OnSetupComplete(object? sender, EventArgs e)
+        private void NestService_OnConnected(object? sender, EventArgs e)
         {
             Thermostat = _nestService.Devices
                 .Where(x => x.Name == DeviceName)
@@ -64,9 +64,10 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
             if (Thermostat == null)
                 return;
 
-            var thermostatMode = Thermostat.Traits.GetTrait<ThermostatModeTrait>("sdm.devices.traits.ThermostatMode");
-            var setPoint = Thermostat.Traits.GetTrait<ThermostatSetpointTrait>("sdm.devices.traits.ThermostatTemperatureSetpoint");
-            var setPointRender = SetPointRender(thermostatMode.Mode, setPoint);
+            var thermostatMode = Thermostat.GetThermostatMode();
+            var setPoint = Thermostat.GetThermostatSetPoint();
+
+            var setPointRender = Thermostat.GetThermostatRenderedSetPoint(TemperatureScale.FAHRENHEIT);
             if (thermostatMode.Mode != ButtonMode)
             {
                 await Dispatcher.SetStateAsync(0);
@@ -104,38 +105,21 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
 
         }
 
-        public string SetPointRender(ThermostatMode mode, ThermostatSetpointTrait setPoint)
-        {
-            if (mode == ThermostatMode.COOL)
-            {
-                return setPoint.CoolCelsius.ToFahrenheit().ToString("F0");
-            }
-            else if (mode == ThermostatMode.HEAT)
-            {
-                return setPoint.HeatCelsius.ToFahrenheit().ToString("F0");
-            }
-            else if (mode == ThermostatMode.HEATCOOL)
-            {
-                return $"{setPoint.CoolCelsius.ToFahrenheit().ToString("F0")}-{setPoint.HeatCelsius.ToFahrenheit().ToString("F0")}";
-            }
-            return "Err";
-        }
-
         public override async Task KeyDownAsync(int userDesiredState)
         {
             if (Thermostat == null)
                 return;
 
-            var thermostatMode = Thermostat.Traits.GetTrait<ThermostatModeTrait>("sdm.devices.traits.ThermostatMode");
+            var thermostatMode = Thermostat.GetThermostatMode();
 
             var success = false;
             if (thermostatMode.Mode != ThermostatMode.OFF)
             {
-                _nestService.SetMode(Thermostat, ThermostatMode.OFF);
+                success = await _nestService.SetMode(Thermostat, ThermostatMode.OFF);
             }
             else
             {
-                _nestService.SetMode(Thermostat, ButtonMode);
+                success = await _nestService.SetMode(Thermostat, ButtonMode);
             }
             if (!success)
             {

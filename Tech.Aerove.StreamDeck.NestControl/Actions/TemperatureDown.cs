@@ -6,7 +6,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Aeroverra.StreamDeck.NestControl.Actions
 {
-    [PluginAction("tech.aerove.streamdeck.nestcontrol.temperaturedown")]
+    [PluginActionAttribute("aeroverra.streamdeck.nestcontrol.temperaturedown")]
     public class TemperatureDown : ActionBase
     {
         private string DeviceName => $"{Context.Settings["device"]}";
@@ -20,10 +20,10 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
         {
             _logger = logger;
             _nestService = nestService;
-            nestService.OnSetupComplete += NestService_OnSetupComplete;
+            nestService.OnConnected += NestService_OnConnected;
         }
 
-        private void NestService_OnSetupComplete(object? sender, EventArgs e)
+        private void NestService_OnConnected(object? sender, EventArgs e)
         {
             Thermostat = _nestService.Devices
                 .Where(x => x.Name == DeviceName)
@@ -50,15 +50,15 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
             if (Thermostat == null)
                 return;
 
-            var thermostatMode = Thermostat.Traits.GetTrait<ThermostatModeTrait>("sdm.devices.traits.ThermostatMode");
+            var thermostatMode = Thermostat.GetThermostatMode();
 
             if (thermostatMode.Mode == ThermostatMode.OFF)
             {
-                _nestService.SetMode(Thermostat, ThermostatMode.COOL);
+                await _nestService.SetMode(Thermostat, ThermostatMode.COOL);
                 return;
             }
 
-            var setPoint = Thermostat.Traits.GetTrait<ThermostatSetpointTrait>("sdm.devices.traits.ThermostatTemperatureSetpoint");
+            var setPoint = Thermostat.GetThermostatSetPoint();
             decimal heat = setPoint.HeatCelsius.ToFahrenheit();
             decimal cool = setPoint.CoolCelsius.ToFahrenheit();
             heat -= TemperatureStep;
@@ -66,7 +66,7 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
             setPoint.HeatCelsius = heat.ToCelsius();
             setPoint.CoolCelsius = cool.ToCelsius();
 
-            var success = _nestService.SetTemp(Thermostat, setPoint.HeatCelsius, setPoint.CoolCelsius);
+            var success = await _nestService.SetTemp(Thermostat, setPoint.HeatCelsius, setPoint.CoolCelsius);
 
             if (!success) { await Dispatcher.ShowAlertAsync(); return; }
             await Dispatcher.ShowOkAsync();

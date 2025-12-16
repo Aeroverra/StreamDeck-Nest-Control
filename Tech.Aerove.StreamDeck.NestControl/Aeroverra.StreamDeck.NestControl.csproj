@@ -1,16 +1,16 @@
-<Project Sdk="Microsoft.NET.Sdk.Worker">
+﻿<Project Sdk="Microsoft.NET.Sdk.Worker">
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>dotnet-Tech.Aerove.StreamDeck.NestControl-B0263304-C0D9-4345-A97B-5C51678F12AA</UserSecretsId>
     <Version>1.1.9</Version>
-    <Authors>Aeroverra</Authors>
-    <Company>Aerove</Company>
+    <Authors>Aeroverra aka Nicholas Halka</Authors>
+    <Company>AutoBuy LLC</Company>
     <Product>NestControl</Product>
     <Description>A way to control your thermostat from the Stream Deck</Description>
-    <Copyright>Aerove - AutoBuy LLC</Copyright>
-    <PackageProjectUrl>https//aerove.tech</PackageProjectUrl>
+    <Copyright>Aeroverra aka Nicholas Halka - AutoBuy LLC</Copyright>
+    <PackageProjectUrl>https//aero.vi</PackageProjectUrl>
     <SignAssembly>False</SignAssembly>
   </PropertyGroup>
   <ItemGroup>
@@ -20,8 +20,7 @@
 	      <!--<PackageReference Include="Aeroverra.StreamDeck.Client" Version="0.8.1-beta" />-->
     <PackageReference Include="Google.Apis.SmartDeviceManagement.v1" Version="1.68.0.3244" />
     <PackageReference Include="Google.Cloud.PubSub.V1" Version="3.30.0" />
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.0" />
-    <PackageReference Include="RestSharp" Version="106.15.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.1" />
     <PackageReference Include="Serilog.AspNetCore" Version="10.0.0" />
   </ItemGroup>
   <ItemGroup>
@@ -101,5 +100,14 @@
     <None Update="PropertyInspector\images\image.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Layouts\ThermostatDialLayout.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="Aeroverra.StreamDeck.NestControl.Services.Nest.Extensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="logs\" />
   </ItemGroup>
 </Project>

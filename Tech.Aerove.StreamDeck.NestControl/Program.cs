@@ -24,6 +24,7 @@ public partial class Program
                 services.AddSingleton<IGlobalSettings>(x => x.GetRequiredService<GlobalSettings>());
                 services.AddSingleton<NestService>();
                 services.AddSingleton<CoreWorker>();
+                services.AddSingleton<DisplayService>();
             })
             .Build();
 

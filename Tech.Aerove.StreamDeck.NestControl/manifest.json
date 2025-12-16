@@ -1,4 +1,5 @@
 {
+  "UUID": "tech.aerove.streamdeck.nestcontrol",
   "SDKVersion": 2,
   "Author": "Aeroverra",
   "CodePath": "Aeroverra.StreamDeck.NestControl.exe",
@@ -9,8 +10,8 @@
   "Description": "Control your nest thermostat from the Stream Deck.",
   "Name": "Nest Control",
   "Icon": "PropertyInspector/images/default",
-  "URL": "https://aerove.tech",
-  "Version": "1.1.9",
+  "URL": "https://aero.vi",
+  "Version": "1.5.0",
   "OS": [
     {
       "Platform": "mac",
@@ -22,36 +23,19 @@
     }
   ],
   "Software": {
-    "MinimumVersion": "5.0"
+    "MinimumVersion": "7.0"
   },
   "Actions": [
     {
       "Icon": "PropertyInspector/images/info",
-      "Name": "Temperature Info",
-      "States": [
-        {
-          "Image": "PropertyInspector/images/aimage",
-          "TitleAlignment": "middle",
-          "FontSize": "16"
-        },
-        {
-          "Image": "PropertyInspector/images/aimage",
-          "TitleAlignment": "middle",
-          "FontSize": "18"
-        }
-      ],
-      "SupportedInMultiActions": true,
-      "Tooltip": "Displays Thermostat Info",
-      "UUID": "tech.aerove.streamdeck.nestcontrol.thermostatinfo",
-      "PropertyInspectorPath": "PropertyInspector/ThermostatInfo.html"
-    },
-    {
-      "Icon": "PropertyInspector/images/info",
       "Name": "Temperature Dial",
-      "Controllers": [ "Keypad", "Encoder" ],
+      "Controllers": [
+        "Keypad",
+        "Encoder"
+      ],
       "Encoder": {
         "background": "PropertyInspector/images/aimage",
-        "layout": "$A1",
+        "layout": "Layouts/ThermostatDialLayout.json",
         "TriggerDescription": {
           "Push": "On / Off",
           "Rotate": "Adjust Temp",
@@ -73,8 +57,28 @@
       ],
       "SupportedInMultiActions": true,
       "Tooltip": "Displays Thermostat Info",
-      "UUID": "tech.aerove.streamdeck.nestcontrol.thermostatdial",
+      "UUID": "aeroverra.streamdeck.nestcontrol.thermostatdial",
       "PropertyInspectorPath": "PropertyInspector/ThermostatDial.html"
+    },
+    {
+      "Icon": "PropertyInspector/images/info",
+      "Name": "Temperature Info",
+      "States": [
+        {
+          "Image": "PropertyInspector/images/aimage",
+          "TitleAlignment": "middle",
+          "FontSize": 16
+        },
+        {
+          "Image": "PropertyInspector/images/aimage",
+          "TitleAlignment": "middle",
+          "FontSize": 18
+        }
+      ],
+      "SupportedInMultiActions": true,
+      "Tooltip": "Displays Thermostat Info",
+      "UUID": "aeroverra.streamdeck.nestcontrol.thermostatinfo",
+      "PropertyInspectorPath": "PropertyInspector/ThermostatInfo.html"
     },
     {
       "Icon": "PropertyInspector/images/up",
@@ -83,12 +87,12 @@
         {
           "Image": "PropertyInspector/images/aimage",
           "TitleAlignment": "middle",
-          "FontSize": "18"
+          "FontSize": 18
         }
       ],
       "SupportedInMultiActions": true,
       "Tooltip": "Sets the temperature up.",
-      "UUID": "tech.aerove.streamdeck.nestcontrol.temperatureup",
+      "UUID": "aeroverra.streamdeck.nestcontrol.temperatureup",
       "PropertyInspectorPath": "PropertyInspector/TempUpDown.html"
     },
     {
@@ -98,12 +102,12 @@
         {
           "Image": "PropertyInspector/images/aimage",
           "TitleAlignment": "middle",
-          "FontSize": "18"
+          "FontSize": 18
         }
       ],
       "SupportedInMultiActions": true,
       "Tooltip": "Sets the temperature down.",
-      "UUID": "tech.aerove.streamdeck.nestcontrol.temperaturedown",
+      "UUID": "aeroverra.streamdeck.nestcontrol.temperaturedown",
       "PropertyInspectorPath": "PropertyInspector/TempUpDown.html"
     },
     {
@@ -113,17 +117,17 @@
         {
           "Image": "PropertyInspector/images/aimage",
           "TitleAlignment": "middle",
-          "FontSize": "16"
+          "FontSize": 16
         },
         {
           "Image": "PropertyInspector/images/aimage",
           "TitleAlignment": "middle",
-          "FontSize": "18"
+          "FontSize": 18
         }
       ],
       "SupportedInMultiActions": true,
       "Tooltip": "Sets the thermostat mode.",
-      "UUID": "tech.aerove.streamdeck.nestcontrol.setmode",
+      "UUID": "aeroverra.streamdeck.nestcontrol.setmode",
       "PropertyInspectorPath": "PropertyInspector/SetMode.html"
     }
   ]
