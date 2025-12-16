@@ -31,6 +31,25 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
             }
         }
 
+        private bool StopAnimation
+        {
+            get
+            {
+                try
+                {
+                    if (Context.Settings.TryGetValue("stopAnimation", out var val))
+                    {
+                        return Convert.ToBoolean(val);
+                    }
+                    return false;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+        }
+
         [Inject] private ILogger<ThermostatInfo> _logger { get; set; } = null!;
 
         [Inject] private DisplayService _displayService { get; set; } = null!;
@@ -109,22 +128,29 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
             {
                 while (!_cancellationTokenSource.IsCancellationRequested)
                 {
-                    if (displayNext == "setpoint")
+                    if (StopAnimation)
                     {
-                        await _displayService.DisplaySetPoint(Dispatcher, Thermostat);
+                        await _displayService.DisplayStatic(Dispatcher, Thermostat);
                     }
                     else
                     {
-                        await _displayService.DisplayTemperature(Dispatcher, Thermostat);
-                    }
+                        if (displayNext == "setpoint")
+                        {
+                            await _displayService.DisplaySetPoint(Dispatcher, Thermostat);
+                        }
+                        else
+                        {
+                            await _displayService.DisplayTemperature(Dispatcher, Thermostat);
+                        }
 
-                    if (displayNext == "setpoint")
-                    {
-                        displayNext = "temperature";
-                    }
-                    else
-                    {
-                        displayNext = "setpoint";
+                        if (displayNext == "setpoint")
+                        {
+                            displayNext = "temperature";
+                        }
+                        else
+                        {
+                            displayNext = "setpoint";
+                        }
                     }
 
                     await Task.Delay(MsDelay, _cancellationTokenSource.Token);

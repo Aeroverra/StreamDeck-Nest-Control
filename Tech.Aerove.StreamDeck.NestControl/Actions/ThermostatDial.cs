@@ -458,7 +458,7 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
             {
                 ThermostatMode.HEAT => $"{_pendingHeatF?.ToString("F0")}°",
                 ThermostatMode.COOL => $"{_pendingCoolF?.ToString("F0")}°",
-                ThermostatMode.HEATCOOL => $"{_pendingCoolF?.ToString("F0")}-{_pendingHeatF?.ToString("F0")}°",
+                ThermostatMode.HEATCOOL => $"{_pendingHeatF?.ToString("F0")}-{_pendingCoolF?.ToString("F0")}°",
                 _ => "Adjust"
             };
 
@@ -511,7 +511,7 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
             {
                 ThermostatMode.HEAT => "Heat",
                 ThermostatMode.COOL => "Cool",
-                ThermostatMode.HEATCOOL => "Heat + Cool",
+                ThermostatMode.HEATCOOL => "H&C",
                 _ => "Off"
             };
         }

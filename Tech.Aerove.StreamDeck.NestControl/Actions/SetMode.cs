@@ -24,6 +24,11 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
             nestService.OnDeviceUpdated  += NestService_OnDeviceUpdated;
         }
 
+        public override Task OnInitializedAsync()
+        {
+            return Dispatcher.SetTitleAsync($"Aero");
+        }
+
         private void NestService_OnDeviceUpdated(object? sender, GoogleHomeEnterpriseSdmV1Device e)
         {
             if (e.Name == DeviceName)
@@ -44,10 +49,11 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
 
         public override async Task WillAppearAsync()
         {
-            await Dispatcher.SetTitleAsync($"Aero");
             Thermostat = _nestService.Devices
                 .Where(x => x.Name == DeviceName)
                 .FirstOrDefault();
+
+            await SetInfo();
         }
 
         public override async Task DidReceiveSettingsAsync(JObject settings)
@@ -65,9 +71,7 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
                 return;
 
             var thermostatMode = Thermostat.GetThermostatMode();
-            var setPoint = Thermostat.GetThermostatSetPoint();
 
-            var setPointRender = Thermostat.GetThermostatRenderedSetPoint(TemperatureScale.FAHRENHEIT);
             if (thermostatMode.Mode != ButtonMode)
             {
                 await Dispatcher.SetStateAsync(0);
@@ -84,12 +88,12 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
             if (thermostatMode.Mode == ThermostatMode.COOL)
             {
                 await Dispatcher.SetImageAsync(ImageColors.Blue.DataUri);
-                await Dispatcher.SetTitleAsync($"{thermostatMode.Mode}\n{setPointRender}");
+                await Dispatcher.SetTitleAsync($"{thermostatMode.Mode}");
             }
             else if (thermostatMode.Mode == ThermostatMode.HEAT)
             {
                 await Dispatcher.SetImageAsync(ImageColors.Red.DataUri);
-                await Dispatcher.SetTitleAsync($"{thermostatMode.Mode}\n{setPointRender}");
+                await Dispatcher.SetTitleAsync($"{thermostatMode.Mode}");
             }
             else if (thermostatMode.Mode == ThermostatMode.HEATCOOL)
             {
@@ -99,7 +103,7 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
             else if (thermostatMode.Mode == ThermostatMode.OFF)
             {
                 await Dispatcher.SetImageAsync("");
-                await Dispatcher.SetTitleAsync($"{thermostatMode.Mode}\nNone\nSet");
+                await Dispatcher.SetTitleAsync($"{thermostatMode.Mode}");
             }
 
 
@@ -113,7 +117,7 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
             var thermostatMode = Thermostat.GetThermostatMode();
 
             var success = false;
-            if (thermostatMode.Mode != ThermostatMode.OFF)
+            if (thermostatMode.Mode == ButtonMode)
             {
                 success = await _nestService.SetMode(Thermostat, ThermostatMode.OFF);
             }

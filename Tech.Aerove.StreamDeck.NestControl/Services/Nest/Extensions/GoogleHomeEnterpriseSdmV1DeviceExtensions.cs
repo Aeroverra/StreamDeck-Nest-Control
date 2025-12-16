@@ -47,7 +47,7 @@ namespace Aeroverra.StreamDeck.NestControl.Services.Nest.Extensions
                 }
                 else if (mode == ThermostatMode.HEATCOOL)
                 {
-                    return $"{setPoint.CoolCelsius.ToFahrenheit().ToString("F0")}-{setPoint.HeatCelsius.ToFahrenheit().ToString("F0")}";
+                    return $"{setPoint.HeatCelsius.ToFahrenheit().ToString("F0")}-{setPoint.CoolCelsius.ToFahrenheit().ToString("F0")}";
                 }
             }
             else
@@ -62,7 +62,7 @@ namespace Aeroverra.StreamDeck.NestControl.Services.Nest.Extensions
                 }
                 else if (mode == ThermostatMode.HEATCOOL)
                 {
-                    return $"{setPoint.CoolCelsius.ToString("F0")}-{setPoint.HeatCelsius.ToString("F0")}";
+                    return $"{setPoint.HeatCelsius.ToString("F0")}-{setPoint.CoolCelsius.ToString("F0")}";
                 }
             }
             return "Err";
