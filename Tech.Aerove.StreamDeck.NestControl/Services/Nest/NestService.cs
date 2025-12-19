@@ -40,6 +40,7 @@ namespace Aeroverra.StreamDeck.NestControl.Services.Nest
             {
                 _credentials = await GetToken(clientId, clientSecret, null, code, redirectUrl, cancellationToken);
                 ProjectId = projectId;
+                CloudProjectId = cloudProjectId;
                 await ConnectPrivate(cancellationToken);
             }
             catch (TaskCanceledException) { }
@@ -289,7 +290,7 @@ namespace Aeroverra.StreamDeck.NestControl.Services.Nest
             var mode = thermostat.GetThermostatMode().Mode;
             if (mode == ThermostatMode.COOL)
             {
-                command.Command = NestConstants.COMMAND_SET_COOLING_TEMPERATURE_PARAMETER;
+                command.Command = NestConstants.COMMAND_SET_COOLING_TEMPERATURE;
                 command.Params.Add(NestConstants.COMMAND_SET_COOLING_TEMPERATURE_PARAMETER, cool);
             }
             else if (mode == ThermostatMode.HEAT)

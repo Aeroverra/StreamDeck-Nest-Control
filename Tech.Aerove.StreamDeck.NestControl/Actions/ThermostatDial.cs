@@ -44,8 +44,6 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
 
         public override async Task OnInitializedAsync()
         {
-            _logger.LogInformation("ThermostatDial initialized for Device: {DeviceName}", DeviceName);
-
             AttachEvents();
 
             await _stateLock.WaitAsync();
