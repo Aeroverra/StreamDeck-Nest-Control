@@ -418,6 +418,8 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
 
             if (_thermostat == null)
             {
+                // Switch to default layout (small text) for setup message
+                await Dispatcher.SetFeedbackLayoutAsync("Layouts/ThermostatDialDefaultLayout.json");
                 await Dispatcher.SetFeedbackAsync(new
                 {
                     title = "Not linked",
@@ -425,6 +427,9 @@ namespace Aeroverra.StreamDeck.NestControl.Actions
                 });
                 return;
             }
+
+            // Switch to active layout (large text) for temperature values
+            await Dispatcher.SetFeedbackLayoutAsync("Layouts/ThermostatDialLayout.json");
 
             var mode = _thermostat.GetThermostatMode().Mode;
             var ambient = _thermostat.GetThermostatRenderedTemperature(TemperatureScale.FAHRENHEIT);

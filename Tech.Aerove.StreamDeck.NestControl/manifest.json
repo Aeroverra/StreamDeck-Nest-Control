@@ -30,17 +30,15 @@
       "Icon": "PropertyInspector/images/info",
       "Name": "Temperature Dial",
       "Controllers": [
-        "Keypad",
         "Encoder"
       ],
       "Encoder": {
         "background": "PropertyInspector/images/aimage",
-        "layout": "Layouts/ThermostatDialLayout.json",
+        "layout": "Layouts/ThermostatDialDefaultLayout.json",
         "TriggerDescription": {
           "Push": "On / Off",
           "Rotate": "Adjust Temp",
-          "Touch": "Set Mode",
-          "LongTouch": "Skip Track"
+          "Touch": "Set Mode"
         }
       },
       "States": [

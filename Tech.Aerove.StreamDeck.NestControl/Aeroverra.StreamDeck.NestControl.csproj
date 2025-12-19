@@ -103,6 +103,9 @@
     <None Update="Layouts\ThermostatDialLayout.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Layouts\ThermostatDialDefaultLayout.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Using Include="Aeroverra.StreamDeck.NestControl.Services.Nest.Extensions" />
