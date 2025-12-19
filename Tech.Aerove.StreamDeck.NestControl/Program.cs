@@ -31,5 +31,3 @@ public partial class Program
         await host.RunAsync();
     }
 }
-//Welcome to spaghetti land. I normally don't allow my code quality to get this bad but this was originally 
-//a test bench for my sdk and released it as is because it was stable. Eventually I will get to cleaning it up :P
