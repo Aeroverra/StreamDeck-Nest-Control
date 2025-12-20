@@ -1,14 +1,17 @@
 NestControl
 ====
-Special Thanks to naethure for adding support for the original Heat + Cool
 
 The Nest Control plugin allows you to integrate your [Google Nest](https://store.google.com/us/category/connected_home?) devices with Stream Deck. This integration uses the [Smart Device Management](https://developers.google.com/nest/device-access/api) API and Google’s Cloud Pubsub to efficiently listen for changes in device state or other events. See [Supported Devices](https://developers.google.com/nest/device-access/supported-devices) for all devices supported by the SDM API.
+
+<img width="786" height="595" alt="image" src="https://github.com/user-attachments/assets/784b7e45-e259-47bf-9557-fe064dc065cc" />
 
 There is currently only support for climate control devices like the Nest Thermostat.
 
 You are in control of the information and capabilities exposed to Nest Control. You can authorize a single device or multiple devices.
 
 `The Nest Smart Device Management (SDM) API requires a US$5 fee. (Paid To Google)`
+
+Special Thanks to naethure for adding support for the original Heat + Cool
 
 ## What NestControl does
 
@@ -220,3 +223,4 @@ In this section you will authorize Nest Control to access your account by genera
    ![](https://i.imgur.com/rAWiBqb.png)
 
 [Privacy](https://aerove.aero.vi/Home/Privacy)
+
