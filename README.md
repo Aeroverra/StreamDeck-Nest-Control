@@ -10,6 +10,45 @@ You are in control of the information and capabilities exposed to Nest Control. 
 
 `The Nest Smart Device Management (SDM) API requires a US$5 fee. (Paid To Google)`
 
+## What NestControl does
+
+- Adjust heating and cooling set points from Stream Deck keys or the Stream Deck + touch display.
+- Toggle thermostat modes (Heat, Cool, Heat + Cool, or Off) and see color-coded feedback at a glance.
+- Surface ambient temperature and set points directly on the device without opening the Google Home app.
+
+## Controls and how to use them
+
+After setup is complete and a thermostat is selected, these actions are available:
+
+### Thermostat Info (Key)
+
+- Cycles between the current ambient temperature and the thermostat set point every few seconds, matching Nest colors (blue for Cool, red for Heat, purple for Heat + Cool).
+- Use the static view if you prefer a single combined readout with no animation; the key still updates whenever Nest reports a change.
+- The key refreshes automatically in response to Nest events, so it stays in sync without extra presses.
+
+### Temperature Up (Key)
+
+- Raises the thermostat set point by the step you choose (1/2/5). In Heat + Cool mode, both targets move together to keep the band aligned.
+- If the thermostat is Off, the first press switches to Heat to bring the system online before applying the change.
+- Press deliberately; Google enforces low rate limits, so rapid tapping may be throttled.
+
+### Temperature Down (Key)
+
+- Lowers the set point by the selected step; in Heat + Cool, both targets drop together.
+- If the thermostat is Off, the first press switches to Cool to wake the system up.
+- Avoid spamming presses to stay under Google's rate limits.
+
+### Set Mode (Key)
+
+- Acts as a dedicated mode toggle for Heat, Cool, Heat + Cool, or Off (choose the variant you want on the key).
+- When the key is in State 0 it shows the mode it will enable. State 1 lights up (blue/red/purple) while that mode is active; pressing again turns the thermostat Off.
+
+### Thermostat Dial (Stream Deck +)
+
+- Rotate the dial to nudge the current set point (or both Heat and Cool targets together in Heat + Cool). Keep turning to fine tune; when you stop, Nest Control applies the new target and confirms on the touch display.
+- Press the dial to open a quick mode picker; rotate to choose Heat, Heat + Cool, Cool, or Off, then press again to apply.
+- Hold the dial press for about 3 seconds to turn the thermostat Off from anywhere. If the thermostat is Off, rotating shows a prompt to pick a mode first.
+
 Device Access Registration
 ---------------------------------------------------------
 
