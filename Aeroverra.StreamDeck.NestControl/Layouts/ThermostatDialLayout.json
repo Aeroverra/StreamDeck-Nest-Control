@@ -1,0 +1,39 @@
+{
+    "id": "aeroverra.streamdeck.nestcontrol.layout.thermostat",
+    "items": [
+        {
+            "key": "title",
+            "type": "text",
+            "rect": [
+                0,
+                58,
+                200,
+                42
+            ],
+            "alignment": "center",
+            "value": "",
+            "font": {
+                "size": 26,
+                "weight": 600
+            },
+            "color": "#ffffff"
+        },
+        {
+            "key": "value",
+            "type": "text",
+            "rect": [
+                0,
+                0,
+                200,
+                58
+            ],
+            "alignment": "center",
+            "value": "",
+            "font": {
+                "size": 34,
+                "weight": 700
+            },
+            "color": "#ffffff"
+        }
+    ]
+}
